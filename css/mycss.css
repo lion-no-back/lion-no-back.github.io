@@ -1,0 +1,7 @@
+.error404 #error-wrap .error-content .error-info .error_title {
+	line-height: 0.35;
+}
+
+.error404 #error-wrap .error-content .error-info .error_subtitle {
+	margin-top: 2em !important;
+}
