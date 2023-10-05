@@ -9,5 +9,5 @@
     src: url('../font/OPPOSans R.ttf') format("truetype");
 }
 body {
-    font-family: 'OPPOSans R','JetBrainsMono Light';
+    font-family: 'JetBrainsMono Light','OPPOSans R';
 }
