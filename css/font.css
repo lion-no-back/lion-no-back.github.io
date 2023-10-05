@@ -4,10 +4,10 @@
     src: url('../font/JetBrainsMono-Light.ttf') format("truetype");
 }
 @font-face{
-    font-family: 'OPPOSans';
+    font-family: 'OPPOSans R';
     font-display: swap;
     src: url('../font/OPPOSans R.ttf') format("truetype");
 }
 body {
-    font-family: 'JetBrainsMono Light','OPPOSans';
+    font-family: 'JetBrainsMono Light','OPPOSans R';
 }
