@@ -1,13 +1,13 @@
 @font-face{
     font-family: 'JetBrainsMono Light';
     font-display: swap;
-    src: url('../font/JetBrainsMono-Light.ttf') format("truetype");
+    src: url('../font/JetBrainsMono-Light.woff2') format("woff2");
 }
 @font-face{
-    font-family: 'OPPOSans R';
+    font-family: 'AlibabaPuHuiTi';
     font-display: swap;
-    src: url('../font/OPPOSans R.ttf') format("truetype");
+    src: url('../font/AlibabaPuHuiTi-3-55-Regular.woff2') format("woff2");
 }
 body {
-    font-family: 'OPPOSans R','JetBrainsMono Light';
+    font-family: 'JetBrainsMono Light','AlibabaPuHuiTi';
 }
