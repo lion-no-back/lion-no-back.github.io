@@ -9,5 +9,5 @@
     src: url('../font/AlibabaPuHuiTi-3-55-Regular.woff2') format("woff2");
 }
 body {
-    font-family: 'AlibabaPuHuiTi','JetBrainsMono Light';
+    font-family: 'JetBrainsMono Light','AlibabaPuHuiTi';
 }
