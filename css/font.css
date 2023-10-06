@@ -6,7 +6,7 @@
 @font-face{
     font-family: 'AlibabaPuHuiTi';
     font-display: swap;
-    src: url('../font/AlibabaPuHuiTi-3-45-Light.woff2') format("woff2");
+    src: url('../font/AlibabaPuHuiTi-3-55-Regular.woff2') format("woff2");
 }
 body {
     font-family: 'AlibabaPuHuiTi','JetBrainsMono Light';
