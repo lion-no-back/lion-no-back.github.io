@@ -5,7 +5,7 @@
 
 /* �������˵������������Ŵ� */
 #nav #site-name:hover, 
-#nav .menus_item:hover, 
-#nav #search-button:hover{
-    font-size:28px;
+#nav .menus_item:hover{
+    font-size: 28px;
+	color: #49b1f5;
 }
