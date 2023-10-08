@@ -14,5 +14,5 @@
 
 /* �������˵��������������ʾ */
 #nav a:hover {
-	color: #49b1f5;
+	color: #49b1f5 !important;
 }
