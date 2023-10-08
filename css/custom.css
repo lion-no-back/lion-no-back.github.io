@@ -4,9 +4,20 @@
 }
 
 /* �������˵������������Ŵ� */
+#nav #blog-info .site-icon {
+	margin-right: 3px;
+	margin-bottom: 3px;
+	height: 21px;
+}
+
+#nav site-name {
+	color: #00c4b6;
+}
+
 #nav .site-name:hover {
 	font-size: 26px;
 }
+
 
 #nav .menus_item:hover {
     font-size: 28px;
