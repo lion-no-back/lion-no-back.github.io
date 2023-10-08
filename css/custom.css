@@ -1,0 +1,11 @@
+/* ȥ��������ѡ���е��µ����� */
+#nav *::after{
+    background-color: transparent!important;
+}
+
+/* �������˵������������Ŵ� */
+#nav #site-name:hover, 
+#nav .menus_item:hover, 
+#nav #search-button:hover{
+    font-size:28px;
+}
