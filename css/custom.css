@@ -4,8 +4,15 @@
 }
 
 /* �������˵������������Ŵ� */
-#nav #site-name:hover, 
-#nav .menus_item:hover{
+#nav .site-name:hover {
+	font-size: 26px;
+}
+
+#nav .menus_item:hover {
     font-size: 28px;
+}
+
+/* �������˵��������������ʾ */
+#nav a:hover {
 	color: #49b1f5;
 }
