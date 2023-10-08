@@ -6,6 +6,7 @@ function fish() {
     ),
     $(".fish_container").css({
       "z-index": -1,
+	  position: absolute,
       width: "100%",
       height: "160px",
       margin: 0,
