@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4278200 */
-  src: url('//at.alicdn.com/t/c/font_4278200_601mrv3ublv.woff2?t=1696826624573') format('woff2'),
-       url('//at.alicdn.com/t/c/font_4278200_601mrv3ublv.woff?t=1696826624573') format('woff'),
-       url('//at.alicdn.com/t/c/font_4278200_601mrv3ublv.ttf?t=1696826624573') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_4278200_vsroy15g8p.woff2?t=1696827110337') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4278200_vsroy15g8p.woff?t=1696827110337') format('woff'),
+       url('//at.alicdn.com/t/c/font_4278200_vsroy15g8p.ttf?t=1696827110337') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,22 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-leetcode:before {
+  content: "\ebf2";
+}
+
+.icon-LeetCode1:before {
+  content: "\e600";
+}
+
+.icon-leetcode1:before {
+  content: "\e62a";
+}
+
+.icon-leetcode2:before {
+  content: "\e603";
 }
 
 .icon-LeetCode:before {
