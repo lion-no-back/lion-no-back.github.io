@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.iconfont:hover {
+	font-size: 19px;
+}
+
 .icon-leetcode:before {
   content: "\ebf2";
 }
