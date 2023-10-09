@@ -66,31 +66,6 @@
   </entry>
   
   <entry>
-    <title>Markdown概述</title>
-    <link href="http://example.com/posts/6517.html"/>
-    <id>http://example.com/posts/6517.html</id>
-    <published>2023-10-07T16:00:00.000Z</published>
-    <updated>2023-10-09T02:29:00.285Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>markdown是一种轻量级标记语言，允许人们 ⌜使用易读易写的纯文本格式⌟ 编写文档</p><p>markdown本质是使人们关注内容本身，注重文章本身结构，而不是一直想着如何调整样式</p><p>使用markdown的目的便是通过简洁的markdown语法，在轻松码字之余也能做出美观清爽的排版</p><p>从某种角度而言，文本写作经历着这么一个过程：首先是<u>纯文本，专注于码字，没有太多美观清爽可言，而人又是视觉动物，非常享受美所带来的感官刺激</u>，于是便出现了<u>富文本写作阶段，这一阶段所编写的文档排版工整，样式较纯文本可称为洋枪洋炮对大刀长矛，不过这一阶段也衍生了两个问题，工具栏虽说提供了很多称手的工具，可也增加了学习成本，除此便是写作创作花在排版与样式上的功夫使得写作重心有所偏移</u>，针对以上场景，<font color=#9932CD>markdown基于特殊标记语法，可以很好兼顾内容本身与排版样式</font></p><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><blockquote><ul><li>语法简单</li><li>渲染效果感人</li><li>广受好评</li><li>保持源码复制</li><li>支持html和css部分语法</li></ul></blockquote><h2 id="适用"><a href="#适用" class="headerlink" title="适用"></a>适用</h2><blockquote><ul><li>笔记创作</li><li>网络交流</li><li>自媒体</li><li>网站内容展示</li></ul></blockquote><h2 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h2><blockquote><ul><li>有较小的学习成本</li><li>扩展语法多样</li><li>支持html和css部分语法便存在部分兼容问题</li><li>源码一样最后渲染出的效果取决于编辑器</li></ul></blockquote><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>markdown学习成本低，应用场景广，效果感人，值得拥有…</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;markdown是一种轻量级标记语言，允许人们 ⌜使用易读易写的纯文本格式⌟ 编写文档&lt;/p&gt;
-&lt;p&gt;markdown本质是使人们关注内容本</summary>
-      
-    
-    
-    
-    <category term="写作" scheme="http://example.com/categories/%E5%86%99%E4%BD%9C/"/>
-    
-    
-    <category term="markdown" scheme="http://example.com/tags/markdown/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Shields下的徽章制作</title>
     <link href="http://example.com/posts/6516.html"/>
     <id>http://example.com/posts/6516.html</id>
@@ -112,6 +87,31 @@
     
     
     <category term="徽章" scheme="http://example.com/tags/%E5%BE%BD%E7%AB%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown概述</title>
+    <link href="http://example.com/posts/6517.html"/>
+    <id>http://example.com/posts/6517.html</id>
+    <published>2023-10-07T16:00:00.000Z</published>
+    <updated>2023-10-09T02:29:00.285Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>markdown是一种轻量级标记语言，允许人们 ⌜使用易读易写的纯文本格式⌟ 编写文档</p><p>markdown本质是使人们关注内容本身，注重文章本身结构，而不是一直想着如何调整样式</p><p>使用markdown的目的便是通过简洁的markdown语法，在轻松码字之余也能做出美观清爽的排版</p><p>从某种角度而言，文本写作经历着这么一个过程：首先是<u>纯文本，专注于码字，没有太多美观清爽可言，而人又是视觉动物，非常享受美所带来的感官刺激</u>，于是便出现了<u>富文本写作阶段，这一阶段所编写的文档排版工整，样式较纯文本可称为洋枪洋炮对大刀长矛，不过这一阶段也衍生了两个问题，工具栏虽说提供了很多称手的工具，可也增加了学习成本，除此便是写作创作花在排版与样式上的功夫使得写作重心有所偏移</u>，针对以上场景，<font color=#9932CD>markdown基于特殊标记语法，可以很好兼顾内容本身与排版样式</font></p><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><blockquote><ul><li>语法简单</li><li>渲染效果感人</li><li>广受好评</li><li>保持源码复制</li><li>支持html和css部分语法</li></ul></blockquote><h2 id="适用"><a href="#适用" class="headerlink" title="适用"></a>适用</h2><blockquote><ul><li>笔记创作</li><li>网络交流</li><li>自媒体</li><li>网站内容展示</li></ul></blockquote><h2 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h2><blockquote><ul><li>有较小的学习成本</li><li>扩展语法多样</li><li>支持html和css部分语法便存在部分兼容问题</li><li>源码一样最后渲染出的效果取决于编辑器</li></ul></blockquote><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>markdown学习成本低，应用场景广，效果感人，值得拥有…</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;markdown是一种轻量级标记语言，允许人们 ⌜使用易读易写的纯文本格式⌟ 编写文档&lt;/p&gt;
+&lt;p&gt;markdown本质是使人们关注内容本</summary>
+      
+    
+    
+    
+    <category term="写作" scheme="http://example.com/categories/%E5%86%99%E4%BD%9C/"/>
+    
+    
+    <category term="markdown" scheme="http://example.com/tags/markdown/"/>
     
   </entry>
   
