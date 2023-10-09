@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Markdown语法2 | 松果会</title><meta name="author" content="松花鼠"><meta name="copyright" content="松花鼠"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="阶段二这一阶段主要掌握常见内容插入和内容样式美化 文字样式粗体、斜体、粗斜体语法格式：通过星号或下划线包裹内容来创建粗体、斜体、粗斜体 书写效果   展示效果   书写效果   展示效果      说明： 首先得明白中文输入法符号是全角符号，占两个字节，而英文输入法符号是半角符号，占一个字节；然后标准的markdown粗体语法后接空格，不然编辑器渲染无效，当然现在多数编辑器适应国人习惯，后面不接空">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown语法2">
+<meta property="og:url" content="http://example.com/posts/6520.html">
+<meta property="og:site_name" content="松果会">
+<meta property="og:description" content="阶段二这一阶段主要掌握常见内容插入和内容样式美化 文字样式粗体、斜体、粗斜体语法格式：通过星号或下划线包裹内容来创建粗体、斜体、粗斜体 书写效果   展示效果   书写效果   展示效果      说明： 首先得明白中文输入法符号是全角符号，占两个字节，而英文输入法符号是半角符号，占一个字节；然后标准的markdown粗体语法后接空格，不然编辑器渲染无效，当然现在多数编辑器适应国人习惯，后面不接空">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/markdown%E7%BB%86%E8%85%BB%E6%95%99%E7%A8%8B.png">
+<meta property="article:published_time" content="2023-10-09T10:48:00.000Z">
+<meta property="article:modified_time" content="2023-10-09T10:48:32.815Z">
+<meta property="article:author" content="松花鼠">
+<meta property="article:tag" content="markdown">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/markdown%E7%BB%86%E8%85%BB%E6%95%99%E7%A8%8B.png"><link rel="shortcut icon" href="/img/hexo.ico"><link rel="canonical" href="http://example.com/posts/6520.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Markdown语法2',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-09 18:48:32'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/404.css"><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/css/fish_transparent.css"><link rel="stylesheet" href="/css/wx_card.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/icon.css"><link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="松果会" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/avatar_hexo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/"><img class="site-icon" src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/hexo_ico.png"/><span class="site-name">松果会</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Markdown语法2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-09T10:48:00.000Z" title="发表于 2023-10-09 18:48:00">2023-10-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-09T10:48:32.815Z" title="更新于 2023-10-09 18:48:32">2023-10-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%86%99%E4%BD%9C/">写作</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span></div></div></div><article class="post-content" id="article-container"><h2 id="阶段二"><a href="#阶段二" class="headerlink" title="阶段二"></a>阶段二</h2><p>这一阶段主要掌握常见内容插入和内容样式美化</p>
+<h3 id="文字样式"><a href="#文字样式" class="headerlink" title="文字样式"></a>文字样式</h3><h4 id="粗体、斜体、粗斜体"><a href="#粗体、斜体、粗斜体" class="headerlink" title="粗体、斜体、粗斜体"></a>粗体、斜体、粗斜体</h4><p>语法格式：通过星号或下划线包裹内容来创建粗体、斜体、粗斜体</p>
+<p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708210713804.png" alt="image-20230708210713804"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708210752312.png" alt="image-20230708210752312"></p>
+<p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708211131216.png" alt="image-20230708211131216"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708211158985.png" alt="image-20230708211158985">   </p>
+<p><strong>说明：</strong> 首先得明白中文输入法符号是全角符号，占两个字节，而英文输入法符号是半角符号，占一个字节；然后标准的markdown粗体语法后接空格，不然编辑器渲染无效，当然现在多数编辑器适应国人习惯，后面不接空格依旧可以渲染出来</p>
+<h4 id="删除线与下划线"><a href="#删除线与下划线" class="headerlink" title="删除线与下划线"></a>删除线与下划线</h4><p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708211612436.png" alt="image-20230708211612436"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708211622064.png" alt="image-20230708211622064"></p>
+<p><strong>说明：</strong>这里的下划线用的是HTML的u标签(元素)来实现的</p>
+<h4 id="字体、字体大小及颜色"><a href="#字体、字体大小及颜色" class="headerlink" title="字体、字体大小及颜色"></a>字体、字体大小及颜色</h4><p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708211931176.png" alt="image-20230708211931176"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708212003111.png" alt="image-20230708212003111"></p>
+<p><strong>说明：</strong> 属性值用&#x3D;&#x3D;英文双引号&#x3D;&#x3D;括起来，在本地使用markdown其所设置的字体必须为本地所持有的，否则显示默认字体即微软雅黑（特指Windows）</p>
+<p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708212343583.png" alt="image-20230708212343583"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708212355035.png" alt="image-20230708212355035"></p>
+<p><strong>说明：</strong> 字体大小可以修改，但最大和最小是有临界效果的</p>
+<p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708212655007.png" alt="image-20230708212655007"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708212703508.png" alt="image-20230708212703508"></p>
+<p><strong>说明：</strong> 首先得明白红、绿、蓝(光的三原色，RGB)这三种色光以不同比列的混合几乎可以得出自然界所有的颜色；然后得知道颜色表示方法通常有三种:</p>
+<ul>
+<li>第一种 颜色名称 如 red表示红色</li>
+<li>第二种  rgb表示法 参数值是介于0与255之间的整数 如rgb(255,0,0) 表示红色</li>
+<li>第三种 十六进制(hex)表示法 如：<code>#ff0000</code>表示红色</li>
+</ul>
+<p>关于色值的rgb与十六进制表示可查：<a target="_blank" rel="noopener" href="https://mycolor.space/">https://mycolor.space</a></p>
+<h4 id="排列"><a href="#排列" class="headerlink" title="排列"></a>排列</h4><p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708213630649.png" alt="image-20230708213630649"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708213654472.png" alt="image-20230708213654472"></p>
+<h3 id="背景色"><a href="#背景色" class="headerlink" title="背景色"></a>背景色</h3><p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709212042472.png" alt="image-20230709212042472"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709212120725.png" alt="image-20230709212120725"></p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><h4 id="网址链接"><a href="#网址链接" class="headerlink" title="网址链接"></a>网址链接</h4><p>语法格式：使用尖括号将URL或Email地址括起来</p>
+<p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709212802391.png" alt="image-20230709212802391"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709212817690.png" alt="image-20230709212817690"></p>
+<h4 id="文字链接"><a href="#文字链接" class="headerlink" title="文字链接"></a>文字链接</h4><p>语法格式：<code>[链接文字](链接地址)</code></p>
+<p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709213310312.png" alt="image-20230709213310312"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709213323784.png" alt="image-20230709213323784"><br><strong>注意：</strong> 链接地址最好是完整的URL，不然可能会遇到水土不服的情况</p>
+<p><strong>说明：</strong> 在文字链接的基础上现在又支持了鼠标悬浮链接有提示信息的效果</p>
+<p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710174117669.png" alt="image-20230710174117669"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710174636510.png" alt="image-20230710174636510"></p>
+<h4 id="引用链接"><a href="#引用链接" class="headerlink" title="引用链接"></a>引用链接</h4><p>语法格式：<code>[链接标记](链接标记)</code> + <code>[链接标记]:链接地址</code> 其中链接标记建议放到文末</p>
+<p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709214502351.png" alt="image-20230709214502351"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709214657597.png" alt="image-20230709214657597"></p>
+<p><strong>说明：</strong> 链接标记后的冒号现在变为了<u>英文输入法</u>的冒号，链接标记都支持数字有效，部分编辑器不支持链接标记是字母、标点符号</p>
+<h3 id="行内代码与代码块"><a href="#行内代码与代码块" class="headerlink" title="行内代码与代码块"></a>行内代码与代码块</h3><p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708220011721.png" alt="image-20230708220011721"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708220301587.png" alt="image-20230708220301587"></p>
+<p><strong>书写效果</strong></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708220511200.png" alt="image-20230708220511200"> </p>
+<p><strong>展示效果</strong></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708221107040.png"> </p>
+<p><strong>说明：</strong> 代码块所使用的编程语言决定了与之对应的语法高亮</p>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>无序列表语法格式：<code>*</code>或<code>+</code>或<code>-</code>+<code>空格</code>+<code>内容</code></p>
+<p>有序列表语法格式：<code>数字</code>+<code>.</code>+<code>空格</code>+<code>内容</code></p>
+<p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708214347600.png" alt="image-20230708214347600"> </p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708214656320.png" alt="image-20230708214656320"></p>
+<p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708214831499.png" alt="image-20230708214831499"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708215145566.png" alt="image-20230708215145566"></p>
+<p><strong>说明：</strong> 列表分为有序列表和无序列表，两种列表可以嵌套使用</p>
+<h3 id="图片与emoji"><a href="#图片与emoji" class="headerlink" title="图片与emoji"></a>图片与emoji</h3><h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><p>插入图片语法：<code>![图片名称](图片地址)</code>，其中图片名称也可以用来图片失效后用文字描述情况，图片地址可以是本地图片地址也可以是网络图片地址，目前使用网络地址居多</p>
+<p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709221518588.png" alt="image-20230709221518588"></p>
+<p><strong>展示效果</strong></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709221527424.png" alt="image-20230709221527424"> </p>
+<p><strong>书写效果</strong></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709221546472.png" alt="image-20230709221546472"> </p>
+<p><strong>展示效果</strong></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709221552021.png" alt="image-20230709221552021"> </p>
+<p><strong>说明：</strong> 若是使用本地图片地址，建议使用相对路径，要插入网络图片必须要获取图片网络链接，而图片都是存储在服务器(云端)上的，有一类专门用来存放图片的服务器通常称为图床，通常来讲，在markdown编辑器上插入图片，首先要解决的便是图床问题</p>
+<p><strong>图床网站推荐</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://imgtg.com/">TG图床</a> 响应快、免费</li>
+<li><a target="_blank" rel="noopener" href="https://www.superbed.cn/">聚合图床</a> 响应快、免费</li>
+</ul>
+<blockquote>
+<p>都需要注册才可以使用，这两家图床网站真的很好用，如果你用过响应慢的、要实名的、有限制的等，你就知道它的好</p>
+</blockquote>
+<p><strong>个人建议：</strong> 如果可以还是建议搭建个人图床，毕竟图床网站是部署在他人服务器上的，而搭建个人图床，就不得不提Picgo：<a target="_blank" rel="noopener" href="https://molunerfinn.com/PicGo%EF%BC%8C%E5%85%B3%E4%BA%8E%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B%E5%BB%BA%E8%AE%AEPicGo+%E9%98%BF%E9%87%8C%E4%BA%91%EF%BC%8C%E5%8F%AF%E5%8F%82%E8%80%83%E8%BF%99%E4%B8%A4%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%9Ahttps://zhuanlan.zhihu.com/p/104152479%E5%92%8Chttps://zhuanlan.zhihu.com/p/636646400">https://molunerfinn.com/PicGo，关于搭建流程建议PicGo+阿里云，可参考这两篇文章：https://zhuanlan.zhihu.com/p/104152479和https://zhuanlan.zhihu.com/p/636646400</a></p>
+<p><strong>补充：</strong> 手机图床推荐flutter-picgo，开源地址： <a target="_blank" rel="noopener" href="https://github.com/PicGo/flutter-picgo">https://github.com/PicGo/flutter-picgo</a></p>
+<h4 id="emoji"><a href="#emoji" class="headerlink" title="emoji"></a>emoji</h4><p>插入emoji语法：到收集emoji的网站复制粘贴到编辑器即可</p>
+<p>emoji网站</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.emojiall.com/zh-hans">https://www.emojiall.com/zh-hans</a></li>
+<li><a target="_blank" rel="noopener" href="https://sunhwee.com/posts/a927e90e.html">https://sunhwee.com/posts/a927e90e.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/guodongxiaren/README/blob/master/emoji.md">https://github.com/guodongxiaren/README/blob/master/emoji.md</a></li>
+</ul>
+<p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709223302864.png" alt="image-20230709223302864"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709223310747.png" alt="image-20230709223310747"></p>
+<h3 id="脚注、上下标、转义"><a href="#脚注、上下标、转义" class="headerlink" title="脚注、上下标、转义"></a>脚注、上下标、转义</h3><h4 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h4><p>具体语法：<code>[^要注明的文本]</code>+<code>[^要注明的文本]:</code>，其中冒号为英文输入法下的冒号</p>
+<p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709220716346.png" alt="image-20230709220716346"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709220724205.png" alt="image-20230709220724205"></p>
+<p><strong>说明：</strong> 脚注是对文本的补充说明</p>
+<h4 id="上下标"><a href="#上下标" class="headerlink" title="上下标"></a>上下标</h4><p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709220811869.png" alt="image-20230709220811869"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709220821602.png" alt="image-20230709220821602"></p>
+<h4 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h4><p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709220832171.png" alt="image-20230709220832171">   </p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709220857218.png" alt="image-20230709220857218"></p>
+<p><strong>说明：</strong> markdown使用了很多特殊符号来表示特定意义，如果需要显示特定符号则需要使用转义字符，markdown使用反斜杠转义特殊字符</p>
+<p>脚注语法：<code>[^要注明的文本]</code>+<code>[^要注明的文本]:</code>，其中冒号为英文输入法的冒号</p>
+<p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709220250815.png" alt="image-20230709220250815"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709220304188.png" alt="image-20230709220304188"></p>
+<p><strong>说明：</strong> 脚注是对文本的补充说明</p>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p>表格对齐语法：<code>-:</code>设置内容和标题栏右对齐，<code>:-</code>设置内容和标题栏左对齐，<code>:-:</code>设置内容和标题栏居中对齐</p>
+<p><strong>书写效果</strong></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708232855750.png" alt="image-20230708232855750"> </p>
+<p><strong>展示效果</strong></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708232925360.png" alt="image-20230708232925360"> </p>
+<p><strong>书写效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709215450571.png" alt="image-20230709215450571"></p>
+<p><strong>展示效果</strong></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230709215520422.png" alt="image-20230709215520422"></p>
+<p><strong>说明：</strong> 使用<code>|</code>来分隔不同的单元格，使用<code>-</code>来分隔表头和其他行；不同编辑器表格的默认对齐方式可能不一</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">松花鼠</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/6520.html">http://example.com/posts/6520.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">松果会</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/markdown/">markdown</a></div><div class="post_share"><div class="social-share" data-image="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/markdown%E7%BB%86%E8%85%BB%E6%95%99%E7%A8%8B.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/6519.html" title="Markdown语法1"><img class="cover" src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/markdown%E7%BB%86%E8%85%BB%E6%95%99%E7%A8%8B.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Markdown语法1</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/6518.html" title="Markdown学习路线"><img class="cover" src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/markdown%E7%BB%86%E8%85%BB%E6%95%99%E7%A8%8B.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-09</div><div class="title">Markdown学习路线</div></div></a></div><div><a href="/posts/6517.html" title="Markdown概述"><img class="cover" src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/markdown%E7%BB%86%E8%85%BB%E6%95%99%E7%A8%8B.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-08</div><div class="title">Markdown概述</div></div></a></div><div><a href="/posts/6519.html" title="Markdown语法1"><img class="cover" src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/markdown%E7%BB%86%E8%85%BB%E6%95%99%E7%A8%8B.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-09</div><div class="title">Markdown语法1</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/avatar_hexo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">松花鼠</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lion-no-back"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://leetcode.cn/u/lion-no-back" target="_blank" title=""><i class="iconfont icon-leetcode"></i></a><a class="social-icon" href="mailto:hexo226@163.com" target="_blank" title=""><i class="iconfont icon-youxiang"></i></a><a class="social-icon" href="https://zjnanqu.top/atom.xml" target="_blank" title=""><i class="iconfont icon-RSS_flat"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">善用<span>标签</span>和<span>分类</span></div></div><div class="card-widget tzy-right-widget" id="card-wechat"><div id="flip-wrapper"><div id="flip-content"><div class="face"></div><div class="back face"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B6%E6%AE%B5%E4%BA%8C"><span class="toc-number">1.</span> <span class="toc-text">阶段二</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E6%A0%B7%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">文字样式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B2%97%E4%BD%93%E3%80%81%E6%96%9C%E4%BD%93%E3%80%81%E7%B2%97%E6%96%9C%E4%BD%93"><span class="toc-number">1.1.1.</span> <span class="toc-text">粗体、斜体、粗斜体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%BA%BF%E4%B8%8E%E4%B8%8B%E5%88%92%E7%BA%BF"><span class="toc-number">1.1.2.</span> <span class="toc-text">删除线与下划线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E3%80%81%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F%E5%8F%8A%E9%A2%9C%E8%89%B2"><span class="toc-number">1.1.3.</span> <span class="toc-text">字体、字体大小及颜色</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%92%E5%88%97"><span class="toc-number">1.1.4.</span> <span class="toc-text">排列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E8%89%B2"><span class="toc-number">1.2.</span> <span class="toc-text">背景色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5"><span class="toc-number">1.3.</span> <span class="toc-text">链接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E5%9D%80%E9%93%BE%E6%8E%A5"><span class="toc-number">1.3.1.</span> <span class="toc-text">网址链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E9%93%BE%E6%8E%A5"><span class="toc-number">1.3.2.</span> <span class="toc-text">文字链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E9%93%BE%E6%8E%A5"><span class="toc-number">1.3.3.</span> <span class="toc-text">引用链接</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">1.4.</span> <span class="toc-text">行内代码与代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E8%A1%A8"><span class="toc-number">1.5.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E4%B8%8Eemoji"><span class="toc-number">1.6.</span> <span class="toc-text">图片与emoji</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E7%89%87"><span class="toc-number">1.6.1.</span> <span class="toc-text">图片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#emoji"><span class="toc-number">1.6.2.</span> <span class="toc-text">emoji</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%9A%E6%B3%A8%E3%80%81%E4%B8%8A%E4%B8%8B%E6%A0%87%E3%80%81%E8%BD%AC%E4%B9%89"><span class="toc-number">1.7.</span> <span class="toc-text">脚注、上下标、转义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%84%9A%E6%B3%A8"><span class="toc-number">1.7.1.</span> <span class="toc-text">脚注</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E6%A0%87"><span class="toc-number">1.7.2.</span> <span class="toc-text">上下标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E4%B9%89"><span class="toc-number">1.7.3.</span> <span class="toc-text">转义</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC"><span class="toc-number">1.8.</span> <span class="toc-text">表格</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/6520.html" title="Markdown语法2"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/markdown%E7%BB%86%E8%85%BB%E6%95%99%E7%A8%8B.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Markdown语法2"/></a><div class="content"><a class="title" href="/posts/6520.html" title="Markdown语法2">Markdown语法2</a><time datetime="2023-10-09T10:48:00.000Z" title="发表于 2023-10-09 18:48:00">2023-10-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6519.html" title="Markdown语法1"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/markdown%E7%BB%86%E8%85%BB%E6%95%99%E7%A8%8B.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Markdown语法1"/></a><div class="content"><a class="title" href="/posts/6519.html" title="Markdown语法1">Markdown语法1</a><time datetime="2023-10-09T02:50:00.000Z" title="发表于 2023-10-09 10:50:00">2023-10-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6518.html" title="Markdown学习路线"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/markdown%E7%BB%86%E8%85%BB%E6%95%99%E7%A8%8B.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Markdown学习路线"/></a><div class="content"><a class="title" href="/posts/6518.html" title="Markdown学习路线">Markdown学习路线</a><time datetime="2023-10-09T02:45:00.000Z" title="发表于 2023-10-09 10:45:00">2023-10-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6517.html" title="Markdown概述"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/markdown%E7%BB%86%E8%85%BB%E6%95%99%E7%A8%8B.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Markdown概述"/></a><div class="content"><a class="title" href="/posts/6517.html" title="Markdown概述">Markdown概述</a><time datetime="2023-10-07T16:00:00.000Z" title="发表于 2023-10-08 00:00:00">2023-10-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6516.html" title="Shields下的徽章制作"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/Hexo_%E5%BE%BD%E7%AB%A0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Shields下的徽章制作"/></a><div class="content"><a class="title" href="/posts/6516.html" title="Shields下的徽章制作">Shields下的徽章制作</a><time datetime="2023-10-07T16:00:00.000Z" title="发表于 2023-10-08 00:00:00">2023-10-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By 松花鼠</div><div class="footer_custom_text"><p><a target="_blank" href="https://hexo.io/zh-cn"><img src="https://img.shields.io/badge/Frame-Hexo-blue?logo=hexo" title="博客框架为Hexo_v6.3.0"></a>&nbsp;&nbsp;<a target="_blank" href="https://butterfly.js.org"><img src="https://img.shields.io/badge/Theme-Butterfly-00c4b6?logo=bitdefender" title="主题采用butterfly_v4.9.0"></a>&nbsp;&nbsp;<a target="_blank" href="https://www.dogecloud.com"><img src="https://img.shields.io/badge/CDN-%E5%A4%9A%E5%90%89%E4%BA%91-3693F3?logo=icloud" title="本站使用多吉云为静态资源提供CDN加速"></a>&nbsp;&nbsp;<a target="_blank" href="https://beian.miit.gov.cn/"><img src="https://img.shields.io/badge/%E9%84%82ICP%E5%A4%87-2023009215%E5%8F%B7-%23F22387" title="本站已在鄂备案"></a>&nbsp;&nbsp;<a target="_blank" href="https://vercel.com/dashboard "><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?logo=vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?logo=github" title="本站项目由Gtihub托管"></a>&nbsp;&nbsp;<a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%25204.0-d42328?logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script src="/js/mouse_move.js"></script><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="/js/fish.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script></div></body></html>
