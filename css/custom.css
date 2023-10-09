@@ -47,3 +47,9 @@
 #nav a:hover {
 	color: #49b1f5 !important;
 }
+
+/* ������ */
+#aside-content .announcement_content span {
+	font-size: 18px;
+	color: #00c4b6;
+}
