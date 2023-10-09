@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>松果会</title>
+  
+  <subtitle>勇敢追寻着，依然热爱着</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2023-10-09T03:07:48.426Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>松花鼠</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Markdown语法1</title>
+    <link href="http://example.com/posts/6519.html"/>
+    <id>http://example.com/posts/6519.html</id>
+    <published>2023-10-09T02:50:00.000Z</published>
+    <updated>2023-10-09T03:07:48.426Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之后所呈现的markdown语法效果都是在<strong>VSCode</strong>上演示的</p><p>不同markdown编辑器对同一markdown语法渲染，其效果大多是不一样的，<font color=#9932CD>所呈现效果不止取决于所采用的语法，同时和也所用的编辑器有关</font></p><p>之后的演示中有部分内容会浅浅涉及HTML和CSS内容，知道更好，不知道也没关系</p><h2 id="阶段一"><a href="#阶段一" class="headerlink" title="阶段一"></a>阶段一</h2><p>这一阶段主要掌握关乎于页面内容和结构的语法，样式语法之后在考虑</p><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>语法格式：<code>#</code>+<code>空格</code>+<code>标题名称</code></p><p><strong>书写效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708201048296.png" alt="image-20230708201048296"></p><p><strong>展示效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708194545367.png" alt="image-20230708194545367"></p><p><strong>说明：</strong><code>#</code>的个数代表标题的级别</p><h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><p>语法格式：通过三个及以上减号、星号或下划线来创建分隔线</p><p><strong>书写效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708201909404.png" alt="image-20230708201909404"></p><p><strong>展示效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708201926146.png" alt="image-20230708201926146"></p><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>语法格式：段落前添加一个 <code>&gt;</code> 符号</p><p><strong>书写效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708202819313.png" alt="image-20230708202819313"></p><p><strong>展示效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230708203022671.png" alt="image-20230708203022671"></p><p><strong>说明：</strong> 引用通常包括多段落引用、嵌套引用和带其他元素引用</p><h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>语法格式：具体看markdown编辑器所支持的目录语法</p><p>Typora和VSCode目录语法：<code>[toc]</code></p><p><strong>书写效果</strong></p><p> <img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20230708210048511.png" alt="image-20230708210048511"></p><p><strong>展示效果</strong></p><p> <img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20230708210023359.png" alt="image-20230708210023359"></p><p><strong>说明：</strong> 现在VSCode目录语法展示效果变丑了，就只展示之前所呈现的效果</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;之后所呈现的markdown语法效果都是在&lt;strong&gt;VSCode&lt;/strong&gt;上演示的&lt;/p&gt;
+&lt;p&gt;不同markdown编辑器对</summary>
+      
+    
+    
+    
+    <category term="写作" scheme="http://example.com/categories/%E5%86%99%E4%BD%9C/"/>
+    
+    
+    <category term="markdown" scheme="http://example.com/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown学习路线</title>
+    <link href="http://example.com/posts/6518.html"/>
+    <id>http://example.com/posts/6518.html</id>
+    <published>2023-10-09T02:45:00.000Z</published>
+    <updated>2023-10-09T02:52:27.464Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="自己所采纳的学习路线"><a href="#自己所采纳的学习路线" class="headerlink" title="自己所采纳的学习路线"></a>自己所采纳的学习路线</h2><p>我是在<u>接触了解后才明白markdown对记录笔记和写作的意义</u>，它成功吸引了我的注意，于是便动手学了起来。在这期间，发现效果挺不错，于是越发卖力的学习使用</p><h3 id="markdown漂流记"><a href="#markdown漂流记" class="headerlink" title="markdown漂流记"></a>markdown漂流记</h3><p>看菜鸟教程了解学习markdown语法：<a href="https://www.runoob.com/markdown/md-tutorial.html%EF%BC%8C%E5%9C%A8VSCode%E4%B8%8A%E8%BF%9B%E8%A1%8C%E5%AE%9E%E8%B7%B5%E4%BA%86%E8%A7%A3%E5%90%84%E7%A7%8D%E8%AF%AD%E6%B3%95%E6%89%80%E6%98%BE%E7%A4%BA%E7%9A%84%E6%95%88%E6%9E%9C">https://www.runoob.com/markdown/md-tutorial.html，在VSCode上进行实践了解各种语法所显示的效果</a></p><p>之后就结合网上各式各样的markdown教程进行补充理解，经过一周左右，觉得有必要系统学习下（天真~)，便花了&#x3D;&#x3D;6块大洋&#x3D;&#x3D;在腾讯课堂买了<font color=#9932CD>快速入手markdown的课程</font>，只能说学了个寂寞，但也不能说的这么绝对，算是帮我开了开眼界，不是所有的课都是用来传道受业解惑滴</p><p>再往后就选择阅读《了不起的markdown》这本书进行理解实践markdown语法了</p><p>后来偶然发现原来是有markdown官方教程的：<a href="https://markdown.com.cn，除此思源官方也提供了markdown语法教程：https://ld246.com/tag/markdown，但">https://markdown.com.cn，除此思源官方也提供了markdown语法教程：https://ld246.com/tag/markdown，但</a>……</p><p>就这样几经波折算是对markdown语法及使用有了清晰的认识，为什么会这样子，有两方面原因：一是没找对地方，二是网上教程参考居多，细致系统整理较少，因而学后总觉得缺棱少角</p><p>之后基于两方面考虑：一是不能光学不练，二是朋友对markdown也有学习需求，便自己整理了份markdown细腻教程</p><h2 id="你可以采纳的学习路线"><a href="#你可以采纳的学习路线" class="headerlink" title="你可以采纳的学习路线"></a>你可以采纳的学习路线</h2><p>在有了我的铺垫后，你可以安全上路，<u>不必踩我踩过的坑儿，虽说走的人多了，也便成了路</u></p><p>按照我设置的进程进行分级了解markdown语法，然后<font color=#9932CD>结合语法进行实践演示来明白其具体显示效果</font></p><p>简言之：结合我所整理的教程与官方教程熟悉markdown语法，等可以熟练使用markdown语法可以进阶使用扩展语法看看不一样的效果，总之系统学习戒骄戒躁，肯定会有见效</p><h2 id="markdown编辑器"><a href="#markdown编辑器" class="headerlink" title="markdown编辑器"></a>markdown编辑器</h2><p>工欲善其事，必先利其器</p><h3 id="移动端编辑器"><a href="#移动端编辑器" class="headerlink" title="移动端编辑器"></a>移动端编辑器</h3><p>排名不分先后</p><ul><li>neatify</li><li>榴莲日记</li><li>纯纯写作</li><li>有道云</li></ul><h3 id="PC端编辑器"><a href="#PC端编辑器" class="headerlink" title="PC端编辑器"></a>PC端编辑器</h3><ul><li>typora</li><li>思源笔记</li><li>vnote</li><li>VSCode</li><li>小书匠</li><li>neatify</li></ul><h3 id="网页端编辑器"><a href="#网页端编辑器" class="headerlink" title="网页端编辑器"></a>网页端编辑器</h3><ul><li><p>小书匠：<a href="http://markdown.xiaoshujiang.com/">http://markdown.xiaoshujiang.com</a></p></li><li><p>LetsMarkdown：<a href="https://letsmarkdown.com/">https://letsmarkdown.com</a></p></li><li><p>Cmd markdown：<a href="https://www.zybuluo.com/mdeditor">https://www.zybuluo.com/mdeditor</a></p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;自己所采纳的学习路线&quot;&gt;&lt;a href=&quot;#自己所采纳的学习路线&quot; class=&quot;headerlink&quot; title=&quot;自己所采纳的学习路线&quot;&gt;&lt;/a&gt;自己所采纳的学习路线&lt;/h2&gt;&lt;p&gt;我是在&lt;u&gt;接触了解后才明白markdown对记录笔记和写作的意义&lt;/u&gt;，</summary>
+      
+    
+    
+    
+    <category term="写作" scheme="http://example.com/categories/%E5%86%99%E4%BD%9C/"/>
+    
+    
+    <category term="markdown" scheme="http://example.com/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown概述</title>
+    <link href="http://example.com/posts/6517.html"/>
+    <id>http://example.com/posts/6517.html</id>
+    <published>2023-10-07T16:00:00.000Z</published>
+    <updated>2023-10-09T02:29:00.285Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>markdown是一种轻量级标记语言，允许人们 ⌜使用易读易写的纯文本格式⌟ 编写文档</p><p>markdown本质是使人们关注内容本身，注重文章本身结构，而不是一直想着如何调整样式</p><p>使用markdown的目的便是通过简洁的markdown语法，在轻松码字之余也能做出美观清爽的排版</p><p>从某种角度而言，文本写作经历着这么一个过程：首先是<u>纯文本，专注于码字，没有太多美观清爽可言，而人又是视觉动物，非常享受美所带来的感官刺激</u>，于是便出现了<u>富文本写作阶段，这一阶段所编写的文档排版工整，样式较纯文本可称为洋枪洋炮对大刀长矛，不过这一阶段也衍生了两个问题，工具栏虽说提供了很多称手的工具，可也增加了学习成本，除此便是写作创作花在排版与样式上的功夫使得写作重心有所偏移</u>，针对以上场景，<font color=#9932CD>markdown基于特殊标记语法，可以很好兼顾内容本身与排版样式</font></p><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><blockquote><ul><li>语法简单</li><li>渲染效果感人</li><li>广受好评</li><li>保持源码复制</li><li>支持html和css部分语法</li></ul></blockquote><h2 id="适用"><a href="#适用" class="headerlink" title="适用"></a>适用</h2><blockquote><ul><li>笔记创作</li><li>网络交流</li><li>自媒体</li><li>网站内容展示</li></ul></blockquote><h2 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h2><blockquote><ul><li>有较小的学习成本</li><li>扩展语法多样</li><li>支持html和css部分语法便存在部分兼容问题</li><li>源码一样最后渲染出的效果取决于编辑器</li></ul></blockquote><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>markdown学习成本低，应用场景广，效果感人，值得拥有…</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;markdown是一种轻量级标记语言，允许人们 ⌜使用易读易写的纯文本格式⌟ 编写文档&lt;/p&gt;
+&lt;p&gt;markdown本质是使人们关注内容本</summary>
+      
+    
+    
+    
+    <category term="写作" scheme="http://example.com/categories/%E5%86%99%E4%BD%9C/"/>
+    
+    
+    <category term="markdown" scheme="http://example.com/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Shields下的徽章制作</title>
+    <link href="http://example.com/posts/6516.html"/>
+    <id>http://example.com/posts/6516.html</id>
+    <published>2023-10-07T16:00:00.000Z</published>
+    <updated>2023-10-08T15:20:33.539Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>平时逛Github和个人博客时，总能看到很漂亮的徽章，觉得很有逼格，现在搭建个人博客了，那必须安排上</p><p>网上也有关于在Shields上制作徽章教程，其中<a href="https://akilar.top/">Akilarの糖果屋</a>写了篇制作教程相当有详细与精彩，奈何时间奔流向前，有些事物并不会一成不变，所以制作有些许变动，于是乎以自己实操经历来展示徽章制作些许变动</p><h2 id="参考效果"><a href="#参考效果" class="headerlink" title="参考效果"></a>参考效果</h2><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175027416.png" alt="image-20231007175027416"></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175145906.png" alt="image-20231007175145906"></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175217865.png" alt="image-20231007175217865"></p><h2 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h2><p><strong>表层原理：</strong> 通过徽章生成网站Shields来制作静态徽章</p><p><strong>需知：</strong> 要制作像模像样的徽章，就要明白并运用徽章制作规则</p><h3 id="起手式"><a href="#起手式" class="headerlink" title="起手式"></a>起手式</h3><p>首先来到<a href="https://www.shields.io/">Shields首页</a>，然后点击<code>Get started</code></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175704283.png" alt="image-20231007175704283"></p><p>接着在实验台根据提示来制作第一枚徽章吧</p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175839674.png" alt="image-20231007175839674"></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175925995.png" alt="image-20231007175925995"></p><h3 id="结束式"><a href="#结束式" class="headerlink" title="结束式"></a>结束式</h3><p>具体过程就是输入相关信息后，点击<code>Execute</code>即可得到徽标的URL，可以用img标签引用。如果仅是这样肯定还不够个性化，所以它还提供了可选的参数来生成更多样式</p><p>建议用Chrome自带翻译功能进行翻译，不然中国本土人可能不怎么习惯，这里简单整理下</p><table><thead><tr><th>可选参数</th><th>说明</th></tr></thead><tbody><tr><td>badgeContent</td><td>标签、（可选）消息和颜色。用破折号分隔</td></tr><tr><td>style</td><td>有扁平（默认）、扁平方形、塑料、徽章、社交这五种样式</td></tr><tr><td>logo</td><td>可以在左侧标签前插入图标，其图标可以在<a href="https://simpleicons.org/">simpleicons</a>上根据图标标题找到</td></tr><tr><td>logoColor</td><td>徽标的颜色</td></tr><tr><td>label</td><td>覆盖默认的左侧文本</td></tr><tr><td>labelColor</td><td>左侧部分的背景颜色</td></tr><tr><td>color</td><td>右侧部分的背景颜色</td></tr><tr><td>cacheSeconds</td><td>HTTP 缓存生命周期</td></tr><tr><td>link</td><td>单击徽章后要跳转的超链接。这只适用于将徽章集成到<code>&lt;object&gt;</code>HTML 标记中，而不是<code>&lt;img&gt;</code>标记或标记语言中</td></tr></tbody></table><p>可以使用 Hex、rgb、rgba、hsl、hsla 和 css 命名颜色</p><p><strong>关于badgeContent详细说明</strong></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007181602626.png" alt="image-20231007181602626"></p><p><strong>关于logo详细说明</strong></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007182211680.png" alt="image-20231007182211680"></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007182110558.png" alt="image-20231007182110558"></p><p><strong>思路：</strong> 将必填项填完后，根据自己需求，对可选参数进行挨个儿填写尝试，然后查看效果</p><p>最终效果</p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007183149589.png" alt="image-20231007183149589"></p><h2 id="最终呈现"><a href="#最终呈现" class="headerlink" title="最终呈现"></a>最终呈现</h2><p>将制作的徽章应用到个人博客的效果</p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231008163742904.png" alt="image-20231008163742904"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;平时逛Github和个人博客时，总能看到很漂亮的徽章，觉得很有逼格，现在搭建个人博客了，那必须安排上&lt;/p&gt;
+&lt;p&gt;网上也有关于在Shiel</summary>
+      
+    
+    
+    
+    <category term="开发" scheme="http://example.com/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="徽章" scheme="http://example.com/tags/%E5%BE%BD%E7%AB%A0/"/>
+    
+  </entry>
+  
+</feed>
