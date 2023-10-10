@@ -70,7 +70,7 @@
 	font-size: 18px;
 }
 
-#article-container blockquote {
+#page #article-container blockquote {
 	border-left: none !important;
 	background-color: transparent !important;
 }
@@ -84,10 +84,10 @@
 	color: #99a9bf !important;
 }
 
-#article-container blockquote p {
+#page #article-container blockquote p {
 	text-align: right;
 }
 
-#article-container blockquote p:hover {
+#page #article-container blockquote p:hover {
 	color: #00c4b6;
 }
