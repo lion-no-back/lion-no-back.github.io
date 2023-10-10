@@ -85,8 +85,7 @@
 }
 
 #article-container blockquote p {
-	padding-left: 600px;
-	
+	text-align: right;
 }
 
 #article-container blockquote p:hover {
