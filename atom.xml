@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-10-09T10:48:32.815Z</updated>
+  <updated>2023-10-10T11:51:46.276Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Markdown语法3</title>
+    <link href="http://example.com/posts/6521.html"/>
+    <id>http://example.com/posts/6521.html</id>
+    <published>2023-10-10T11:52:00.000Z</published>
+    <updated>2023-10-10T11:51:46.276Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="阶段三"><a href="#阶段三" class="headerlink" title="阶段三"></a>阶段三</h2><p>这一阶段是对markdown所能实现功能的又一次拓展，算是扩展语法的一部分，其实现与否和markdown编辑器对该语法的支持有关</p><h3 id="折叠"><a href="#折叠" class="headerlink" title="折叠"></a>折叠</h3><p><strong>书写效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710163554019.png" alt="image-20230710163554019"></p><p><strong>折叠效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710163614493.png" alt="image-20230710163614493"></p><p><strong>说明：</strong> 这里使用了HTML中的<code>details</code>和<code>summary</code>标签</p><h3 id="按键、总结、警告和标注"><a href="#按键、总结、警告和标注" class="headerlink" title="按键、总结、警告和标注"></a>按键、总结、警告和标注</h3><p><strong>书写效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710165147979.png" alt="image-20230710165147979"></p><p><strong>展示效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710165206114.png" alt="image-20230710165206114"></p><h3 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h3><p>语法格式：<code>-</code>+<code>空格</code>+<code>[空格]</code>+<code>[空格]</code>表示待完成，<code>-</code>+<code>空格</code>+<code>[x]</code>+<code>[空格]</code>表示已完成</p><p><strong>书写效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710170324006.png" alt="image-20230710170324006"></p><p><strong>展示效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710170351985.png" alt="image-20230710170351985"></p><h3 id="时间轴和公式"><a href="#时间轴和公式" class="headerlink" title="时间轴和公式"></a>时间轴和公式</h3><p><strong>书写效果</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    &lt;div alt=&quot;timenode&quot;&gt;</span><br><span class="line">        &lt;div alt=&quot;meta&quot;&gt;2019.9 ~ 2022.6 &lt;a href=&quot;#&quot; style=&quot;color: #045591; text-decoration: none; border-bottom: 0.05em solid; border-color: var(--url-underline-color); transition: .3s;&quot;&gt;谈发展&lt;/a&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div alt=&quot;body&quot;&gt;</span><br><span class="line">            人言落日是天涯，望极天涯不见家。&lt;br/&gt;</span><br><span class="line">            已恨碧山相阻隔，碧山还被暮云遮。</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div alt=&quot;timenode&quot;&gt;</span><br><span class="line">        &lt;div alt=&quot;meta&quot;&gt;2015.9 ~ 2019.6 &lt;a href=&quot;#&quot; style=&quot;color: #045591; text-decoration: none; border-bottom: 0.05em solid; border-color: var(--url-underline-color); transition: .3s;&quot;&gt;谈政治&lt;/a&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div alt=&quot;body&quot;&gt;</span><br><span class="line">            看花开花落，谈笑风生...</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure><p><strong>展示效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710171809140.png" alt="image-20230710171809140"></p><p><strong>书写效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710171838998.png" alt="image-20230710171838998"></p><p><strong>展示效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710171848835.png" alt="image-20230710171848835"></p><h3 id="流程图、时序图、甘特图"><a href="#流程图、时序图、甘特图" class="headerlink" title="流程图、时序图、甘特图"></a>流程图、时序图、甘特图</h3><p><strong>书写效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710171930955.png" alt="image-20230710171930955"></p><p><strong>展示效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710171943773.png" alt="image-20230710171943773"></p><p><strong>书写效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710172037567.png" alt="image-20230710172037567"></p><p><strong>展示效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710172002799.png" alt="image-20230710172002799"></p><p><strong>书写效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710172050135.png" alt="image-20230710172050135"></p><p><strong>展示效果</strong></p><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230710172103861.png" alt="image-20230710172103861"></p><h3 id="熟练掌握HTML和CSS"><a href="#熟练掌握HTML和CSS" class="headerlink" title="熟练掌握HTML和CSS"></a>熟练掌握HTML和CSS</h3><p>markdown支持部分HTML和CSS，熟练掌握HTML和CSS可以个性化设置效果</p><h3 id="熟练掌握GFM等扩展语法"><a href="#熟练掌握GFM等扩展语法" class="headerlink" title="熟练掌握GFM等扩展语法"></a>熟练掌握GFM等扩展语法</h3><p>有些平台会引入一些额外的markdown语法和功能，了解并熟练掌握有助于在该平台发展</p><h3 id="开发通用强大的开源组件"><a href="#开发通用强大的开源组件" class="headerlink" title="开发通用强大的开源组件"></a>开发通用强大的开源组件</h3><p>有能力反馈社会时更应该记得来路开源共享所给予的温暖与帮助，这时候可以反馈一二</p><p>……</p><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>markdown第四阶段肯定是有的，那是每个人心里的伊甸园，想要到达却无法到达</p><p>如果能有幸看到最后且本套教程对你认识学习markdown有所帮助，那也算不枉其神</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;阶段三&quot;&gt;&lt;a href=&quot;#阶段三&quot; class=&quot;headerlink&quot; title=&quot;阶段三&quot;&gt;&lt;/a&gt;阶段三&lt;/h2&gt;&lt;p&gt;这一阶段是对markdown所能实现功能的又一次拓展，算是扩展语法的一部分，其实现与否和markdown编辑器对该语法的支持有关&lt;/</summary>
+      
+    
+    
+    
+    <category term="写作" scheme="http://example.com/categories/%E5%86%99%E4%BD%9C/"/>
+    
+    
+    <category term="markdown" scheme="http://example.com/tags/markdown/"/>
+    
+  </entry>
   
   <entry>
     <title>Markdown语法2</title>
