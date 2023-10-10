@@ -56,11 +56,30 @@
 
 /* �鵥 */
 .hexo-douban-tab {
-	font-size: 18px;
+	font-size: 20px;
 	color: #000 !important;
 }
 
 .hexo-douban-tab-active {
 	background: #00c4b6 !important;
 	border-radius: 5px;
+}
+
+.hexo-douban-items .hexo-douban-title a {
+	color: #000 !important;
+	font-size: 18px;
+}
+
+#article-container blockquote {
+	border-left: none !important;
+	background-color: transparent !important;
+}
+
+#article-container blockquote p {
+	padding-left: 600px;
+	
+}
+
+#article-container blockquote p:hover {
+	color: #00c4b6;
 }
