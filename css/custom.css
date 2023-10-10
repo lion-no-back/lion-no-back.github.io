@@ -81,6 +81,7 @@
 	display: inline-block;
 	background: #f9f9f9;
 	border-radius: 5px;
+	color: #99a9bf !important;
 }
 
 #article-container blockquote p {
