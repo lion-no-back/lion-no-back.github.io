@@ -75,6 +75,18 @@
 	background-color: transparent !important;
 }
 
+.hexo-douban-pagination .hexo-douban-button {
+	padding: 1px 6px !important;
+	margin: 3px;
+	display: inline-block;
+	background: #f9f9f9;
+	border-radius: 5px;
+}
+
+#article-container a {
+	color: #99a9bf !important;
+}
+
 #article-container blockquote p {
 	padding-left: 600px;
 	
