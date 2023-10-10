@@ -53,3 +53,14 @@
 	font-size: 18px;
 	color: #00c4b6;
 }
+
+/* �鵥 */
+.hexo-douban-tab {
+	font-size: 18px;
+	color: #000 !important;
+}
+
+.hexo-douban-tab-active {
+	background: #00c4b6 !important;
+	border-radius: 5px;
+}
