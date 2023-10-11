@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>TCP/IP网络模型 | 松果会</title><meta name="author" content="松花鼠"><meta name="copyright" content="松花鼠"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言对小林coding的这篇文章进行了自己整理，大佬文章非常棒，效率效果俱佳，我是一遍看完，真学习到了 理解TCP&#x2F;IP网络模型问题：同一台设备上的进程如何进行通信呢？  答：通过管道、消息队列、共享内存、信号等方式  问题：不同设备上的进程是如何通信呢？  答：通过网络，而设备是多样的，因而为了兼容绝大多数设备，就协商出了一套通用的网络通信协议  问题：TCP&#x2F;IP具体指什么">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>TCP/IP网络模型 | 松果会</title><meta name="author" content="松花鼠"><meta name="copyright" content="松花鼠"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言对小林coding的这篇文章进行了自己整理，大佬文章非常棒，效率效果俱佳，我是一遍看完，真学习到了 理解TCP&#x2F;IP网络模型问题：同一台设备上的进程如何进行通信呢？  答：通过管道、消息队列、共享内存、信号等方式  问题：不同设备上的进程是如何通信呢？  答：通过网络，而设备是多样的，因而为了兼容绝大多数设备，就协商出了一套通用的网络通信协议  问题：TCP&#x2F;IP具体指什么？  答：TCP指传">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TCP&#x2F;IP网络模型">
 <meta property="og:url" content="http://example.com/posts/6530.html">
 <meta property="og:site_name" content="松果会">
-<meta property="og:description" content="前言对小林coding的这篇文章进行了自己整理，大佬文章非常棒，效率效果俱佳，我是一遍看完，真学习到了 理解TCP&#x2F;IP网络模型问题：同一台设备上的进程如何进行通信呢？  答：通过管道、消息队列、共享内存、信号等方式  问题：不同设备上的进程是如何通信呢？  答：通过网络，而设备是多样的，因而为了兼容绝大多数设备，就协商出了一套通用的网络通信协议  问题：TCP&#x2F;IP具体指什么">
+<meta property="og:description" content="前言对小林coding的这篇文章进行了自己整理，大佬文章非常棒，效率效果俱佳，我是一遍看完，真学习到了 理解TCP&#x2F;IP网络模型问题：同一台设备上的进程如何进行通信呢？  答：通过管道、消息队列、共享内存、信号等方式  问题：不同设备上的进程是如何通信呢？  答：通过网络，而设备是多样的，因而为了兼容绝大多数设备，就协商出了一套通用的网络通信协议  问题：TCP&#x2F;IP具体指什么？  答：TCP指传">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/TCP-IP%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B.png">
 <meta property="article:published_time" content="2023-10-10T13:25:00.000Z">
@@ -164,7 +164,7 @@
     detectApple()
     })(window)</script><link rel="stylesheet" href="/css/404.css"><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/css/fish_transparent.css"><link rel="stylesheet" href="/css/wx_card.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/icon.css"><link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/tag_plugins.min.css" media="defer" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/carousel-touch.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="松果会" type="application/atom+xml">
 </head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/avatar_hexo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/"><img class="site-icon" src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/hexo_ico.png"/><span class="site-name">松果会</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">TCP/IP网络模型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-10T13:25:00.000Z" title="发表于 2023-10-10 21:25:00">2023-10-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-11T01:59:15.124Z" title="更新于 2023-10-11 09:59:15">2023-10-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span></div></div></div><article class="post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>对<a target="_blank" rel="noopener" href="https://xiaolincoding.com/network/1_base/tcp_ip_model.html">小林coding</a>的这篇文章进行了自己整理，大佬文章非常棒，效率效果俱佳，我是一遍看完，真学习到了</p>
-<h2 id="理解TCP-IP网络模型"><a href="#理解TCP-IP网络模型" class="headerlink" title="理解TCP&#x2F;IP网络模型"></a>理解TCP&#x2F;IP网络模型</h2><p>问题：同一台设备上的进程如何进行通信呢？</p>
+<h2 id="理解TCP-IP网络模型"><a href="#理解TCP-IP网络模型" class="headerlink" title="理解TCP/IP网络模型"></a>理解TCP/IP网络模型</h2><p>问题：同一台设备上的进程如何进行通信呢？</p>
 <blockquote>
 <p>答：通过管道、消息队列、共享内存、信号等方式</p>
 </blockquote>
@@ -172,9 +172,9 @@
 <blockquote>
 <p>答：通过网络，而设备是多样的，因而为了兼容绝大多数设备，就协商出了一套通用的网络通信协议</p>
 </blockquote>
-<p>问题：TCP&#x2F;IP具体指什么？</p>
+<p>问题：TCP/IP具体指什么？</p>
 <blockquote>
-<p>答：TCP指传输控制协议，IP指Internet协议。TCP&#x2F;IP是互联网通信的基础，它也用来指代常用协议（HTTP、TCP、IP等）的集合</p>
+<p>答：TCP指传输控制协议，IP指Internet协议。TCP/IP是互联网通信的基础，它也用来指代常用协议（HTTP、TCP、IP等）的集合</p>
 </blockquote>
 <p><strong>需知：</strong> 网络协议是分层的，每一层都有各自的作用和职责</p>
 <p>常见的网络模型</p>
@@ -182,7 +182,7 @@
 <hr>
 <h3 id="应用层和传输层"><a href="#应用层和传输层" class="headerlink" title="应用层和传输层"></a>应用层和传输层</h3><p>最上层的就是应用层（Application Layer）了，应用层只需专注为用户提供应用功能，应用层不需要关心数据是如何传输的</p>
 <p>应用层的数据包会传给传输层（Transport Layer），传输层为应用层提供网络支持</p>
-<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231010173431964.png"></p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231010173431964.png" alt=""></p>
 <p>在传输层会有两个传输协议，分别是TCP和UDP</p>
 <p>TCP（Transmission Control Protocol）名为传输控制协议，大部分应用传输层协议采用的就是TCP</p>
 <blockquote>
@@ -196,17 +196,12 @@
 <div class='checkbox red'><input type="radio" />
             <p>继续回到传输层把数据传给接收方的应用层还需要完成什么？</p>
             </div>
-
-
-
 <p>首先得明白一台设备上可能会有很多进程（应用）在接收或传输数据，因此需要<font color=#9932CD>使用端口号进行应用区分</font>，我们知道80端口通常是Web服务器在使用，22端口通常用于远程登录服务器的。而<font color=#9932CD>在浏览器中，每个标签栏都是一个独立的进程</font>，操作系统会为这些进程分配临时端口号</p>
 <p>所以<strong>在传输层报文中会携带端口号</strong>来指定接收方用来接收数据的应用</p>
 <h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><p>传输层刚接触时可能会认为它负责将数据从一个设备传输到另一个设备，实际上真正负责的并不是它</p>
 <p>在实际场景中的网络环节是错综复杂的，中间有各种各样的线路和分叉路口，而要完成数据传输，就需要在各种路径和节点进行选择，而这并非传输层负责</p>
 <div class="note orange icon-padding simple"><i class="note-icon fas fa-badge-check"></i><p>这里就可以这么理解，用户（应用层）将包裹交给知名机构（传输层），知名机构找到适合的镖局（网络层）进行包裹押送，而在途中镖局选择行进路线和住宿客栈</p>
 </div>
-
-
 <p>也就是说，传输层是做服务的，网络层是干实事的，数据真正的传输是在网络层实现的</p>
 <p> <img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231010174555163.png" alt="image-20231010174555163"></p>
 <p>网络层（Internet Layer）最常使用的便是IP协议，IP协议会将传输层的报文作为数据部分，再<strong>加上IP头部</strong>组成IP报文，如果IP报文大小超过MTU就会<strong>进行分片</strong>，这样就得到了一个即将发送到网络的IP报文</p>
@@ -215,7 +210,7 @@
 <p>对于IPv4协议，IP地址分为四段，共32位，这样做到了区分设备，但寻址起来特别麻烦，于是将IP地址分成有意义的两部分：<strong>网络号</strong>（负责标识该IP地址属于哪个「子网」的）和 <strong>主机号</strong>（负责标识同一「子网」下不同主机）</p>
 <p>要算出IP地址的网络号和主机号需要配合<strong>子网掩码</strong>，举个例子</p>
 <blockquote>
-<p>10.100.122.0&#x2F;24，后面的<code>/24</code>表示的就是为 <code>255.255.255.0</code>的子网掩码，255.255.255.0 二进制是「11111111-11111111-11111111-00000000」，总共有24 个1，为了简化子网掩码的表示，用&#x2F;24代替255.255.255.0 </p>
+<p>10.100.122.0/24，后面的<code>/24</code>表示的就是为 <code>255.255.255.0</code>的子网掩码，255.255.255.0 二进制是「11111111-11111111-11111111-00000000」，总共有24 个1，为了简化子网掩码的表示，用/24代替255.255.255.0 </p>
 </blockquote>
 <p>知道了子网掩码，该怎么计算出网络地址和主机地址呢？</p>
 <p> <img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231010201409473.png" alt="image-20231010201409473"></p>
@@ -236,7 +231,7 @@
 <p>可以通过ARP协议获取对方MAC地址</p>
 <p>网络接口层主要为网络层提供「链路级别」传输服务，负责在以太网、WIFI这样底层网络上发送原始数据包，工作在网卡这个层次，使用MAC地址来标识网络上的设备</p>
 <p><u>网络接口层就好比人知道了目的地是山东泰安，而你打算乘飞机去，当然得采用乘飞机流程，买票坐飞机，而不是告诉飞机目的地山东泰安</u></p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>TCP&#x2F;IP 网络模型是由上到下分成 4 层，分别是<strong>应用层，传输层，网络层和网络接口层</strong></p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>TCP/IP 网络模型是由上到下分成 4 层，分别是<strong>应用层，传输层，网络层和网络接口层</strong></p>
 <p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/TCP_IP.png" alt="TCP_IP"></p>
 <p> 每一层的封装格式</p>
 <p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231010205237282.png" alt="image-20231010205237282"></p>
