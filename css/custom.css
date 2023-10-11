@@ -91,3 +91,8 @@
 #page #article-container blockquote p:hover {
 	color: #00c4b6;
 }
+
+/* �»����� */
+#post u {
+	border-bottom: 2px dotted #004cb6;
+}
