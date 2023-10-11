@@ -96,3 +96,7 @@
 #post u {
 	border-bottom: 2px dotted #00c4b6;
 }
+
+#post checkbox {
+	margin-bottom: 3px;
+}

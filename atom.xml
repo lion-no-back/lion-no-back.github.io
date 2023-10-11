@@ -139,31 +139,6 @@
   </entry>
   
   <entry>
-    <title>Shields下的徽章制作</title>
-    <link href="http://example.com/posts/6516.html"/>
-    <id>http://example.com/posts/6516.html</id>
-    <published>2023-10-07T16:00:00.000Z</published>
-    <updated>2023-10-08T15:20:33.539Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>平时逛Github和个人博客时，总能看到很漂亮的徽章，觉得很有逼格，现在搭建个人博客了，那必须安排上</p><p>网上也有关于在Shields上制作徽章教程，其中<a href="https://akilar.top">Akilarの糖果屋</a>写了篇制作教程相当有详细与精彩，奈何时间奔流向前，有些事物并不会一成不变，所以制作有些许变动，于是乎以自己实操经历来展示徽章制作些许变动</p><h2 id="参考效果"><a href="#参考效果" class="headerlink" title="参考效果"></a>参考效果</h2><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175027416.png" alt="image-20231007175027416"></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175145906.png" alt="image-20231007175145906"></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175217865.png" alt="image-20231007175217865"></p><h2 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h2><p><strong>表层原理：</strong> 通过徽章生成网站Shields来制作静态徽章</p><p><strong>需知：</strong> 要制作像模像样的徽章，就要明白并运用徽章制作规则</p><h3 id="起手式"><a href="#起手式" class="headerlink" title="起手式"></a>起手式</h3><p>首先来到<a href="https://www.shields.io">Shields首页</a>，然后点击<code>Get started</code></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175704283.png" alt="image-20231007175704283"></p><p>接着在实验台根据提示来制作第一枚徽章吧</p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175839674.png" alt="image-20231007175839674"></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175925995.png" alt="image-20231007175925995"></p><h3 id="结束式"><a href="#结束式" class="headerlink" title="结束式"></a>结束式</h3><p>具体过程就是输入相关信息后，点击<code>Execute</code>即可得到徽标的URL，可以用img标签引用。如果仅是这样肯定还不够个性化，所以它还提供了可选的参数来生成更多样式</p><p>建议用Chrome自带翻译功能进行翻译，不然中国本土人可能不怎么习惯，这里简单整理下</p><div class="table-container"><table><thead><tr><th>可选参数</th><th>说明</th></tr></thead><tbody><tr><td>badgeContent</td><td>标签、（可选）消息和颜色。用破折号分隔</td></tr><tr><td>style</td><td>有扁平（默认）、扁平方形、塑料、徽章、社交这五种样式</td></tr><tr><td>logo</td><td>可以在左侧标签前插入图标，其图标可以在<a href="https://simpleicons.org/">simpleicons</a>上根据图标标题找到</td></tr><tr><td>logoColor</td><td>徽标的颜色</td></tr><tr><td>label</td><td>覆盖默认的左侧文本</td></tr><tr><td>labelColor</td><td>左侧部分的背景颜色</td></tr><tr><td>color</td><td>右侧部分的背景颜色</td></tr><tr><td>cacheSeconds</td><td>HTTP 缓存生命周期</td></tr><tr><td>link</td><td>单击徽章后要跳转的超链接。这只适用于将徽章集成到<code>&lt;object&gt;</code>HTML 标记中，而不是<code>&lt;img&gt;</code>标记或标记语言中</td></tr></tbody></table></div><p>可以使用 Hex、rgb、rgba、hsl、hsla 和 css 命名颜色</p><p><strong>关于badgeContent详细说明</strong></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007181602626.png" alt="image-20231007181602626"></p><p><strong>关于logo详细说明</strong></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007182211680.png" alt="image-20231007182211680"></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007182110558.png" alt="image-20231007182110558"></p><p><strong>思路：</strong> 将必填项填完后，根据自己需求，对可选参数进行挨个儿填写尝试，然后查看效果</p><p>最终效果</p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007183149589.png" alt="image-20231007183149589"></p><h2 id="最终呈现"><a href="#最终呈现" class="headerlink" title="最终呈现"></a>最终呈现</h2><p>将制作的徽章应用到个人博客的效果</p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231008163742904.png" alt="image-20231008163742904"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;平时逛Github和个人博客时，总能看到很漂亮的徽章，觉得很有逼格，现在搭建个人博客了，那必须安排上&lt;/p&gt;
-&lt;p&gt;网上也有关于在Shiel</summary>
-      
-    
-    
-    
-    <category term="开发" scheme="http://example.com/categories/%E5%BC%80%E5%8F%91/"/>
-    
-    
-    <category term="徽章" scheme="http://example.com/tags/%E5%BE%BD%E7%AB%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Markdown概述</title>
     <link href="http://example.com/posts/6517.html"/>
     <id>http://example.com/posts/6517.html</id>
@@ -185,6 +160,31 @@
     
     
     <category term="markdown" scheme="http://example.com/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Shields下的徽章制作</title>
+    <link href="http://example.com/posts/6516.html"/>
+    <id>http://example.com/posts/6516.html</id>
+    <published>2023-10-07T16:00:00.000Z</published>
+    <updated>2023-10-08T15:20:33.539Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>平时逛Github和个人博客时，总能看到很漂亮的徽章，觉得很有逼格，现在搭建个人博客了，那必须安排上</p><p>网上也有关于在Shields上制作徽章教程，其中<a href="https://akilar.top">Akilarの糖果屋</a>写了篇制作教程相当有详细与精彩，奈何时间奔流向前，有些事物并不会一成不变，所以制作有些许变动，于是乎以自己实操经历来展示徽章制作些许变动</p><h2 id="参考效果"><a href="#参考效果" class="headerlink" title="参考效果"></a>参考效果</h2><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175027416.png" alt="image-20231007175027416"></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175145906.png" alt="image-20231007175145906"></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175217865.png" alt="image-20231007175217865"></p><h2 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h2><p><strong>表层原理：</strong> 通过徽章生成网站Shields来制作静态徽章</p><p><strong>需知：</strong> 要制作像模像样的徽章，就要明白并运用徽章制作规则</p><h3 id="起手式"><a href="#起手式" class="headerlink" title="起手式"></a>起手式</h3><p>首先来到<a href="https://www.shields.io">Shields首页</a>，然后点击<code>Get started</code></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175704283.png" alt="image-20231007175704283"></p><p>接着在实验台根据提示来制作第一枚徽章吧</p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175839674.png" alt="image-20231007175839674"></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007175925995.png" alt="image-20231007175925995"></p><h3 id="结束式"><a href="#结束式" class="headerlink" title="结束式"></a>结束式</h3><p>具体过程就是输入相关信息后，点击<code>Execute</code>即可得到徽标的URL，可以用img标签引用。如果仅是这样肯定还不够个性化，所以它还提供了可选的参数来生成更多样式</p><p>建议用Chrome自带翻译功能进行翻译，不然中国本土人可能不怎么习惯，这里简单整理下</p><div class="table-container"><table><thead><tr><th>可选参数</th><th>说明</th></tr></thead><tbody><tr><td>badgeContent</td><td>标签、（可选）消息和颜色。用破折号分隔</td></tr><tr><td>style</td><td>有扁平（默认）、扁平方形、塑料、徽章、社交这五种样式</td></tr><tr><td>logo</td><td>可以在左侧标签前插入图标，其图标可以在<a href="https://simpleicons.org/">simpleicons</a>上根据图标标题找到</td></tr><tr><td>logoColor</td><td>徽标的颜色</td></tr><tr><td>label</td><td>覆盖默认的左侧文本</td></tr><tr><td>labelColor</td><td>左侧部分的背景颜色</td></tr><tr><td>color</td><td>右侧部分的背景颜色</td></tr><tr><td>cacheSeconds</td><td>HTTP 缓存生命周期</td></tr><tr><td>link</td><td>单击徽章后要跳转的超链接。这只适用于将徽章集成到<code>&lt;object&gt;</code>HTML 标记中，而不是<code>&lt;img&gt;</code>标记或标记语言中</td></tr></tbody></table></div><p>可以使用 Hex、rgb、rgba、hsl、hsla 和 css 命名颜色</p><p><strong>关于badgeContent详细说明</strong></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007181602626.png" alt="image-20231007181602626"></p><p><strong>关于logo详细说明</strong></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007182211680.png" alt="image-20231007182211680"></p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007182110558.png" alt="image-20231007182110558"></p><p><strong>思路：</strong> 将必填项填完后，根据自己需求，对可选参数进行挨个儿填写尝试，然后查看效果</p><p>最终效果</p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231007183149589.png" alt="image-20231007183149589"></p><h2 id="最终呈现"><a href="#最终呈现" class="headerlink" title="最终呈现"></a>最终呈现</h2><p>将制作的徽章应用到个人博客的效果</p><p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231008163742904.png" alt="image-20231008163742904"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;平时逛Github和个人博客时，总能看到很漂亮的徽章，觉得很有逼格，现在搭建个人博客了，那必须安排上&lt;/p&gt;
+&lt;p&gt;网上也有关于在Shiel</summary>
+      
+    
+    
+    
+    <category term="开发" scheme="http://example.com/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="徽章" scheme="http://example.com/tags/%E5%BE%BD%E7%AB%A0/"/>
     
   </entry>
   
