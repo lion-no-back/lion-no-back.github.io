@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-10-11T13:28:48.230Z</updated>
+  <updated>2023-10-11T13:35:05.301Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/posts/6631.html"/>
     <id>http://example.com/posts/6631.html</id>
     <published>2023-10-11T13:28:00.000Z</published>
-    <updated>2023-10-11T13:28:48.230Z</updated>
+    <updated>2023-10-11T13:35:05.301Z</updated>
     
     <content type="html"><![CDATA[<h2 id="MySQL概述"><a href="#MySQL概述" class="headerlink" title="MySQL概述"></a>MySQL概述</h2><h3 id="数据库相关概念"><a href="#数据库相关概念" class="headerlink" title="数据库相关概念"></a>数据库相关概念</h3><ul><li><p>数据库是用来存储数据的仓库，通常分为<font color=#008c8c>关系型数据库</font>和<font color=#008c8c>非关系型数据库</font></p></li><li><p>数据库管理系统使用户能够有效建立、使用和维护数据库，<font color=#9932CD>是一种操纵和管理数据库的大型软件</font></p></li><li><p>MySQL是一个开源的小型关系型数据库管理系统，其体积小、速度快、成本低等特性使得它成为世界上最受欢迎的开发源代码数据库</p></li><li>SQL(Structured Query Language)是用于访问和操作数据库中的数据的<font color=#008c8c>标准数据库编程语言</font></li></ul><p>【图解】</p><p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230703224602730.png" alt="image-20230703224602730"></p><ul><li><p>主流关系型数据库管理系统</p><ul><li><p><a href="https://db-engines.com/en/ranking">DB-Engines Ranking</a> 会根据受欢迎程度对数据库管理系统进行排名，排名每月更新一次</p><p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230703225643021.png" alt="数据库排名"></p></li><li><p>虽然关系型数据库有很多，但大多数都遵循 SQL（结构化查询语言，Structured Query Language）标准即<font color=#9932CD>可通过SQL进行操作</font></p></li></ul></li></ul><h3 id="MySQL数据库"><a href="#MySQL数据库" class="headerlink" title="MySQL数据库"></a>MySQL数据库</h3><ul><li>MySQL 数据库有社区版和企业版之分</li><li>社区版：开源免费，但不提供官方技术支持</li><li>企业版：收费，可试用30天，官方提供技术支持</li><li><p>MySQL下载</p><ul><li>来到官网所提供的<a href="https://dev.mysql.com/downloads">下载页</a>，找到对应操作系统的版本<br><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230704104103424.png" alt="MySQL下载"></li><li>如果操作系统为Windows，则下载地址为<a href="https://dev.mysql.com/downloads/installer">https://dev.mysql.com/downloads/installer</a></li></ul></li><li><p>客户端连接</p><ul><li>方式一：使用MySQL提供的命令行客户端来连接</li><li>方式二：使用系统自带的命令行终端来连接<ul><li><strong>注意：</strong> 使用这种方式需要配置PATH环境变量</li><li>输入命令<code>mysql [-h 127.0.0.1] [-P 3306] -u用户名 -p密码</code><br><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230704113509442.png" alt="image-20230704113509442"></li></ul></li></ul></li><li><p>关系型数据库是一种基于<font color=#008c8c>关系模型</font>的数据库。它以<font color=#008c8c>表格的形式</font>组织和存储数据，并使用<font color=#008c8c>关系</font>（即表之间的连接）来表示不同表之间的关联关系</p></li></ul><p><strong>数据模型</strong></p><p>【图解】</p><p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230704161824807.png" alt="数据模型图解"></p>]]></content>
     
@@ -43,7 +43,7 @@
     <link href="http://example.com/posts/6630.html"/>
     <id>http://example.com/posts/6630.html</id>
     <published>2023-10-11T13:25:00.000Z</published>
-    <updated>2023-10-11T13:27:30.302Z</updated>
+    <updated>2023-10-11T13:34:58.355Z</updated>
     
     <content type="html"><![CDATA[<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><ul><li><p>事务及事务四大特性</p></li><li><p>事务隔离级别</p></li><li><p>内连接与左外连接区别</p></li><li><p>常用的存储引擎InnoDB与MyISAM的区别</p></li><li><p>如何查看MySQL的执行计划</p><p>……</p></li></ul><h2 id="学习大纲"><a href="#学习大纲" class="headerlink" title="学习大纲"></a>学习大纲</h2><p><strong>基础篇</strong></p><ul><li>MySQL概述</li><li>SQL</li><li>函数</li><li>约束</li><li>多表查询</li><li>事务</li></ul><p><strong>进阶篇</strong></p><ul><li>存储引擎</li><li>索引</li><li>SQL优化</li><li>视图、存储过程、触发器</li><li>锁</li><li>InnoDB核心</li><li>MySQL管理</li></ul><p><strong>运维篇</strong></p><ul><li>日志</li><li>主从复制</li><li>分库分表</li><li>读写分离</li></ul><h2 id="课程资源"><a href="#课程资源" class="headerlink" title="课程资源"></a>课程资源</h2><p><strong>在线观看：</strong> <a href="https://www.bilibili.com/video/BV1Kr4y1i7ru">https://www.bilibili.com/video/BV1Kr4y1i7ru</a></p><p><strong>配套资源：</strong> <a href="https://pan.baidu.com/s/1B_m-1tY6Ai7U9I2ZIvcWQg?pwd=9988">https://pan.baidu.com/s/1B_m-1tY6Ai7U9I2ZIvcWQg?pwd=9988</a></p>]]></content>
     
