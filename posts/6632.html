@@ -1,0 +1,757 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SQL | 松果会</title><meta name="author" content="松花鼠"><meta name="copyright" content="松花鼠"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、SQL通用语法 SQL语句单行或多行书写，以分号结尾 SQL语句可以使用空格&#x2F;缩进来增强语句的可读性 MySQL数据库的SQL语句不区分大小写，关键字建议使用大写 注释 单行注释：— 注释内容 或 # 注释内容（MySQL特有） 多行注释：&#x2F; 注释内容 &#x2F;     二、SQL分类    分类 全称 说明     DDL Data Definition Language 数据定义语言，用来定义数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL">
+<meta property="og:url" content="http://example.com/posts/6632.html">
+<meta property="og:site_name" content="松果会">
+<meta property="og:description" content="一、SQL通用语法 SQL语句单行或多行书写，以分号结尾 SQL语句可以使用空格&#x2F;缩进来增强语句的可读性 MySQL数据库的SQL语句不区分大小写，关键字建议使用大写 注释 单行注释：— 注释内容 或 # 注释内容（MySQL特有） 多行注释：&#x2F; 注释内容 &#x2F;     二、SQL分类    分类 全称 说明     DDL Data Definition Language 数据定义语言，用来定义数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png">
+<meta property="article:published_time" content="2023-10-12T02:10:00.000Z">
+<meta property="article:modified_time" content="2023-10-12T02:09:56.078Z">
+<meta property="article:author" content="松花鼠">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png"><link rel="shortcut icon" href="/img/hexo.ico"><link rel="canonical" href="http://example.com/posts/6632.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'SQL',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-12 10:09:56'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/404.css"><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/css/fish_transparent.css"><link rel="stylesheet" href="/css/wx_card.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/icon.css"><link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/tag_plugins.min.css" media="defer" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/carousel-touch.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="松果会" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/avatar_hexo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/"><img class="site-icon" src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/hexo_ico.png"/><span class="site-name">松果会</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">SQL</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-12T02:10:00.000Z" title="发表于 2023-10-12 10:10:00">2023-10-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-12T02:09:56.078Z" title="更新于 2023-10-12 10:09:56">2023-10-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/MySQL/">MySQL</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>13分钟</span></span></div></div></div><article class="post-content" id="article-container"><h2 id="一、SQL通用语法"><a href="#一、SQL通用语法" class="headerlink" title="一、SQL通用语法"></a>一、SQL通用语法</h2><ul>
+<li>SQL语句单行或多行书写，以分号结尾</li>
+<li>SQL语句可以使用空格/缩进来增强语句的可读性</li>
+<li>MySQL数据库的SQL语句不区分大小写，关键字建议使用大写</li>
+<li>注释<ul>
+<li>单行注释：— 注释内容 或 # 注释内容（MySQL特有）</li>
+<li>多行注释：/<em> 注释内容 </em>/ </li>
+</ul>
+</li>
+</ul>
+<h2 id="二、SQL分类"><a href="#二、SQL分类" class="headerlink" title="二、SQL分类"></a>二、SQL分类</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">分类</th>
+<th style="text-align:center">全称</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">DDL</td>
+<td style="text-align:center">Data Definition Language</td>
+<td style="text-align:center">数据定义语言，用来定义数据库对象（数据库、表、字段）。常见语句有CREATE、ALTER和DROP等</td>
+</tr>
+<tr>
+<td style="text-align:center">DML</td>
+<td style="text-align:center">Data Manipulation Language</td>
+<td style="text-align:center">数据操作语言，用于对数据库中表的数据记录进行操作，包括插入、更新和删除数据。常见语句有INSERT、UPDATE和DELETE等</td>
+</tr>
+<tr>
+<td style="text-align:center">DQL</td>
+<td style="text-align:center">Data Query Language</td>
+<td style="text-align:center">数据查询语言，用于查询数据库中的数据。SELECT语句可以根据条件过滤数据、排序数据、分组数据等</td>
+</tr>
+<tr>
+<td style="text-align:center">DCL</td>
+<td style="text-align:center">Data Control Language</td>
+<td style="text-align:center">数据控制语言，用于控制数据库的访问权限和安全性。常见语句有GRANT和REVOKE等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="三、DDL"><a href="#三、DDL" class="headerlink" title="三、DDL"></a>三、DDL</h2><p><strong>查询</strong></p>
+<ul>
+<li>查询所有数据库：<code>SHOW DATABASES;</code></li>
+<li>查询当前数据库：<code>SELECT DATABASE();</code></li>
+</ul>
+<p><strong>创建</strong></p>
+<ul>
+<li><code>CREATE DATABASE [IF NOT EXISTS] 数据库名 [DEFAULT CHARSET 字符集] [COLLATE 排序规则];</code></li>
+</ul>
+<p><strong>删除</strong></p>
+<ul>
+<li><code>DROP DATABASE [IF EXSITS] 数据库名;</code></li>
+</ul>
+<p><strong>使用</strong></p>
+<ul>
+<li><code>USE 数据库名;</code></li>
+</ul>
+<p><strong>查询当前数据库所有表</strong></p>
+<ul>
+<li><code>SHOW TABLES;</code></li>
+</ul>
+<p><strong>查询表结构</strong></p>
+<ul>
+<li><code>DESC 表名;</code></li>
+</ul>
+<p><strong>查询指定表的建表语句</strong></p>
+<ul>
+<li><code>SHOW CREATE TABLE 表名;</code></li>
+</ul>
+<p><strong>添加字段</strong></p>
+<p><code>ALTER TABLE 表名 ADD 字段名 类型(长度)[COMMENT注释][约束]</code></p>
+<p><strong>修改数据类型</strong></p>
+<p><code>ALTER TABLE 表名 MODIFY 字段名 新数据类型(长度);</code></p>
+<p><strong>修改字段名和字段类型</strong></p>
+<p><code>ALTER TABLE 表名 CHANGE 旧字段名 新字段名 类型(长度)[COMMENT 注释][约束];</code> </p>
+<p><strong>删除字段</strong></p>
+<p><code>ALTER TABLE 表名 DROP 字段名;</code></p>
+<p><strong>修改表名</strong></p>
+<p><code>ALTER TABLE 表名 RENAME TO 新表名;</code></p>
+<p><strong>删除表</strong></p>
+<p><code>DROP TABLE[IF EXISTS] 表名;</code></p>
+<p><strong>删除指定表并重新创建该表</strong></p>
+<p><code>TRUNCATE TABLE 表名;</code></p>
+<p><strong>创建</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名(</span><br><span class="line">	字段<span class="number">1</span> 字段<span class="number">1</span>类型[COMMENT 字段<span class="number">1</span>注释],</span><br><span class="line">    字段<span class="number">2</span> 字段<span class="number">2</span>类型[COMMENT 字段<span class="number">2</span>注释],</span><br><span class="line">    字段<span class="number">3</span> 字段<span class="number">3</span>类型[COMMENT 字段<span class="number">3</span>注释],</span><br><span class="line">    ...</span><br><span class="line">    字段n 字段n类型[COMMENT 字段n注释]</span><br><span class="line">)[COMMENT 表注释];</span><br></pre></td></tr></table></figure>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230704202442658.png" alt="image-20230704202442658"></p>
+<blockquote>
+<h3 id="根据需求创建表（设计合理的数据类型、长度）"><a href="#根据需求创建表（设计合理的数据类型、长度）" class="headerlink" title="根据需求创建表（设计合理的数据类型、长度）"></a>根据需求创建表（设计合理的数据类型、长度）</h3><p>设计一张员工信息表，要求如下</p>
+<ol>
+<li>编号（纯数字）</li>
+<li>员工工号（字符串类型，长度不超过10位）</li>
+<li>员工姓名（字符串类型，长度不超过10位）</li>
+<li>性别（男/女，存储一个汉字）</li>
+<li>年龄（正常人年龄，不可能存储负数）</li>
+<li>身份证号（二代身份证号均为18位，身份证中有X这样的字符）</li>
+<li>入职时间（取值年月日即可）</li>
+</ol>
+</blockquote>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230712212739573.png" alt="image-20230712212739573"></p>
+<blockquote>
+<h3 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a>表操作</h3><ol>
+<li>为emp增加一个新的字段”昵称”即nickname，类型为varchar(20)</li>
+<li>将emp表的nickname字段修改为username,类型为varchar(30)</li>
+<li>将emp表的字段username删除</li>
+<li>将emp表的表名修改为employee</li>
+</ol>
+</blockquote>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230713212941479.png" alt="image-20230713212941479"></p>
+<p>  <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230713213445629.png" alt="image-20230713213445629"></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230713213536879.png" alt="image-20230713213536879"></p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>分为数据库操作和表操作</p>
+<h2 id="四、DML"><a href="#四、DML" class="headerlink" title="四、DML"></a>四、DML</h2><h3 id="添加数据（INSERT）"><a href="#添加数据（INSERT）" class="headerlink" title="添加数据（INSERT）"></a>添加数据（INSERT）</h3><p><strong>给指定字段添加数据</strong></p>
+<p><code>INSERT INTO 表名(字段名1, 字段名2, ...) VALUES(值1,值2,...);</code></p>
+<p><strong>给全部字段添加数据</strong></p>
+<p><code>INSERT INTO 表名 VALUES(值1,值2,...);</code></p>
+<p><strong>批量添加数据</strong></p>
+<p><code>INSERT INTO 表名(字段名1,字段名2,...) VALUES(值1,值2,...),(值1,值2,...),(值1,值2,...);</code></p>
+<p><code>INSERT INTO 表名 VALUES(值1,值2,...),(值1,值2,...),(值1,值2,...);</code></p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>插入数据时，指定的字段顺序需要与值的顺序是一一对应的</li>
+<li>字符串和日期型数据应该包含在引号中</li>
+<li>插入的数据大小，应该在字段的规定范围内</li>
+</ul>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716120141997.png" alt="image-20230716120141997"></p>
+<p>更改表的编码格式为utf8</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716121320050.png" alt="image-20230716121320050"></p>
+<p>超出字段范围</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716121637293.png" alt="image-20230716121637293"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716122323370.png" alt="image-20230716122323370"></p>
+<h3 id="修改数据（UPDATE）"><a href="#修改数据（UPDATE）" class="headerlink" title="修改数据（UPDATE）"></a>修改数据（UPDATE）</h3><p><code>UPDATE 表名 SET 字段名1=值1,字段名2=值2,...[WHERE 条件];</code></p>
+<p><strong>注意：</strong> 修改语句的条件可以有，也可以没有，如果没有条件，则修改整张表的所有数据</p>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716151825688.png" alt="image-20230716151825688"></p>
+<h3 id="删除数据（DELETE"><a href="#删除数据（DELETE" class="headerlink" title="删除数据（DELETE)"></a>删除数据（DELETE)</h3><p><code>DELETE FROM 表名[WHERE 条件];</code></p>
+<p><strong>注意：</strong> DELETE语句的条件可以有，也可以没有，如果没有，则会删除整张表的所有数据；DELETE语句不能删除某一个字段的值（可以使用UPDATE）</p>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716152553280.png" alt="image-20230716152553280"></p>
+<h2 id="五、DQL"><a href="#五、DQL" class="headerlink" title="五、DQL"></a>五、DQL</h2><p>【图解】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716155531060.png" alt="image-20230716155531060"></p>
+<h3 id="基本查询"><a href="#基本查询" class="headerlink" title="基本查询"></a>基本查询</h3><p><strong>查询多个字段</strong></p>
+<p><code>SELECT 字段1,字段2,字段3... FROM 表名;</code></p>
+<p><code>SELECT * FROM 表名;</code></p>
+<p><strong>设置别名</strong></p>
+<p><code>SELECT 字段1 [AS 别名1],字段2 [AS 别名2]... FROM 表名;</code></p>
+<p><strong>去除重复记录</strong></p>
+<p><code>SELECT DISTINCT 字段列表 FROM 表名;</code></p>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716162627810.png" alt="image-20230716162627810"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716162854515.png" alt="image-20230716162854515"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716163259094.png" alt="image-20230716163259094"></p>
+<p>查询去重</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716163601392.png" alt="image-20230716163601392"></p>
+<h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h3><p><code>SELECT 字段列表 FROM 表名 WHERE 条件列表;</code></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>比较运算符</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>=</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>&lt;&gt; 或 !=</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>BETWEEN … AND …</td>
+<td>在某个范围之内（含最小、最大值）</td>
+</tr>
+<tr>
+<td>IN(…)</td>
+<td>在in之后的列表中的值，多选一</td>
+</tr>
+<tr>
+<td>LIKE 占位符</td>
+<td>模糊匹配（_匹配单个字符，%匹配任意个字符）</td>
+</tr>
+<tr>
+<td>IS NULL</td>
+<td>是NULL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>逻辑运算符</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AND 或 &amp;&amp;</td>
+<td>并且（多个条件同时成立）</td>
+</tr>
+<tr>
+<td>OR 或 \</td>
+<td>\</td>
+<td></td>
+<td>或者（多个条件任意一个成立）</td>
+</tr>
+<tr>
+<td>NOT 或 ！</td>
+<td>非，不是</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>【实践图】</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 条件查询</span></span><br><span class="line"><span class="comment">-- 1. 查询年龄等于 88 的员工</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> age <span class="operator">=</span> <span class="number">88</span>;</span><br><span class="line"><span class="comment">-- 2. 查询年龄小于 20 的员工</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> age <span class="operator">&lt;</span> <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 3. 查询年龄小于等于 20 的员工</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> age <span class="operator">&lt;=</span> <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 4.查询没有身份证号的员工信息</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> idcard <span class="keyword">is</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 5. 查询有身份证号的员工信息</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> idcard <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 6.查询年龄不等于88的员工信息</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> age <span class="operator">!=</span> <span class="number">88</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> age <span class="operator">&lt;&gt;</span> <span class="number">88</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 7. 查询年龄在15岁（包含）到20岁（包含）之间的员工信息</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> age <span class="operator">&gt;=</span> <span class="number">15</span> <span class="operator">&amp;&amp;</span> age <span class="operator">&lt;=</span> <span class="number">20</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> age <span class="operator">&gt;=</span> <span class="number">15</span> <span class="keyword">and</span> age <span class="operator">&lt;=</span> <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> age <span class="keyword">between</span> <span class="number">15</span> <span class="keyword">and</span> <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 8. 查询性别为 女 且 年龄小于 25岁的员工信息</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> sex <span class="operator">=</span> <span class="string">&#x27;女&#x27;</span> <span class="keyword">and</span> age <span class="operator">&lt;=</span> <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 9. 查询年龄等于18 或 20 或 40 的员工信息</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> age <span class="operator">=</span> <span class="number">18</span> <span class="keyword">or</span> age <span class="operator">=</span> <span class="number">20</span> <span class="keyword">or</span> age <span class="operator">=</span> <span class="number">40</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> age <span class="keyword">in</span>(<span class="number">18</span>,<span class="number">20</span>,<span class="number">40</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 10. 查询姓名为两个字的员工信息</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">&#x27;__&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 11. 查询身份证最后一位是X的员工信息</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> idcard <span class="keyword">like</span> <span class="string">&#x27;%X&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716170419800.png" alt="image-20230716170419800"></p>
+<h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><p>聚合函数用于对数据进行计算和汇总</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COUNT</td>
+<td>计算指定列或行的数量</td>
+<td>SELECT COUNT(*) FROM table_name;</td>
+</tr>
+<tr>
+<td>SUM</td>
+<td>计算指定列的总和</td>
+<td>SELECT SUM(column_name) FROM table_name;</td>
+</tr>
+<tr>
+<td>AVG</td>
+<td>计算指定列的平均值</td>
+<td>SELECT AVG(column_name) FROM table_name;</td>
+</tr>
+<tr>
+<td>MAX</td>
+<td>找到指定列的最大值</td>
+<td>SELECT MAX(column_name) FROM table_name;</td>
+</tr>
+<tr>
+<td>MIN</td>
+<td>找到指定列的最小值</td>
+<td>SELECT MIN(column_name) FROM table_name;</td>
+</tr>
+<tr>
+<td>GROUP</td>
+<td>将指定列的值连接成一个字符</td>
+<td>SELECT GROUP_COUNT(column_name) FROM table_name;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code>SELECT 聚会函数(字段列表) FROM 表名;</code></p>
+<p><strong>注意：</strong> null不参与所有聚合函数运算</p>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716172019259.png" alt="image-20230716172019259"></p>
+<h3 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h3><p><code>SELECT 字段列表 FROM 表名 [WHERE 条件] GROUP BY 分组字段名 [HAVING 分组后过滤条件];</code></p>
+<blockquote>
+<p>where 与 having 区别</p>
+<ol>
+<li>执行时机不同：where是分组之前进行过滤，不满足where条件，不参与分组；而having是分组之后对结果进行过滤</li>
+<li>判断条件不同：where不能对聚合函数进行判断，而having可以</li>
+</ol>
+</blockquote>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716173358604.png" alt="image-20230716173358604"></p>
+<p><strong>注意：</strong> 执行顺序：where &gt; 聚合函数 &gt; having，分组之后，查询的字段一般为聚合函数或分组字段，查询其他字段无任何意义</p>
+<h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><p><code>SELECT 字段列表 FROM 表名 ORDER BY 字段1 排序方式, 字段2 排序方式2;</code></p>
+<p><strong>说明：</strong> 默认为升序排序即ASC，也可以降序排序DESC</p>
+<p><strong>注意：</strong> 如果是多字段排序，当第一个字段值相同时，才会根据第二个字段进行排序</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716210231328.png" alt="image-20230716210231328"></p>
+<h3 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h3><p><code>SELECT 字段列表 FROM 表名 LIMIT 起始索引,查询记录数;</code></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716210939381.png" alt="image-20230716210939381"></p>
+<p><strong>注意：</strong> </p>
+<ul>
+<li><p>起始索引从0开始，起始索引 = （查询页码 - 1）* 每页显示记录数</p>
+</li>
+<li><p>分页查询是数据库的方言，不同的数据库有不同的实现，MySQL中是LIMIT</p>
+</li>
+<li>如果查询的是第一页数据，起始索引可以省略，直接简写为 limit 10</li>
+</ul>
+<h3 id="综合练习"><a href="#综合练习" class="headerlink" title="综合练习"></a>综合练习</h3><blockquote>
+<h3 id="按要求完成如下DQL语句编写"><a href="#按要求完成如下DQL语句编写" class="headerlink" title="按要求完成如下DQL语句编写"></a>按要求完成如下DQL语句编写</h3><ol>
+<li>查询年龄为20，21，22，23岁的员工信息</li>
+<li>查询性别为男，且年龄在20-40岁（含）以内的姓名为三个字的员工</li>
+<li>统计员工表中，年龄小于60岁的，男性员工和女性员工的人数</li>
+<li>查询所有年龄小于等于35岁员工的姓名和年龄，并对查询结果按年龄升序排序，如果年龄相同按入职时间降序排序</li>
+<li>查询性别为男，且年龄再20-40岁（含）以内的前5个员工信息，对查询的结果按年龄升序排序，年龄相同的按入职时间升序排序</li>
+</ol>
+</blockquote>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716213636876.png" alt="image-20230716213636876"></p>
+<p>【图解 编写顺序 - 执行顺序】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716214505861.png" alt="image-20230716214505861"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716215121693.png" alt="image-20230716215121693"></p>
+<h2 id="六、DCL"><a href="#六、DCL" class="headerlink" title="六、DCL"></a>六、DCL</h2><h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><p><strong>查询用户</strong></p>
+<p><code>USE mysql;
+SELECT * FROM user;</code></p>
+<p><strong>创建用户</strong></p>
+<p><code>CREATE USER &#39;用户名&#39;@&#39;主机名&#39; IDENTIFIED BY &#39;密码&#39;;</code></p>
+<p><strong>修改用户密码</strong></p>
+<p><code>ALTER USER &#39;用户名&#39;@&#39;主机名&#39; IDENTIFIED WITH mysql_native_password BY &#39;新密码&#39;;</code></p>
+<p><strong>删除用户</strong></p>
+<p><code>DROP USER &#39;用户名&#39;@&#39;主机名&#39;;</code></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716221401550.png" alt="image-20230716221401550"></p>
+<p><strong>注意：</strong> 主机名可以使用%通配，这类SQL开发人员操作的比较少，主要是DBA（Database Administrator 数据库管理员）使用</p>
+<h3 id="权限控制"><a href="#权限控制" class="headerlink" title="权限控制"></a>权限控制</h3><p>MySQL定义了很多种权限，但常用的就以下几种：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>权限</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ALL，ALL PRIVILEGES</td>
+<td>所有权限</td>
+</tr>
+<tr>
+<td>SELECT</td>
+<td>查询数据</td>
+</tr>
+<tr>
+<td>INSERT</td>
+<td>插入数据</td>
+</tr>
+<tr>
+<td>UPDATE</td>
+<td>修改数据</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>删除数据</td>
+</tr>
+<tr>
+<td>ALTER</td>
+<td>修改表</td>
+</tr>
+<tr>
+<td>DROP</td>
+<td>删除数据库/表/视图</td>
+</tr>
+<tr>
+<td>CREATE</td>
+<td>创建数据库/表</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>其他权限描述及含义，可直接参考官方文档：<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc">https://dev.mysql.com/doc</a>；5.7版官方文档：<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en">https://dev.mysql.com/doc/refman/5.7/en</a>，8.0版官方文档：<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en">https://dev.mysql.com/doc/refman/8.0/en</a></p>
+<p><strong>查询权限</strong></p>
+<p><code>SHOW GRANTS FOR &#39;用户名&#39;@&#39;主机名&#39;;</code></p>
+<p><strong>授予权限</strong></p>
+<p><code>GRANT 权限列表 ON 数据库名.表名 FROM &#39;用户名&#39;@&#39;主机名&#39;;</code></p>
+<p><strong>撤销权限</strong></p>
+<p><code>REVOKE 权限列表 ON 数据库名.表名 FROM &#39;用户名&#39;@&#39;主机名&#39;;</code></p>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230717152542625.png" alt="image-20230717152542625"></p>
+<p>授予权限报错</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230717154632394.png" alt="image-20230717154632394"></p>
+<p><strong>排错过程</strong></p>
+<p>第一步 将授权的权限打开，然后重新加载并刷新权限表</p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230717161705785.png" alt="image-20230717161705785"></p>
+<p>第二步 重启mysql服务，以管理员身份打开命令行运行</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230717161802317.png" alt="image-20230717161802317"></p>
+<p>第三步 重新执行授权语句</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230717161935610.png" alt="image-20230717161935610"></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230717162132530.png" alt="image-20230717162132530"></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230717162253361.png" alt="image-20230717162253361"></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230717162345655.png" alt="image-20230717162345655"></p>
+<p><strong>注意：</strong> 多个权限之间使用逗号分隔；授权时，数据库名和表名可以使用*进行通配，代表所有</p>
+<h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><p>用户管理：主要用来管理哪些用户可以访问mysql数据库</p>
+<p>权限控制：用来控制当前用户连接上mysql之后可以访问哪些数据库哪些表，可以对数据库对象（数据库、表、字段）执行什么样的操作</p>
+<h2 id="七、数据类型"><a href="#七、数据类型" class="headerlink" title="七、数据类型"></a>七、数据类型</h2><ul>
+<li>MySQL中有多种数据类型可用于定义表中的列，主要包括以下五大类：<ul>
+<li>整数类型：TINYINT、INT、BIGINT</li>
+<li>浮点数类型：FLOAT、DOUBLE、DECIMAL</li>
+<li>字符串类型：CHAR、VARCHAR、TEXT</li>
+<li>日期类型：DATE、TIME、DATETIME、TIMESTAMP</li>
+<li>其他类型：BOOLEAN、BLOB</li>
+</ul>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>有符合（SIGNED）范围</th>
+<th>无符号（UNSIGNED）范围</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TINYINT</td>
+<td>1 byte</td>
+<td>(-128,127)</td>
+<td>(0,255)</td>
+<td>小整数值</td>
+</tr>
+<tr>
+<td>INT</td>
+<td>4 bytes</td>
+<td>(-2^31,2^31-1)</td>
+<td>(0,2^32-1)</td>
+<td>整数值</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>8 bytes</td>
+<td>(-2^63,2^63-1)</td>
+<td>(0,2^64-1)</td>
+<td>极大整数值</td>
+</tr>
+<tr>
+<td>FLOAT</td>
+<td>4 bytes</td>
+<td></td>
+<td></td>
+<td>单精度浮点数</td>
+</tr>
+<tr>
+<td>DOUBLE</td>
+<td>8 bytes</td>
+<td></td>
+<td></td>
+<td>双精度浮点数</td>
+</tr>
+<tr>
+<td>DECIMAL</td>
+<td></td>
+<td>依赖于M(精度)和D(标度)的值</td>
+<td>依赖于M(精度)和D(标度)的值</td>
+<td>小数值(精确定点数)</td>
+</tr>
+<tr>
+<td>CHAR</td>
+<td>0-255 bytes</td>
+<td></td>
+<td></td>
+<td>定长字符串</td>
+</tr>
+<tr>
+<td>VARCHAR</td>
+<td>0-65535 bytes</td>
+<td></td>
+<td></td>
+<td>变长字符串</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>0-65535 bytes</td>
+<td></td>
+<td></td>
+<td>长文本数据</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>注：CHAR(1)数据类型表示一个固定长度为1个字符的字符串</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>范围</th>
+<th>格式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DATE</td>
+<td>3 bytes</td>
+<td>1000-01-01 至 9999-12-31</td>
+<td>YYYY-MM-DD</td>
+<td>日期值</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>3 bytes</td>
+<td>-838:59:59 至 838:59:59</td>
+<td>HH:MM:SS</td>
+<td>时间值或持续时间</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+<td>8 bytes</td>
+<td>1000-01-01 00:00:00 至 9999-12-31 23:59:59</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>混合日期和时间值</td>
+</tr>
+<tr>
+<td>TIMESTAMP</td>
+<td>4 bytes</td>
+<td>1970-01-01 00:00:01 至 2038-01-19 03:14:07</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>混合日期和时间值，时间戳</td>
+</tr>
+<tr>
+<td>BLOB</td>
+<td>0-65535 bytes</td>
+<td></td>
+<td></td>
+<td>二进制字符串，可以用于存储图像、音频、视频等任意二进制数据</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>在MySQL中并没有布尔数据类型，即不支持boolean类型，因而采用TINYINT(1)或ENUM(‘0’, ‘1’)来表示布尔值，其中1对应true，0则对应false</p>
+</blockquote>
+<h2 id="八、MySQL图形化界面工具"><a href="#八、MySQL图形化界面工具" class="headerlink" title="八、MySQL图形化界面工具"></a>八、MySQL图形化界面工具</h2><p>之前一直使用Navicat作为MySQL的图形化界面工具，而黑马课程主要以DataGrip作为MySQL图形化界面工具作为演示，<u>正好借这次机会熟悉下DataGrip的使用，毕竟技多不压身</u></p>
+<h3 id="DataGrip简介"><a href="#DataGrip简介" class="headerlink" title="DataGrip简介"></a>DataGrip简介</h3><blockquote>
+<p>DataGrip是一种功能强大的数据库集成开发环境（IDE），由JetBrains公司开发。旨在提供一个统一的界面，用于管理和开发各种类型的数据库，包括关系型数据库（如MySQL、PostgreSQL、Oracle、SQL Server等）和NoSQL数据库（如MongoDB、Cassandra等）。</p>
+<p>DataGrip具有许多强大的功能，使得数据库开发变得更加高效和方便。以下是一些主要特点：</p>
+<ol>
+<li><p>多数据库支持：DataGrip支持多种类型的数据库，使得开发人员可以在一个工具中管理和查询不同类型的数据库。</p>
+</li>
+<li><p>数据库导航：DataGrip提供了一个直观的界面，用于浏览和导航数据库对象，如表、视图、存储过程等。开发人员可以快速找到并编辑所需的数据库对象。</p>
+</li>
+<li><p>SQL编辑器：DataGrip内置了一个强大的SQL编辑器，具有语法高亮、代码补全、代码导航等功能。开发人员可以轻松地编写和调试复杂的SQL查询。</p>
+</li>
+<li><p>数据库管理：DataGrip提供了一套全面的数据库管理工具，包括表格和索引的创建和修改、数据导入和导出、数据库备份和恢复等。</p>
+</li>
+<li><p>数据查询和可视化：DataGrip支持高级的数据查询和可视化功能，可以轻松地执行复杂的查询操作，并将结果以表格、图表等形式展示。</p>
+</li>
+<li><p>版本控制集成：DataGrip集成了常用的版本控制系统，如Git，使得开发人员可以方便地管理和跟踪数据库脚本的变更。</p>
+</li>
+</ol>
+<p>总的来说，DataGrip是一个功能强大的数据库开发工具，可以帮助开发人员更高效地管理和开发各种类型的数据库。无论是初学者还是经验丰富的数据库开发人员，都可以从DataGrip的各种功能和工具中受益。</p>
+</blockquote>
+<h3 id="DataGrip安装及激活"><a href="#DataGrip安装及激活" class="headerlink" title="DataGrip安装及激活"></a>DataGrip安装及激活</h3><p>官方最新版本: <a target="_blank" rel="noopener" href="https://www.jetbrains.com/datagrip/download/#section=windows">https://www.jetbrains.com/datagrip/download/#section=windows</a></p>
+<p>官方其他版本：<a target="_blank" rel="noopener" href="https://www.jetbrains.com/datagrip/download/other.html">https://www.jetbrains.com/datagrip/download/other.html</a></p>
+<p><strong>第一步  安装</strong></p>
+<p>这里选择2022.2.1版本进行安装使用</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230714220423682.png" alt="image-20230714220423682"></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230714212000179.png" alt="image-20230714212000179"></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230714220906265.png" alt="image-20230714220906265"></p>
+<p><strong>第二步 激活</strong></p>
+<p>双击运行脚本install-all-users.vbs</p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230714222615375.png" alt="image-20230714222615375"></p>
+<p>会提示安装补丁需要等待数秒。点击【确定】按钮后，过程大概 10 - 30 秒，如看到弹框提示 <code>Done</code> 时，表示激活破解成功</p>
+<p>  <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230714221601567.png" alt="image-20230714221601567"></p>
+<p>启动JetBrains产品，许可证激活选择激活码方式(Activate code)，获取激活码<a target="_blank" rel="noopener" href="https://3.jetbra.in">https://3.jetbra.in</a> ，可用站点需要具备使用Google搜索引擎的网络</p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230714222927954.png" alt="image-20230714222927954"></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230714223138876.png" alt="image-20230714223138876"></p>
+<h3 id="DataGrip初使用"><a href="#DataGrip初使用" class="headerlink" title="DataGrip初使用"></a>DataGrip初使用</h3><p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230714223417991.png" alt="image-20230714223417991"></p>
+<p>默认新建项目放在C盘，所以这里设置文件路径<code>D:\DataGrip\DataGripProjects\mysql-base</code></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230714224059661.png" alt="image-20230714224059661"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230714224139485.png" alt="image-20230714224139485"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230714224237640.png" alt="image-20230714224237640"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230714231011781.png" alt="image-20230714231011781"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230714231036560.png" alt="image-20230714231036560"></p>
+<p>删除无用数据库，然后创建数据库创建表并修改表，部分效果图如下</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716113942561.png" alt="image-20230716113942561"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230716114050425.png" alt="image-20230716114050425"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">松花鼠</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/6632.html">http://example.com/posts/6632.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">松果会</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/6631.html" title="MySQL基础篇"><img class="cover" src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">MySQL基础篇</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/avatar_hexo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">松花鼠</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lion-no-back"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://leetcode.cn/u/lion-no-back" target="_blank" title=""><i class="iconfont icon-leetcode"></i></a><a class="social-icon" href="mailto:hexo226@163.com" target="_blank" title=""><i class="iconfont icon-youxiang"></i></a><a class="social-icon" href="https://zjnanqu.top/atom.xml" target="_blank" title=""><i class="iconfont icon-RSS_flat"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">善用<span>标签</span>和<span>分类</span></div></div><div class="card-widget tzy-right-widget" id="card-wechat"><div id="flip-wrapper"><div id="flip-content"><div class="face"></div><div class="back face"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81SQL%E9%80%9A%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">一、SQL通用语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81SQL%E5%88%86%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">二、SQL分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81DDL"><span class="toc-number">3.</span> <span class="toc-text">三、DDL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E9%9C%80%E6%B1%82%E5%88%9B%E5%BB%BA%E8%A1%A8%EF%BC%88%E8%AE%BE%E8%AE%A1%E5%90%88%E7%90%86%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E3%80%81%E9%95%BF%E5%BA%A6%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">根据需求创建表（设计合理的数据类型、长度）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">3.2.</span> <span class="toc-text">表操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">3.3.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81DML"><span class="toc-number">4.</span> <span class="toc-text">四、DML</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE%EF%BC%88INSERT%EF%BC%89"><span class="toc-number">4.1.</span> <span class="toc-text">添加数据（INSERT）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%EF%BC%88UPDATE%EF%BC%89"><span class="toc-number">4.2.</span> <span class="toc-text">修改数据（UPDATE）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%EF%BC%88DELETE"><span class="toc-number">4.3.</span> <span class="toc-text">删除数据（DELETE)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81DQL"><span class="toc-number">5.</span> <span class="toc-text">五、DQL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.1.</span> <span class="toc-text">基本查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.2.</span> <span class="toc-text">条件查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="toc-number">5.3.</span> <span class="toc-text">聚合函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.4.</span> <span class="toc-text">分组查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.5.</span> <span class="toc-text">排序查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.6.</span> <span class="toc-text">分页查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0"><span class="toc-number">5.7.</span> <span class="toc-text">综合练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E8%A6%81%E6%B1%82%E5%AE%8C%E6%88%90%E5%A6%82%E4%B8%8BDQL%E8%AF%AD%E5%8F%A5%E7%BC%96%E5%86%99"><span class="toc-number">5.8.</span> <span class="toc-text">按要求完成如下DQL语句编写</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81DCL"><span class="toc-number">6.</span> <span class="toc-text">六、DCL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-number">6.1.</span> <span class="toc-text">用户管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6"><span class="toc-number">6.2.</span> <span class="toc-text">权限控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93-1"><span class="toc-number">6.3.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">7.</span> <span class="toc-text">七、数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81MySQL%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7"><span class="toc-number">8.</span> <span class="toc-text">八、MySQL图形化界面工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DataGrip%E7%AE%80%E4%BB%8B"><span class="toc-number">8.1.</span> <span class="toc-text">DataGrip简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DataGrip%E5%AE%89%E8%A3%85%E5%8F%8A%E6%BF%80%E6%B4%BB"><span class="toc-number">8.2.</span> <span class="toc-text">DataGrip安装及激活</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DataGrip%E5%88%9D%E4%BD%BF%E7%94%A8"><span class="toc-number">8.3.</span> <span class="toc-text">DataGrip初使用</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/6632.html" title="SQL"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SQL"/></a><div class="content"><a class="title" href="/posts/6632.html" title="SQL">SQL</a><time datetime="2023-10-12T02:10:00.000Z" title="发表于 2023-10-12 10:10:00">2023-10-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6631.html" title="MySQL基础篇"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL基础篇"/></a><div class="content"><a class="title" href="/posts/6631.html" title="MySQL基础篇">MySQL基础篇</a><time datetime="2023-10-11T13:28:00.000Z" title="发表于 2023-10-11 21:28:00">2023-10-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6630.html" title="MySQL导学"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL导学"/></a><div class="content"><a class="title" href="/posts/6630.html" title="MySQL导学">MySQL导学</a><time datetime="2023-10-11T13:25:00.000Z" title="发表于 2023-10-11 21:25:00">2023-10-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6531.html" title="从键入网址到页面显示，期间发生了什么？"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/TCP-IP%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从键入网址到页面显示，期间发生了什么？"/></a><div class="content"><a class="title" href="/posts/6531.html" title="从键入网址到页面显示，期间发生了什么？">从键入网址到页面显示，期间发生了什么？</a><time datetime="2023-10-11T10:33:00.000Z" title="发表于 2023-10-11 18:33:00">2023-10-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6530.html" title="TCP/IP网络模型"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/TCP-IP%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="TCP/IP网络模型"/></a><div class="content"><a class="title" href="/posts/6530.html" title="TCP/IP网络模型">TCP/IP网络模型</a><time datetime="2023-10-10T13:25:00.000Z" title="发表于 2023-10-10 21:25:00">2023-10-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By 松花鼠</div><div class="footer_custom_text"><p><a target="_blank" href="https://hexo.io/zh-cn"><img src="https://img.shields.io/badge/Frame-Hexo-blue?logo=hexo" title="博客框架为Hexo_v6.3.0"></a>&nbsp;&nbsp;<a target="_blank" href="https://butterfly.js.org"><img src="https://img.shields.io/badge/Theme-Butterfly-00c4b6?logo=bitdefender" title="主题采用butterfly_v4.9.0"></a>&nbsp;&nbsp;<a target="_blank" href="https://www.dogecloud.com"><img src="https://img.shields.io/badge/CDN-%E5%A4%9A%E5%90%89%E4%BA%91-3693F3?logo=icloud" title="本站使用多吉云为静态资源提供CDN加速"></a>&nbsp;&nbsp;<a target="_blank" href="https://beian.miit.gov.cn/"><img src="https://img.shields.io/badge/%E9%84%82ICP%E5%A4%87-2023009215%E5%8F%B7-%23F22387" title="本站已在鄂备案"></a>&nbsp;&nbsp;<a target="_blank" href="https://vercel.com/dashboard "><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?logo=vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?logo=github" title="本站项目由Gtihub托管"></a>&nbsp;&nbsp;<a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%25204.0-d42328?logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script src="/js/mouse_move.js"></script><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="/js/fish.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script></div><!-- hexo injector body_end start --><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
