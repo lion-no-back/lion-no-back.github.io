@@ -1,0 +1,608 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux | 松果会</title><meta name="author" content="松花鼠"><meta name="copyright" content="松花鼠"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="视频地址B站黑马：缘起 —— 缘灭 一、Linux 简介Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个基于 POSIX 和 UNIX 的多用户、多任务、支持多线程和多 CPU 的操作系统 Linux 不仅系统性能稳定，还开放了源码 桌面操作系统  Windows（用户数量最多） Mac OS Linux  服务器操作系统  UNIX Linux Windows Server">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux">
+<meta property="og:url" content="http://example.com/posts/6639.html">
+<meta property="og:site_name" content="松果会">
+<meta property="og:description" content="视频地址B站黑马：缘起 —— 缘灭 一、Linux 简介Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个基于 POSIX 和 UNIX 的多用户、多任务、支持多线程和多 CPU 的操作系统 Linux 不仅系统性能稳定，还开放了源码 桌面操作系统  Windows（用户数量最多） Mac OS Linux  服务器操作系统  UNIX Linux Windows Server">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png">
+<meta property="article:published_time" content="2023-10-13T11:23:00.000Z">
+<meta property="article:modified_time" content="2023-10-13T11:22:34.676Z">
+<meta property="article:author" content="松花鼠">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png"><link rel="shortcut icon" href="/img/hexo.ico"><link rel="canonical" href="http://example.com/posts/6639.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-13 19:22:34'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/404.css"><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/css/fish_transparent.css"><link rel="stylesheet" href="/css/wx_card.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/icon.css"><link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/tag_plugins.min.css" media="defer" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/carousel-touch.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="松果会" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/avatar_hexo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/"><img class="site-icon" src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/hexo_ico.png"/><span class="site-name">松果会</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Linux</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-13T11:23:00.000Z" title="发表于 2023-10-13 19:23:00">2023-10-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-13T11:22:34.676Z" title="更新于 2023-10-13 19:22:34">2023-10-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/MySQL/">MySQL</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span></div></div></div><article class="post-content" id="article-container"><h2 id="视频地址"><a href="#视频地址" class="headerlink" title="视频地址"></a>视频地址</h2><p>B站黑马：<a target="_blank" rel="noopener" href="https://b23.tv/av213091208/p118">缘起</a> —— <a target="_blank" rel="noopener" href="https://b23.tv/av213091208/p141">缘灭</a></p>
+<h2 id="一、Linux-简介"><a href="#一、Linux-简介" class="headerlink" title="一、Linux 简介"></a>一、Linux 简介</h2><p>Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个基于 POSIX 和 UNIX 的多用户、多任务、支持多线程和多 CPU 的操作系统</p>
+<p>Linux 不仅系统性能稳定，还开放了源码</p>
+<p><strong>桌面操作系统</strong></p>
+<ul>
+<li>Windows（用户数量最多）</li>
+<li>Mac OS</li>
+<li>Linux</li>
+</ul>
+<p><strong>服务器操作系统</strong></p>
+<ul>
+<li>UNIX</li>
+<li>Linux</li>
+<li>Windows Server</li>
+</ul>
+<p><strong>移动设备操作系统</strong></p>
+<ul>
+<li>Android（基于Linux、开源）</li>
+<li>IOS（苹果公司开发、不开源）</li>
+</ul>
+<p><strong>嵌入式操作系统</strong></p>
+<ul>
+<li>Linux（机顶盒、路由器、交换机）</li>
+</ul>
+<p>【图解】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230721112920496.png" alt="image-20230721112920496"></p>
+<h3 id="Linux-系统版本"><a href="#Linux-系统版本" class="headerlink" title="Linux 系统版本"></a>Linux 系统版本</h3><p><strong>内核版</strong></p>
+<ul>
+<li>由Linus Torvalds及其团队开发、维护</li>
+<li>开源免费</li>
+<li>负责控制硬件</li>
+</ul>
+<p><strong>发行版</strong></p>
+<ul>
+<li>基于Linux内核版进行扩展</li>
+<li>由各个Linux厂商开发和维护的</li>
+<li>有收费版本和免费版本</li>
+</ul>
+<p>市面上较为知名的Linux发行版如下：</p>
+<ul>
+<li>Ubuntu：以桌面应用为主</li>
+<li>RedHat：应用最广泛、收费</li>
+<li>CentOS：RedHat的社区版、免费</li>
+<li>openSUSE：对个人完全免费、图形界面华丽</li>
+<li>Fedora：功能完备、快速更新、免费</li>
+<li>红旗Linux：北京中科红旗软件技术有限公司开发（中科红旗承诺，红旗Linux桌面操作系统 v11及后续迭代版本永久向个人及家庭用户免费提供）</li>
+</ul>
+<p>【图解】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230721151343628.png" alt="image-20230721151343628"></p>
+<h2 id="二、Linux-安装"><a href="#二、Linux-安装" class="headerlink" title="二、Linux 安装"></a>二、Linux 安装</h2><p>Linux系统安装方式</p>
+<ul>
+<li>物理机安装：直接将操作系统安装到服务器硬件上</li>
+<li>虚拟机安装：通过虚拟机软件安装</li>
+</ul>
+<p><strong>虚拟机</strong>是指通过软件模拟的具有完整硬件系统功能的、运行在一个完全隔离环境中的完整计算机系统。虚拟机技术的核心思想是将物理计算机的资源（如处理器、内存、存储等）进行虚拟化，使多个虚拟机可以共享这些资源，并在其上运行不同的操作系统和应用程序</p>
+<p>可以通过虚拟机软件来模拟计算机硬件</p>
+<p>常用的虚拟机软件：VMWare、VirtualBox…</p>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230721182825817.png" alt="image-20230721182825817"></p>
+<h2 id="三、安装SSH连接工具"><a href="#三、安装SSH连接工具" class="headerlink" title="三、安装SSH连接工具"></a>三、安装SSH连接工具</h2><p>SSH（Secure Shell）是一种网络协议，用于在不安全的网络中安全地进行远程登录和数据传输。它通过加密和身份验证机制，确保数据在传输过程中的安全性</p>
+<p>常用的SSH连接工具：putty、filezilla、xshell、finalshell</p>
+<p>通过SSH连接工具就可以实现从本地连接到远程的Linux服务器</p>
+<p>这里选择使用finalshell作为SSH连接工具</p>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230721184522862.png" alt="image-20230721184522862"></p>
+<p>然后使用FinalShell连接Linux</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230721184801284.png" alt="image-20230721184801284"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230721185020990.png" alt="image-20230721185020990"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230721185105224.png" alt="image-20230721185105224"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230721185159433.png" alt="image-20230721185159433"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230721185246363.png" alt="image-20230721185246363"></p>
+<h2 id="四、Linux目录结构"><a href="#四、Linux目录结构" class="headerlink" title="四、Linux目录结构"></a>四、Linux目录结构</h2><p>在Linux系统中，/是所有目录的顶点</p>
+<blockquote>
+<ul>
+<li>bin 存放二进制可执行文件</li>
+<li>boot 存放系统引导时使用的各种文件</li>
+<li>dev 存放设备文件</li>
+<li>etc 存放系统配置文件</li>
+<li>home 存放系统用户的文件</li>
+<li>lib 存放程序运行所需的共享库和内核模块</li>
+<li>opt 额外安装的可选应用程序包所放置的位置</li>
+<li>root 超级用户目录</li>
+<li>sbin 存放二进制可执行文件，只有root用户才能访问</li>
+<li>tmp 存放临时文件</li>
+<li>usr 存放系统应用程序</li>
+<li>var 存放运行时需要改变数据的文件，例如日志文件</li>
+</ul>
+</blockquote>
+<p>【图解】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230721193044740.png" alt="image-20230721193044740"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230721194624566.png" alt="image-20230721194624566"></p>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230721195140040.png" alt="image-20230721195140040"></p>
+<h2 id="五、Linux-常用命令"><a href="#五、Linux-常用命令" class="headerlink" title="五、Linux 常用命令"></a>五、Linux 常用命令</h2><ul>
+<li>文件目录操作命令</li>
+<li>拷贝移动命令</li>
+<li>打包压缩命令</li>
+<li>文本编辑命令</li>
+<li>查找命令</li>
+</ul>
+<p>常用命令列表</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>命令</th>
+<th>英文全称</th>
+<th>含义</th>
+<th>语法</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文件目录操作</td>
+<td>cd</td>
+<td>change directory</td>
+<td>切换用户当前工作目录</td>
+<td>`cd [-L</td>
+<td>[-P [-e]]] [dir]`</td>
+<td><code>cd /</code></td>
+</tr>
+<tr>
+<td>文件目录操作</td>
+<td>cp</td>
+<td>copy</td>
+<td>将源文件或目录复制到目标文件或目录中</td>
+<td><code>cp(选项)(参数)</code></td>
+<td><code>cp file /usr/men/tmp/file1</code></td>
+</tr>
+<tr>
+<td>文件目录操作</td>
+<td>rm</td>
+<td>remove</td>
+<td>用于删除给定的文件和目录</td>
+<td><code>rm(选项)(参数)</code></td>
+<td><code>rm -rf testdir</code></td>
+</tr>
+<tr>
+<td>文件目录操作</td>
+<td>mv</td>
+<td>move</td>
+<td>对文件或目录移动或重命名</td>
+<td><code>mv(选项)(参数)</code></td>
+<td><code>mv file_1.txt /home/office/</code></td>
+</tr>
+<tr>
+<td>文件目录操作</td>
+<td>rmdir</td>
+<td>remove directory</td>
+<td>用来删除空目录</td>
+<td><code>rmdir(选项)(参数)</code></td>
+<td><code>rmdir -p www/Test</code></td>
+</tr>
+<tr>
+<td>文件目录操作</td>
+<td>touch</td>
+<td>touch</td>
+<td>更新文件的时间标签和创建新的空文件</td>
+<td><code>touch(选项)(参数)</code></td>
+<td><code>touch ex2</code></td>
+</tr>
+<tr>
+<td>文件目录操作</td>
+<td>mkdir</td>
+<td>make directory</td>
+<td>用来创建目录</td>
+<td><code>mkdir(选项)(参数)</code></td>
+<td><code>mkdir -m 700 /usr/meng/test</code></td>
+</tr>
+<tr>
+<td>文件目录操作</td>
+<td>clear</td>
+<td>clear</td>
+<td>清除当前屏幕终端上的任何信息</td>
+<td><code>clear</code></td>
+<td>输入clear后当前终端上的任何信息就会被清除</td>
+</tr>
+<tr>
+<td>文件目录操作</td>
+<td>li</td>
+<td>list</td>
+<td>显示目录内容列表</td>
+<td><code>ls [选项] [文件名...]</code></td>
+<td><code>ls -l</code></td>
+</tr>
+<tr>
+<td>文件目录操作</td>
+<td>tree</td>
+<td>tree</td>
+<td>树状图列出目录的内容</td>
+<td><code>tree(选项)(参数)</code></td>
+<td><code>tree  /private/ -L 1</code></td>
+</tr>
+<tr>
+<td>文件目录操作</td>
+<td>cat</td>
+<td>cat</td>
+<td>显示文件内容和连接多个文件并打印到标准输出</td>
+<td><code>cat [OPTION]... [FILE]...</code></td>
+<td><code>cat -s test.log</code></td>
+</tr>
+<tr>
+<td>文件目录操作</td>
+<td>pwd</td>
+<td>print work directory</td>
+<td>显示当前工作目录的绝对路径</td>
+<td><code>pwd [-LP]</code></td>
+<td><code>pwd</code></td>
+</tr>
+<tr>
+<td>文件目录操作</td>
+<td>man</td>
+<td>man</td>
+<td>查看Linux中的指令帮助</td>
+<td><code>man(选项)(参数)</code></td>
+<td><code>man 3 sleep</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>🔥Linux命令有很多，如何快速了解相关命令，可通过查询<a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/hot.html">命令列表</a>详细快速了解</p>
+<p>🔥Linux命令有很多，如何快速找到具有某项功能的命令，可通过查询<a target="_blank" rel="noopener" href="https://www.linuxcool.com">Linux命令大全</a>详细快速了解</p>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722151611969.png" alt="image-20230722151611969"></p>
+<h3 id="Linux-使用技巧"><a href="#Linux-使用技巧" class="headerlink" title="Linux 使用技巧"></a>Linux 使用技巧</h3><ul>
+<li><p>按下<kbd>Tab</kbd>键可自动补全</p>
+</li>
+<li><p>连按两次<kbd>Tab</kbd>键可给出操作提示</p>
+</li>
+<li>使用上下箭头快速调出曾经使用过的命令</li>
+<li>使用clear命令或者<code>ctrl+l</code>快捷键实现清屏</li>
+<li>使用<code>ctrl+a</code>实现定位到命令行行首，使用<code>ctrl+e</code>实现定位到命令行行尾</li>
+</ul>
+<h3 id="Linux-命令格式"><a href="#Linux-命令格式" class="headerlink" title="Linux 命令格式"></a>Linux 命令格式</h3><p><code>command [-options][parameter]</code></p>
+<p><i>说明：</i></p>
+<ul>
+<li>command：命令名</li>
+<li>[-options]：选项，可用来对命令进行控制，可省略</li>
+<li>[parameter]：参数，可以是零个或多个</li>
+</ul>
+<p><strong>注意：</strong> 命令名、选项和参数用空格分隔，<code>[]</code>代表可选</p>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722153728560.png" alt="image-20230722153728560"></p>
+<h3 id="文件目录操作"><a href="#文件目录操作" class="headerlink" title="文件目录操作"></a>文件目录操作</h3><p><code>ls</code>显示指定目录下的内容，语法：<code>ls [-al][dir]</code></p>
+<p><strong>说明：</strong> -a 显示所有文件及目录（.开头的隐藏文件也会列出），-l 除文件名称外，同时将文件型态（d开头表示目录、-开头表示文件）、权限、拥有者、文件大小等信息详细列出</p>
+<p><strong>注意：</strong> 由于使用ls命令时经常需要加入<code>-l</code>选项，所以Linux为<code>ls -l</code>命令提供了一种简写方式，即<code>ll</code></p>
+<p><code>cd</code>用于切换当前工作目录，即进入指定目录，语法：<code>cd [dirName]</code></p>
+<p><strong>说明：</strong> <code>~</code>表示用户的home目录，<code>.</code>表示当前所在目录，<code>..</code>表示当前目录的上一级目录</p>
+<p><code>cat</code>用于显示文件内容，语法：<code>cat [-n] fileName</code></p>
+<p><strong>说明：</strong> -n：由1开始对所有输出的行数编号</p>
+<p><code>more</code>以分页的形式显示文件内容，语法：<code>more fileName</code></p>
+<p><strong>操作说明：</strong> 回车键即向下滚动一行，空格键即向下滚动一屏，b即返回上一屏，q或者ctrl+c即退出more</p>
+<p><code>tail</code>查看文件末尾的内容，语法：<code>tail [-f] fileName</code></p>
+<p><strong>说明：</strong> -f动态读取文件末尾内容并显示，通常用于日志文件的内容输出</p>
+<p><code>mkdir</code>用于创建目录，语法：<code>mkdir [-p] fileName</code></p>
+<p><strong>说明：</strong> -p是确保目录名称存在，不存在就创建一个。通过此选项，可以实现多层目录同时创建</p>
+<p><code>rmdir</code>删除空目录，语法：<code>rmdir [-p] dirName</code></p>
+<p><strong>说明：</strong> -p是确保当子目录被删除后使父目录为空目录的话则一并删除</p>
+<p><code>rm</code>删除文件或目录，语法：<code>rm [-rf] name</code></p>
+<p><strong>说明：</strong> -r：将目录及目录中所有文件（目录）逐一删除，即递归删除，-f：无需确认，直接删除</p>
+<h3 id="拷贝移动命令"><a href="#拷贝移动命令" class="headerlink" title="拷贝移动命令"></a>拷贝移动命令</h3><p><code>cp</code>用于复制文件或目录，语法：<code>cp [-r] source dest</code></p>
+<p><strong>说明：</strong> -r：如果复制的是目录需要使用此选项，此时将复制该目录下所有的子目录和文件</p>
+<p><strong>案例：</strong> <code>cp -r itcast/ itheima/</code>是将itcast目录和目录下所有目录及文件复制到itheima目录下，<code>cp -r itcast/* itheima/</code>是将itcast目录下所有文件复制到itheima目录下</p>
+<p><code>mv</code>为文件或目录重命名，也可以将文件或目录进行移动，语法：<code>mv source dest</code></p>
+<p><strong>案例：</strong> <code>mv hello.txt hi.txt</code>是将hello.txt改名为hi.txt，<code>mv hi.txt itheima/</code>是将文件hi.txt移动到itheima目录中，<code>mv hi.txt itheima/hello.txt</code>是将hi.txt移动到itheima目录中并改名为itheima，<code>mv itcast/ itheima/</code>是当itheima目录不存在，将itcast目录改名为itheima，<code>mv itcast/ itheima/</code>是当itheima目录存在，将itcast目录移动到itheima目录中</p>
+<h3 id="打包压缩命令"><a href="#打包压缩命令" class="headerlink" title="打包压缩命令"></a>打包压缩命令</h3><p><code>tar</code>对文件进行打包、解包、压缩或解压缩，语法：<code>tar [-zcxvf] fileName [files]</code></p>
+<p><strong>说明：</strong> 包文件名缀为.tar表示只是完成了打包，并没有压缩；包文件后缀为.tar.gz表示完成了打包还进行了压缩</p>
+<p><strong>参数选项：</strong> </p>
+<ul>
+<li>-z：z代表的是gzip，通过gzip命令处理文件，gzip可以对文件压缩或解压</li>
+<li>-c：c代表的是create，即创建新的包文件</li>
+<li>-x：x代表的是extract，实现从包文件中还原文件</li>
+<li>-v：v代表的是verbose，显示命令的执行过程</li>
+<li>-f：f代表的是file，用于指定包文件的名称</li>
+</ul>
+<p><strong>案例：</strong><code>tar -zxvf hello.tar.gz</code>将hello.tar.gz文件进行解压并将解压后的文件放在当前目录， <code>tar -zxvf hello.tar.gz -C /usr/local</code>将hello.tar.gz文件进行解压并将解压后的文件放在/usr/local目录下</p>
+<h3 id="文本编辑命令"><a href="#文本编辑命令" class="headerlink" title="文本编辑命令"></a>文本编辑命令</h3><p><code>vi</code>是Linux命令提供的一个文本编辑工具，可以对文件内容进行编辑，类似于Windows记事本，语法：<code>vi fileName</code></p>
+<p><code>vim</code>是从vi发展来的一个功能更加强大的文本编辑工具，在编辑文件时可以对文件内容进行着色，方便对文件进行编辑处理，所以实际中vim更加常用，而要使用vim命令则需要安装：<code>yum install vim</code></p>
+<p><code>vim</code>对文件内容进行编辑，语法：<code>vim fileName</code></p>
+<p><strong>说明：</strong> 在使用vim命令编辑文件时，如果指定的文件存在则直接打开此文件，如果指定的文件不存在则新建文件；vim进行文本编辑时共分为三种模式，分别是命令行模式、插入模式和底行模式，这三种模式可以互相切换，在使用vim时一定要注意当前所处模式</p>
+<p><strong>命令模式</strong></p>
+<ul>
+<li>通过vim命令打开文件后默认进入命令模式，另外两种模式需要首先进入命令模式才能进入彼此</li>
+<li>命令模式下可以查看文件内容、移动光标（上下左右箭头、gg、G）</li>
+</ul>
+<p><strong>插入模式</strong></p>
+<ul>
+<li>插入模式下可以对文件内容进行编辑</li>
+<li>在命令模式下按下[i,a,o]任意一个，可以进入插入模式，进入插入模式后，下方会出现【insert】字样</li>
+<li>在插入模式下按下<kbd>ESC</kbd>键即可回到命令模式</li>
+</ul>
+<p><strong>底行模式</strong></p>
+<ul>
+<li>底行模式下可以通过命令对文件内容进行查找、显示行号、退出等操作</li>
+<li>在命令模式下按下[:,/]任意一个就可进入底行模式</li>
+<li>通过/方式进入底行模式后，可以对文件内容进行查找</li>
+<li>通过:方式进入底行模式后，可以输入wq（保存并退出）、q!（不保存退出）、set nu（显示行号）</li>
+</ul>
+<h3 id="查找命令"><a href="#查找命令" class="headerlink" title="查找命令"></a>查找命令</h3><p><code>find</code>在指定目录下查找文件，语法：<code>find dirName -option fileName</code></p>
+<p><strong>案例：</strong> <code>find . -name &quot;*.java&quot;</code>即在当前目录及其子目录下查找.java结尾文件，<code>find /itcast -name &quot;*.java&quot;</code>在/itcast目录及其子目录下查找.java结尾的文件</p>
+<p><code>grep</code>从指定文件中查找指定的文件内容，语法：<code>gerp content fileName</code></p>
+<p><strong>案例：</strong> <code>grep Hello HelloWorld.java</code>即查找HelloWorld.java文件中出现的Hello字符串的位置，<code>grep hello *.java</code>即查找当前目录中所有.java结尾的文件中包含hello字符串的位置</p>
+<h2 id="六、软件安装"><a href="#六、软件安装" class="headerlink" title="六、软件安装"></a>六、软件安装</h2><ul>
+<li>软件安装方式</li>
+<li>安装jdk</li>
+<li>安装Tomcat</li>
+<li>安装MySQL</li>
+<li>安装lrzsz</li>
+</ul>
+<h3 id="软件安装方式"><a href="#软件安装方式" class="headerlink" title="软件安装方式"></a>软件安装方式</h3><p><strong>二进制发布包安装：</strong> 软件已经针对具体平台编译打包发布，只要解压，修改配置即可</p>
+<p><strong>rpm安装：</strong> 软件已经按照redhat的包管理规范进行打包，使用rpm命令进行安装，不能自行解决库依赖问题</p>
+<p><strong>yum安装：</strong> 一种在线软件安装方式，本质上还是rpm安装，会自动下载安装包并安装，安装过程中自动解决库依赖问题</p>
+<p><strong>源码编译安装：</strong> 软件以源码工程的形式发布，需要自己编译打包</p>
+<h3 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h3><p><strong>第一步</strong> 从<a target="_blank" rel="noopener" href="https://repo.huaweicloud.com/java/jdk">HUAWEI镜像源</a>下载Linux版JDK安装包</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722200024421.png" alt="image-20230722200024421"></p>
+<p><strong>第二步</strong> 使用FinalShell自带的上传功能将jdk的二进制发布包上传到Linux</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722200944039.png" alt=""></p>
+<p><strong>第三步</strong> 解压安装包，命令为<code>tar -zxvf jdk-8u171-linux-x64.tar.gz -C /usr/local</code></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722201903688.png" alt="image-20230722201903688"></p>
+<p><strong>第四步</strong> 配置环境变量，使用vim命令修改/etc/profile文件，在文件末尾添加如下配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/local/jdk1.8.0_171</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722202606590.png" alt="image-20230722202606590"></p>
+<p><strong>第五步</strong> 重新加载profile文件，使更改的配置立即生效，命令：<code>source /etc/profile</code>；检查安装是否成功，命令：<code>java -version</code></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722202750491.png" alt="image-20230722202750491"></p>
+<h3 id="安装Tomcat"><a href="#安装Tomcat" class="headerlink" title="安装Tomcat"></a>安装Tomcat</h3><p><strong>第一步</strong> 从<a target="_blank" rel="noopener" href="https://tomcat.apache.org/download-80.cgi">官方网站</a>下载Tomcat二进制发布包</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722203613052.png" alt="image-20230722203613052"></p>
+<p><strong>第二步</strong> 使用FinalShell自带的上传工具将Tomcat的二进制发布包上传到Linux</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722204945129.png" alt="image-20230722204945129"></p>
+<p><strong>第三步</strong> 解压安装包，命令为<code>tar -zxvf apache-tomcat-8.5.91.tar.gz -C /usr/local</code></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722205136431.png" alt="image-20230722205136431"></p>
+<p><strong>第四步</strong> 进入Tomcat的bin目录启动服务，命令为<code>sh startup.sh</code>或<code>./startup.sh</code></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722205422438.png" alt="image-20230722205422438"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722205602577.png" alt="image-20230722205602577"></p>
+<h4 id="验证Tomcat启动"><a href="#验证Tomcat启动" class="headerlink" title="验证Tomcat启动"></a>验证Tomcat启动</h4><p><strong>查看启动日志</strong></p>
+<p><code>more /usr/local/apache-tomcat-8.5.91/logs/catalina.out</code></p>
+<p><code>tail -50 /usr/local/apache-tomcat-8.5.91/logs/catalina.out</code></p>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722210219464.png" alt="image-20230722210219464"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722210300100.png" alt="image-20230722210300100"></p>
+<p><strong>查看进程</strong></p>
+<p><code>ps -ef|grep tomcat</code></p>
+<ul>
+<li>ps命令是Linux下非常强大的进程查看命令，通过ps -ef可以查看当前运行的所有进程的详细信息</li>
+<li>”|“在Linux中称为管道符，可以将前一个命令的结果输出给后一个命令作为输入</li>
+<li>使用ps命令查看进程时，经常配合管道符和查找命令grep一起使用，来查看特定进程</li>
+</ul>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722210847479.png" alt="image-20230722210847479"></p>
+<p>在本地机上测试连接Linux上的tomcat服务器，会发现连接失败</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722211120084.png" alt="image-20230722211120084"></p>
+<h4 id="防火墙操作"><a href="#防火墙操作" class="headerlink" title="防火墙操作"></a>防火墙操作</h4><ul>
+<li>查看防火墙状态：<code>systemctl status firewalld</code>或<code>firewall-cmd --state</code></li>
+<li>暂时关闭防火墙：<code>systemctl stop firewalld</code></li>
+<li>永久关闭防火墙：<code>systemctl disable firewalld</code></li>
+<li>开启防火墙：<code>systemctl start firewalld</code></li>
+<li>开发指定端口：<code>firewall-cmd --zone=public --add-port=8080/tcp --permanent</code></li>
+<li>关闭指定端口：<code>firewall-cmd --zone=public --remove-port=8080/tcp --permanent</code></li>
+<li>立即生效：<code>firewall-cmd --reload</code></li>
+<li>查看开放的端口：<code>firewall-cmd --zone=public --list-ports</code></li>
+</ul>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722211840689.png" alt="image-20230722211840689"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722211851853.png" alt="image-20230722211851853"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722212313150.png" alt="image-20230722212313150"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722212325381.png" alt="image-20230722212325381"></p>
+<p><strong>注意：</strong> systemctl是管理Linux中服务的命令，可对服务进行启动、停止、重启、查看状态等操作；firewall-cmd是Linux中专门用于控制防火墙的命令；为了保证系统安全，服务器的防火墙不建议关闭</p>
+<h4 id="关闭Tomcat服务"><a href="#关闭Tomcat服务" class="headerlink" title="关闭Tomcat服务"></a>关闭Tomcat服务</h4><p><strong>第一种</strong></p>
+<p>运行Tomcat下的bin目录中提供停止服务的脚本文件shutdown.sh，命令：<code>sh shutdown.sh</code>或<code>./shutdown.sh</code></p>
+<p><strong>第二种</strong></p>
+<p>查看Tomcat进程，获得进程id，然后执行结束进程的命令：<code>kill -9 进程号</code></p>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722213508170.png" alt="image-20230722213508170"></p>
+<h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><p>先检测当前系统中是否已安装MySQL数据库，如果已安装，那么在安装则会失败，同时CentOS7自带的mariadb会与MySQL数据库冲突</p>
+<p><code>rpm -qa</code>：查询当前系统中安装的所有软件</p>
+<p><code>rpm -qa|grep mysql</code>：查询当前系统中安装的软件名称中是否有mysql</p>
+<p><code>rpm -qa|grep mariadb</code>：查询当前系统中安装的软件名称中是否有mariadb</p>
+<p>RPM（Red-Hat Package Manager）是软件包管理器，是红帽Linux用于管理和安装软件的工具</p>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722214231594.png" alt="image-20230722214231594"></p>
+<p>卸载已安装的冲突软件</p>
+<p><code>rpm -e --nodeps 软件名称</code>：卸载软件</p>
+<p><code>rpm -e --nodeps mariadb-libs-5.5.68-1.el7.x86_64</code></p>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722214708954.png" alt="image-20230722214708954"></p>
+<p>到这里准备工作完成了，接下来就是正式安装</p>
+<p><strong>第一步</strong> 到<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/community">官网</a>下载Linux版MySQL，这里选择MySQL的版本和本地机相同</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722215310980.png" alt="image-20230722215310980"></p>
+<p><strong>第二步</strong> 使用FinalShell自带的上传工具将MySQL压缩包上传到Linux</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722215829742.png" alt="image-20230722215829742"></p>
+<p><strong>第三步</strong> 移动mysql压缩包到创建的目录下</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722220105983.png" alt="image-20230722220105983"></p>
+<p><strong>第四步</strong> 解压mysql压缩包</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722220429858.png" alt="image-20230722220429858"></p>
+<p><strong>第五步</strong> 安装rpm软件包</p>
+<p><code>rpm -ivh *.rpm --nodeps --force</code></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722221603126.png" alt="image-20230722221603126"></p>
+<p><strong>第六步</strong> 启动mysql</p>
+<p><code>systemctl status mysqld</code>：查看mysql服务状态</p>
+<p><code>systemctl start mysqld</code>：启动mysql服务</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722222026605.png" alt="image-20230722222026605"></p>
+<p><strong>说明：</strong> 可以设置开机时启动mysql服务，避免每次开机启动mysql</p>
+<p><code>systemctl enable mysqld</code>：开机启动mysql服务</p>
+<p><code>netstat -tunlp</code>：查看已启动的服务</p>
+<p><code>netstat -tunlp|grep mysql</code></p>
+<p><code>ps -ef|grep mysql</code>：查看mysql进程</p>
+<p><strong>注意：</strong> 需要安装net-tools</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722222408872.png" alt="image-20230722222408872"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722222614009.png" alt="image-20230722222614009"></p>
+<h4 id="登录MySQL数据库"><a href="#登录MySQL数据库" class="headerlink" title="登录MySQL数据库"></a>登录MySQL数据库</h4><p>查阅临时密码</p>
+<p><code>cat /var/log/mysqld.log</code>：查看文件内容</p>
+<p><code>cat /var/log/mysqld.log|grep password</code>：查看文件内容中包含password的行信息</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722223333466.png" alt="image-20230722223333466"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722223624852.png" alt="image-20230722223624852"></p>
+<p><strong>修改临时密码</strong></p>
+<p>先修改密码在设置校验规则与密码长度</p>
+<p><code>alter user &#39;root&#39;@&#39;localhost&#39; identified with mysql_native_password by &#39;Root_12root&#39;;</code>：修改的密码中必须有数字、大小写字母和特殊字符且长度在8以上</p>
+<p><code>set global validate_password.policy=0;</code>：设置密码安全等级低，便于密码修改</p>
+<p><code>set global validate_password.length=4;</code>：设置密码长度最低位数</p>
+<p><code>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;123456&#39;;</code>：修改密码为简单密码</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722225828959.png" alt="image-20230722225828959"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722225859441.png" alt="image-20230722225859441"></p>
+<p><strong>开启访问权限</strong></p>
+<p>先创建用户，在对该用户分配用户权限，然后在刷新权限</p>
+<p><code>CREATE USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;;</code></p>
+<p><code>GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; WITH GRANT OPTION;</code></p>
+<p><code>FLUSH PRIVILEGES;</code></p>
+<p><strong>注意：</strong> <code>CREATE USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;;</code>中<code>&#39;123456&#39;</code>为远程连接的访问密码</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230723101038751.png" alt="image-20230723101038751"></p>
+<p>开放3306端口：<code>firewall-cmd --zone=public --add-port=3306/tcp --permanent</code>、<code>firewall-cmd --reload</code>、<code>firewall-cmd --zone=public --list-ports</code></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230722231453261.png" alt="image-20230722231453261"></p>
+<p>使用navicat测试远程连接Linux上的mysql，也可以使用DataGrip测试远程连接Linux上的mysql</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230723101742200.png" alt="image-20230723101742200"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230723101801312.png" alt="image-20230723101801312"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230723110728145.png" alt="image-20230723110728145"></p>
+<h3 id="安装lrzsz"><a href="#安装lrzsz" class="headerlink" title="安装lrzsz"></a>安装lrzsz</h3><p>使用Yum安装</p>
+<blockquote>
+<p>Yum（全称为Yellow dog Updater,Modified）是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动出来依赖关系，并且一次安装所有依赖的软件包，无序繁琐地一次次下载、安装</p>
+</blockquote>
+<p>搜索lrzsz安装包，命令：<code>yum list lrzsz</code>，然后使用yum命令在线安装，命令：<code>yum install lrzsz.x86_64</code></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230723102656892.png" alt="image-20230723102656892"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230723102822687.png" alt="image-20230723102822687"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">松花鼠</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/6639.html">http://example.com/posts/6639.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">松果会</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/6638.html" title="MySQL进阶篇"><img class="cover" src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">MySQL进阶篇</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/avatar_hexo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">松花鼠</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lion-no-back"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://leetcode.cn/u/lion-no-back" target="_blank" title=""><i class="iconfont icon-leetcode"></i></a><a class="social-icon" href="mailto:hexo226@163.com" target="_blank" title=""><i class="iconfont icon-youxiang"></i></a><a class="social-icon" href="https://zjnanqu.top/atom.xml" target="_blank" title=""><i class="iconfont icon-RSS_flat"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">善用<span>标签</span>和<span>分类</span></div></div><div class="card-widget tzy-right-widget" id="card-wechat"><div id="flip-wrapper"><div id="flip-content"><div class="face"></div><div class="back face"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E5%9C%B0%E5%9D%80"><span class="toc-number">1.</span> <span class="toc-text">视频地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81Linux-%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">一、Linux 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC"><span class="toc-number">2.1.</span> <span class="toc-text">Linux 系统版本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Linux-%E5%AE%89%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">二、Linux 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85SSH%E8%BF%9E%E6%8E%A5%E5%B7%A5%E5%85%B7"><span class="toc-number">4.</span> <span class="toc-text">三、安装SSH连接工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">5.</span> <span class="toc-text">四、Linux目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">6.</span> <span class="toc-text">五、Linux 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-number">6.1.</span> <span class="toc-text">Linux 使用技巧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-number">6.2.</span> <span class="toc-text">Linux 命令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C"><span class="toc-number">6.3.</span> <span class="toc-text">文件目录操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%B7%E8%B4%9D%E7%A7%BB%E5%8A%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">6.4.</span> <span class="toc-text">拷贝移动命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4"><span class="toc-number">6.5.</span> <span class="toc-text">打包压缩命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4"><span class="toc-number">6.6.</span> <span class="toc-text">文本编辑命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4"><span class="toc-number">6.7.</span> <span class="toc-text">查找命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">7.</span> <span class="toc-text">六、软件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F"><span class="toc-number">7.1.</span> <span class="toc-text">软件安装方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85jdk"><span class="toc-number">7.2.</span> <span class="toc-text">安装jdk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Tomcat"><span class="toc-number">7.3.</span> <span class="toc-text">安装Tomcat</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81Tomcat%E5%90%AF%E5%8A%A8"><span class="toc-number">7.3.1.</span> <span class="toc-text">验证Tomcat启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E6%93%8D%E4%BD%9C"><span class="toc-number">7.3.2.</span> <span class="toc-text">防火墙操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%97%ADTomcat%E6%9C%8D%E5%8A%A1"><span class="toc-number">7.3.3.</span> <span class="toc-text">关闭Tomcat服务</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85MySQL"><span class="toc-number">7.4.</span> <span class="toc-text">安装MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%99%BB%E5%BD%95MySQL%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">7.4.1.</span> <span class="toc-text">登录MySQL数据库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85lrzsz"><span class="toc-number">7.5.</span> <span class="toc-text">安装lrzsz</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/6639.html" title="Linux"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux"/></a><div class="content"><a class="title" href="/posts/6639.html" title="Linux">Linux</a><time datetime="2023-10-13T11:23:00.000Z" title="发表于 2023-10-13 19:23:00">2023-10-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6638.html" title="MySQL进阶篇"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL进阶篇"/></a><div class="content"><a class="title" href="/posts/6638.html" title="MySQL进阶篇">MySQL进阶篇</a><time datetime="2023-10-13T11:20:00.000Z" title="发表于 2023-10-13 19:20:00">2023-10-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6637.html" title="事务"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="事务"/></a><div class="content"><a class="title" href="/posts/6637.html" title="事务">事务</a><time datetime="2023-10-13T11:10:00.000Z" title="发表于 2023-10-13 19:10:00">2023-10-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6636.html" title="多表查询"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="多表查询"/></a><div class="content"><a class="title" href="/posts/6636.html" title="多表查询">多表查询</a><time datetime="2023-10-13T11:07:00.000Z" title="发表于 2023-10-13 19:07:00">2023-10-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6635.html" title="MySQL5.7升为8.0新指南"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL5.7升为8.0新指南"/></a><div class="content"><a class="title" href="/posts/6635.html" title="MySQL5.7升为8.0新指南">MySQL5.7升为8.0新指南</a><time datetime="2023-10-13T06:50:00.000Z" title="发表于 2023-10-13 14:50:00">2023-10-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By 松花鼠</div><div class="footer_custom_text"><p><a target="_blank" href="https://hexo.io/zh-cn"><img src="https://img.shields.io/badge/Frame-Hexo-blue?logo=hexo" title="博客框架为Hexo_v6.3.0"></a>&nbsp;&nbsp;<a target="_blank" href="https://butterfly.js.org"><img src="https://img.shields.io/badge/Theme-Butterfly-00c4b6?logo=bitdefender" title="主题采用butterfly_v4.9.0"></a>&nbsp;&nbsp;<a target="_blank" href="https://www.dogecloud.com"><img src="https://img.shields.io/badge/CDN-%E5%A4%9A%E5%90%89%E4%BA%91-3693F3?logo=icloud" title="本站使用多吉云为静态资源提供CDN加速"></a>&nbsp;&nbsp;<a target="_blank" href="https://beian.miit.gov.cn/"><img src="https://img.shields.io/badge/%E9%84%82ICP%E5%A4%87-2023009215%E5%8F%B7-%23F22387" title="本站已在鄂备案"></a>&nbsp;&nbsp;<a target="_blank" href="https://vercel.com/dashboard "><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?logo=vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?logo=github" title="本站项目由Gtihub托管"></a>&nbsp;&nbsp;<a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%25204.0-d42328?logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script src="/js/mouse_move.js"></script><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="/js/fish.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script></div><!-- hexo injector body_end start --><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
