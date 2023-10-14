@@ -1,0 +1,547 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>索引 | 松果会</title><meta name="author" content="松花鼠"><meta name="copyright" content="松花鼠"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、索引概述索引（index）是帮助MySQL高效获取数据的数据结构（有序） 在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据，这样就可以在这些数据结构上实现高级查找算法，这种数据结构就是索引 【图解】      优势 劣势     提高数据检索的效率，降低数据库的IO成本 索引列也是要占用空间的   通过索引列对数据进行排序，降低数据排序的成本，降">
+<meta property="og:type" content="article">
+<meta property="og:title" content="索引">
+<meta property="og:url" content="http://example.com/posts/6640.html">
+<meta property="og:site_name" content="松果会">
+<meta property="og:description" content="一、索引概述索引（index）是帮助MySQL高效获取数据的数据结构（有序） 在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据，这样就可以在这些数据结构上实现高级查找算法，这种数据结构就是索引 【图解】      优势 劣势     提高数据检索的效率，降低数据库的IO成本 索引列也是要占用空间的   通过索引列对数据进行排序，降低数据排序的成本，降">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png">
+<meta property="article:published_time" content="2023-10-14T03:25:00.000Z">
+<meta property="article:modified_time" content="2023-10-14T08:21:53.295Z">
+<meta property="article:author" content="松花鼠">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png"><link rel="shortcut icon" href="/img/hexo.ico"><link rel="canonical" href="http://example.com/posts/6640.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '索引',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-14 16:21:53'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/404.css"><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/css/fish_transparent.css"><link rel="stylesheet" href="/css/wx_card.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/icon.css"><link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/tag_plugins.min.css" media="defer" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/carousel-touch.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="松果会" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/avatar_hexo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/"><img class="site-icon" src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/hexo_ico.png"/><span class="site-name">松果会</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">索引</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-14T03:25:00.000Z" title="发表于 2023-10-14 11:25:00">2023-10-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-14T08:21:53.295Z" title="更新于 2023-10-14 16:21:53">2023-10-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/MySQL/">MySQL</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>21分钟</span></span></div></div></div><article class="post-content" id="article-container"><h2 id="一、索引概述"><a href="#一、索引概述" class="headerlink" title="一、索引概述"></a>一、索引概述</h2><p>索引（index）是帮助MySQL高效获取数据的<font color=#9932CD>数据结构</font>（有序）</p>
+<p>在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据，这样就可以在这些数据结构上实现高级查找算法，这种数据结构就是索引</p>
+<p>【图解】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230723124120600.png" alt="image-20230723124120600"></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>优势</th>
+<th>劣势</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>提高数据检索的效率，降低数据库的IO成本</td>
+<td>索引列也是要占用空间的</td>
+</tr>
+<tr>
+<td>通过索引列对数据进行排序，降低数据排序的成本，降低CPU的消耗</td>
+<td>索引大大提供了查询效率，同时却也降低更新表的速度，如对表进行INSERT、UPDATE、DELETE时，效率降低</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="二、索引结构"><a href="#二、索引结构" class="headerlink" title="二、索引结构"></a>二、索引结构</h2><p>MySQL的索引是在存储引擎层实现的，不同的存储引擎有不同的结构，主要包含以下几种：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>索引结构</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B+Tree索引</td>
+<td>最常见的索引类型，大部分引擎都支持B+树索引</td>
+</tr>
+<tr>
+<td>Hash索引</td>
+<td>底层数据结构是用哈希表实现的，只有精确匹配索引列的查询才有效，不支持范围查询</td>
+</tr>
+<tr>
+<td>R-tree(空间索引)</td>
+<td>空间索引是MyISAM引擎的一个特殊索引类型，主要用于地理空间数据类型，通常使用较少</td>
+</tr>
+<tr>
+<td>Full-text(全文索引)</td>
+<td>是一种通过建立倒排索引，快速匹配文档的方式。类似于Lucene，Solr，ES</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>索引</th>
+<th>InnoDB</th>
+<th>MyISAM</th>
+<th>Memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B+tree索引</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>Hash索引</td>
+<td>🗙</td>
+<td>🗙</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>R-tree索引</td>
+<td>🗙</td>
+<td>✔</td>
+<td>🗙</td>
+</tr>
+<tr>
+<td>Full-text</td>
+<td>5.6版之后支持</td>
+<td>✔</td>
+<td>🗙</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>常用索引如果没有特指，都是指B+树结构组织的索引</p>
+<p><strong>二叉树：</strong> 顺序插入时，会形成一个链表，查询性能大大降低。大数据量情况下，层级较深，检索速度慢</p>
+<p><strong>红黑树：</strong> 大数据量情况下，层级较深，检索速度慢</p>
+<blockquote>
+<p>红黑树是一种自平衡的二叉查找树，同时满足以下特性：</p>
+<ol>
+<li>节点非黑即红</li>
+<li>根节点是黑色</li>
+<li>叶子节点(NIL，该节点没有后续的子节点）都是黑色</li>
+<li>红色节点的父节点和子节点都必须是黑色的</li>
+<li>从根节点到叶子节点的每条路径上，黑色节点的数量相同</li>
+</ol>
+</blockquote>
+<p>【图解】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230723212306829.png" alt="image-20230723212306829"></p>
+<p><strong>B-Tree：</strong> 是一种多路平衡查找树，其中的B表示balance的意思</p>
+<p>【图解】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/%E7%B4%A2%E5%BC%95%E7%BB%93%E6%9E%84B-Tree.png" alt="索引结构B-Tree"></p>
+<blockquote>
+<p>树的度数指的是一个节点的子节点个数</p>
+</blockquote>
+<p>可通过<a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html">数据结构可视化</a>网站演示B-Tree树演变过程，下面以插入==100 65 169 368 900 556 780 35 215 1200 234 888 158 90 1000 88 120 268 250==数据为例进行演示</p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230723221716304.png" alt="image-20230723221716304"></p>
+<p><strong>B+Tree：</strong>是一种多叉树，类似于二叉树，但每个节点可以有更多的子节点</p>
+<blockquote>
+<p>B+Tree所具有的特点：</p>
+<ol>
+<li>所有的数据都存储在叶子节点上，而非叶子节点只存储索引信息</li>
+<li>叶子节点通过指针连接在一起</li>
+<li>所有的叶子节点具有相同的深度，使得查询的时间复杂度保持在对数级别</li>
+<li>非叶子节点中的索引值可以重复，这样可以提高查询效率</li>
+</ol>
+</blockquote>
+<p>【图解】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/B%2BTree.png" alt="B+Tree"></p>
+<p>可通过<a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html">数据结构可视化</a>网站演示B-Tree树演变过程，下面以插入==100 65 169 368 900 556 780 35 215 1200 234 888 158 90 1000 88 120 268 250==数据为例进行演示</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230724112037449.png" alt="image-20230724112037449"></p>
+<blockquote>
+<p>MySQL索引数据结构对经典的B+Tree进行了优化。在原B+Tree的基础上，增加一个指向相邻叶子节点的链表指针，这就形成了带有顺序指针的B+Tree，提高区间访问的性能</p>
+</blockquote>
+<p>【图解】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/B%5EMTree%E4%BC%98%E5%8C%96.png" alt="B^MTree优化"></p>
+<p><strong>Hash索引：</strong> 采用一定的hash算法，将键值换算成新的hash值，映射到对应的槽位上，然后存储在hash表中</p>
+<p>【图解】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230724153225293.png" alt="image-20230724153225293"></p>
+<blockquote>
+<p>Hash索引特点：</p>
+<ol>
+<li>Hash索引只能用于对等比较（=，in），不支持范围查询（between，&gt;，&lt;，…）</li>
+<li>无法利用索引完成排序操作</li>
+<li>查询效率高，通常只需要一次检索就可以了，效率通常要高于B+Tree索引</li>
+</ol>
+</blockquote>
+<p>在MySQL中，支持Hash索引的是Memory引擎，而InnoDB中具有自适应hash功能，hash索引是存储引擎根据B+Tree索引在指定条件下自动构建的</p>
+<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>⛦为什么InnoDB存储引擎选择使用B+Tree索引结构？</p>
+<ul>
+<li>相对于二叉树，层级更少，搜索效率高</li>
+<li>对于B-Tree，无论是叶子节点还是非叶子节点，都会保存数据，这样导致一页中存储的键值减少，指针跟着减少，要同样保存大量数据，只能增加树的层级，导致性能降低</li>
+<li>相对Hash索引，B+Tree支持范围匹配和排序操作</li>
+</ul>
+<h2 id="三、索引分类"><a href="#三、索引分类" class="headerlink" title="三、索引分类"></a>三、索引分类</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>含义</th>
+<th>特点</th>
+<th>关键字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主键索引</td>
+<td>针对于表中主键创建的索引</td>
+<td>默认自动创建，只能有一个</td>
+<td>PRIMARY</td>
+</tr>
+<tr>
+<td>唯一索引</td>
+<td>避免同一个表中某数据列中的值重复</td>
+<td>可以有多个</td>
+<td>UNIQUE</td>
+</tr>
+<tr>
+<td>常规索引(单利索引)</td>
+<td>快速定位特定数据</td>
+<td>可以有多个</td>
+<td></td>
+</tr>
+<tr>
+<td>全文索引</td>
+<td>全文索引查找的是文本中的关键字，而不是比较索引中的值</td>
+<td>可以有多个</td>
+<td>FULLTEXT</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>在InnoDB存储引擎中，根据索引的存储形式，又可以分为以下两种</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>含义</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>聚集索引(Clustered Index)</td>
+<td>将数据存储与索引放到了一块，索引结构的叶子节点保存了行数据</td>
+<td>必须有且只有一个</td>
+</tr>
+<tr>
+<td>二级索引(Secondary Index)</td>
+<td>将数据与索引分开存储，索引结构的叶子节点关联的是对应的主键</td>
+<td>可以存在多个</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>聚集索引选取规则</p>
+<ul>
+<li>如果存在主键，主键索引就是聚集索引</li>
+<li>如果不存在主键，将使用第一个唯一（UNIQUE）索引作为聚集索引</li>
+<li>如果没有主键或没有合适的唯一索引，则InnoDB会自动生成一个rowid作为隐藏的聚集索引</li>
+</ul>
+<p>【图解】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/clusteredIndex1.PNG" alt="clusteredIndex1"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/clusteredIndex2.PNG" alt="clusteredIndex2"></p>
+<h3 id="思考-1"><a href="#思考-1" class="headerlink" title="思考"></a>思考</h3><p>以下SQL语句，哪个执行效率高？为什么？</p>
+<p><code>select \* from user where id = 10;</code></p>
+<p><code>select \* from user where name = &#39;Arm&#39;;</code></p>
+<p><strong>备注：</strong> id为主键，name字段有对应的二级索引</p>
+<p>InnoDB主键索引的B+Tree高度为多高呢？</p>
+<p>假设：一行数据大小为1k，一页可以存储16行这样的数据。InnoDB的指针占用6个字节空间，主键即使为bigint，占用字节数为8</p>
+<p>当高度为2：</p>
+<p>n*8+(n+1)*6 = 16*1024，算出n约为1170</p>
+<p>1171*16 = 18736，可以算出第2层子节点的个数</p>
+<p>当高度为3：</p>
+<p>1171*1171*16 = 21939856，可以算出第3层子节点的个数</p>
+<h2 id="四、索引语法"><a href="#四、索引语法" class="headerlink" title="四、索引语法"></a>四、索引语法</h2><p><strong>创建索引</strong></p>
+<p><code>CREATE [UNIQUE|FULLTEXT] INDEX index_name ON table_name (index_col_name,...);</code></p>
+<p><strong>查看索引</strong></p>
+<p><code>SHOW INDEX FROM table_name;</code></p>
+<p><strong>删除索引</strong></p>
+<p><code>DROP INDEX index_name ON table_name;</code></p>
+<p><strong>准备工作</strong></p>
+<p>在Linux上创建名为itcast的mysql数据库，然后再创建一张表 tb_user，顺便插入准备好的数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb_user(</span><br><span class="line">	id <span class="type">int</span> <span class="keyword">primary</span> key auto_increment comment <span class="string">&#x27;主键&#x27;</span>,</span><br><span class="line">	name <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;用户名&#x27;</span>,</span><br><span class="line">	phone <span class="type">varchar</span>(<span class="number">11</span>) <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;手机号&#x27;</span>,</span><br><span class="line">	email <span class="type">varchar</span>(<span class="number">100</span>) comment <span class="string">&#x27;邮箱&#x27;</span>,</span><br><span class="line">	profession <span class="type">varchar</span>(<span class="number">11</span>) comment <span class="string">&#x27;专业&#x27;</span>,</span><br><span class="line">	age tinyint unsigned comment <span class="string">&#x27;年龄&#x27;</span>,</span><br><span class="line">	gender <span class="type">char</span>(<span class="number">1</span>) comment <span class="string">&#x27;性别 , 1: 男, 2: 女&#x27;</span>,</span><br><span class="line">	status <span class="type">char</span>(<span class="number">1</span>) comment <span class="string">&#x27;状态&#x27;</span>,</span><br><span class="line">	createtime datetime comment <span class="string">&#x27;创建时间&#x27;</span></span><br><span class="line">) comment <span class="string">&#x27;系统用户表&#x27;</span>;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;吕布&#x27;</span>, <span class="string">&#x27;17799990000&#x27;</span>, <span class="string">&#x27;lvbu666@163.com&#x27;</span>, <span class="string">&#x27;软件工程&#x27;</span>, <span class="number">23</span>, <span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;2001-02-02 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;曹操&#x27;</span>, <span class="string">&#x27;17799990001&#x27;</span>, <span class="string">&#x27;caocao666@qq.com&#x27;</span>, <span class="string">&#x27;通讯工程&#x27;</span>, <span class="number">33</span>,<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;2001-03-05 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;赵云&#x27;</span>, <span class="string">&#x27;17799990002&#x27;</span>, <span class="string">&#x27;17799990@139.com&#x27;</span>, <span class="string">&#x27;英语&#x27;</span>, <span class="number">34</span>, <span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;2002-03-02 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;孙悟空&#x27;</span>, <span class="string">&#x27;17799990003&#x27;</span>, <span class="string">&#x27;17799990@sina.com&#x27;</span>, <span class="string">&#x27;工程造价&#x27;</span>, <span class="number">54</span>,<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;2001-07-02 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;花木兰&#x27;</span>, <span class="string">&#x27;17799990004&#x27;</span>, <span class="string">&#x27;19980729@sina.com&#x27;</span>, <span class="string">&#x27;软件工程&#x27;</span>, <span class="number">23</span>,<span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2001-04-22 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;大乔&#x27;</span>, <span class="string">&#x27;17799990005&#x27;</span>, <span class="string">&#x27;daqiao666@sina.com&#x27;</span>, <span class="string">&#x27;舞蹈&#x27;</span>, <span class="number">22</span>, <span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;2001-02-07 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status, createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;露娜&#x27;</span>, <span class="string">&#x27;17799990006&#x27;</span>, <span class="string">&#x27;luna_love@sina.com&#x27;</span>, <span class="string">&#x27;应用数学&#x27;</span>, <span class="number">24</span>,<span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;2001-02-08 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;程咬金&#x27;</span>, <span class="string">&#x27;17799990007&#x27;</span>, <span class="string">&#x27;chengyaojin@163.com&#x27;</span>, <span class="string">&#x27;化工&#x27;</span>, <span class="number">38</span>,<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;5&#x27;</span>, <span class="string">&#x27;2001-05-23 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;项羽&#x27;</span>, <span class="string">&#x27;17799990008&#x27;</span>, <span class="string">&#x27;xiaoyu666@qq.com&#x27;</span>, <span class="string">&#x27;金属材料&#x27;</span>, <span class="number">43</span>,<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;2001-09-18 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;白起&#x27;</span>, <span class="string">&#x27;17799990009&#x27;</span>, <span class="string">&#x27;baiqi666@sina.com&#x27;</span>, <span class="string">&#x27;机械工程及其自动化&#x27;</span>, <span class="number">27</span>, <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;2001-08-16 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;韩信&#x27;</span>, <span class="string">&#x27;17799990010&#x27;</span>, <span class="string">&#x27;hanxin520@163.com&#x27;</span>, <span class="string">&#x27;无机非金属材料工程&#x27;</span>, <span class="number">27</span>, <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;2001-06-12 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;荆轲&#x27;</span>, <span class="string">&#x27;17799990011&#x27;</span>, <span class="string">&#x27;jingke123@163.com&#x27;</span>, <span class="string">&#x27;会计&#x27;</span>, <span class="number">29</span>, <span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;2001-05-11 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;兰陵王&#x27;</span>, <span class="string">&#x27;17799990012&#x27;</span>, <span class="string">&#x27;lanlinwang666@126.com&#x27;</span>, <span class="string">&#x27;工程造价&#x27;</span>,<span class="number">44</span>, <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2001-04-09 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;狂铁&#x27;</span>, <span class="string">&#x27;17799990013&#x27;</span>, <span class="string">&#x27;kuangtie@sina.com&#x27;</span>, <span class="string">&#x27;应用数学&#x27;</span>, <span class="number">43</span>,<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;2001-04-10 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;貂蝉&#x27;</span>, <span class="string">&#x27;17799990014&#x27;</span>, <span class="string">&#x27;84958948374@qq.com&#x27;</span>, <span class="string">&#x27;软件工程&#x27;</span>, <span class="number">40</span>,<span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;2001-02-12 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;妲己&#x27;</span>, <span class="string">&#x27;17799990015&#x27;</span>, <span class="string">&#x27;2783238293@qq.com&#x27;</span>, <span class="string">&#x27;软件工程&#x27;</span>, <span class="number">31</span>,<span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;2001-01-30 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;芈月&#x27;</span>, <span class="string">&#x27;17799990016&#x27;</span>, <span class="string">&#x27;xiaomin2001@sina.com&#x27;</span>, <span class="string">&#x27;工业经济&#x27;</span>, <span class="number">35</span>,<span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;2000-05-03 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;嬴政&#x27;</span>, <span class="string">&#x27;17799990017&#x27;</span>, <span class="string">&#x27;8839434342@qq.com&#x27;</span>, <span class="string">&#x27;化工&#x27;</span>, <span class="number">38</span>, <span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2001-08-08 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;狄仁杰&#x27;</span>, <span class="string">&#x27;17799990018&#x27;</span>, <span class="string">&#x27;jujiamlm8166@163.com&#x27;</span>, <span class="string">&#x27;国际贸易&#x27;</span>,<span class="number">30</span>, <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;2007-03-12 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;安琪拉&#x27;</span>, <span class="string">&#x27;17799990019&#x27;</span>, <span class="string">&#x27;jdodm1h@126.com&#x27;</span>, <span class="string">&#x27;城市规划&#x27;</span>, <span class="number">51</span>,<span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;2001-08-15 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;典韦&#x27;</span>, <span class="string">&#x27;17799990020&#x27;</span>, <span class="string">&#x27;ycaunanjian@163.com&#x27;</span>, <span class="string">&#x27;城市规划&#x27;</span>, <span class="number">52</span>,<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;2000-04-12 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;廉颇&#x27;</span>, <span class="string">&#x27;17799990021&#x27;</span>, <span class="string">&#x27;lianpo321@126.com&#x27;</span>, <span class="string">&#x27;土木工程&#x27;</span>, <span class="number">19</span>,<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;2002-07-18 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;后羿&#x27;</span>, <span class="string">&#x27;17799990022&#x27;</span>, <span class="string">&#x27;altycj2000@139.com&#x27;</span>, <span class="string">&#x27;城市园林&#x27;</span>, <span class="number">20</span>,<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;2002-03-10 00:00:00&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tb_user (name, phone, email, profession, age, gender, status,createtime) <span class="keyword">VALUES</span> (<span class="string">&#x27;姜子牙&#x27;</span>, <span class="string">&#x27;17799990023&#x27;</span>, <span class="string">&#x27;37483844@qq.com&#x27;</span>, <span class="string">&#x27;工程造价&#x27;</span>, <span class="number">29</span>,<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;2003-05-26 00:00:00&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="按照下列的需求，完成索引的创建"><a href="#按照下列的需求，完成索引的创建" class="headerlink" title="按照下列的需求，完成索引的创建"></a>按照下列的需求，完成索引的创建</h3><ol>
+<li>name字段的值可能会重复，为该字段创建索引</li>
+<li>phone字段的值非空且唯一，为该字段创建唯一索引</li>
+<li>为profession、age、status创建联合索引</li>
+<li>为email建立合适的索引来提升查询效率</li>
+</ol>
+</blockquote>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230724200953582.png" alt="image-20230724200953582"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230724211338021.png" alt="image-20230724211338021"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230724211238555.png" alt="image-20230724211238555"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230724211153207.png" alt="image-20230724211153207"></p>
+<h2 id="五、SQL性能分析"><a href="#五、SQL性能分析" class="headerlink" title="五、SQL性能分析"></a>五、SQL性能分析</h2><h3 id="SQL执行频率"><a href="#SQL执行频率" class="headerlink" title="SQL执行频率"></a>SQL执行频率</h3><p>MySQL客户端连接成功后，通过show[session|global] status命令可以提供服务器状态信息。通过如下指令，可以查看当前数据库的INSERT、UPDATE、DELETE、SELECT的访问频次</p>
+<p><code>SHOW GLOBAL STATUS LIKE &#39;Com_______&#39;;</code></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230724212607961.png" alt="image-20230724212607961"></p>
+<p>通过查询SQL执行频率为SQL优化作支撑</p>
+<h3 id="慢查询日志"><a href="#慢查询日志" class="headerlink" title="慢查询日志"></a>慢查询日志</h3><p>慢查询日志记录了所有执行时间超过指定参数（long_query_time,单位：秒，默认10秒）的所有SQL语句的日志</p>
+<p>MySQL的慢查询日志默认没有开启，需要在MySQL的配置文件（/etc/my.cnf）中配置如下信息：</p>
+<blockquote>
+<p># 开启MySQL慢查询日志开关</p>
+<p>slow_query_log=1</p>
+<p># 设置慢日志的时间为2秒，SQL语句执行时间超过2秒，就会视为慢查询，记录慢查询日志</p>
+<p>long_query_time=2</p>
+</blockquote>
+<p>配置完毕之后，通过以下指令重新启动MySQL服务器进行测试，查看慢日志文件中记录的信息 /var/lib/mysql/localhost-slow.log</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230724213641592.png" alt="image-20230724213641592"></p>
+<p>配置完后重启mysql服务：<code>systemctl restart mysqld</code></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230724213757966.png" alt="image-20230724213757966"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230724213916544.png" alt="image-20230724213916544"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230724214104094.png" alt="image-20230724214104094"></p>
+<p>通过检查慢查询日志可以发现，只记录超过预设时间的SQL，而这样就可以定位出执行效率比较低的SQL，从而针对性进行优化</p>
+<h3 id="profile详情"><a href="#profile详情" class="headerlink" title="profile详情"></a>profile详情</h3><p>show profiles能够在做SQL优化时帮助了解执行时间都耗费在那一块儿</p>
+<p>通过have_profiling参数能够看到当前MySQL是否支持profile操作：<code>SELECT @@have_profiling;</code></p>
+<p>默认profiling是关闭的，可以通过set语句在session/global级别开启profiling：<code>SET profiling=1;</code></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230724215149130.png" alt="image-20230724215149130"></p>
+<p>执行一系列的业务SQL操作，然后通过如下指令查看指令的执行耗时</p>
+<blockquote>
+<p># 查看每一条SQL的耗时基本情况</p>
+<p>show profiles;</p>
+<p># 查看指定query_id的SQL语句各个阶段的耗时情况</p>
+<p>show profile for query query_id;</p>
+<p># 查看指定query_id的SQL语句CPU的使用情况</p>
+<p>show profile cpu for query query_id;</p>
+</blockquote>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230724215728906.png" alt="image-20230724215728906"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230724220042985.png" alt="image-20230724220042985"></p>
+<h3 id="explain"><a href="#explain" class="headerlink" title="explain"></a>explain</h3><p>EXPLAIN 或者 DESC命令获取MySQL如何执行SELECT语句的信息，包括在SELECT语句执行过程中表如何连接和连接的顺序</p>
+<blockquote>
+<p># 直接在select语句之前加上关键字explain/desc</p>
+<p>EXPLAIN SELECT 字段列表 FROM 表名 WHERE 条件;</p>
+</blockquote>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726091809789.png" alt="image-20230726091809789"></p>
+<p>EXPLAIN 执行计划各字段含义：</p>
+<ul>
+<li>id：select查询的序列号，表示查询中执行select字句或操作表的顺序（id相同，执行顺序从上到下；id不同，值越大，越先执行）</li>
+<li>select_type：表示SELECT的类型，常见的取值有SIMPLE（简单表即不使用表连接或子查询）、PRIMARY（主查询即外层查询）、UNION（UNION中的第二个或后面的查询语句）、SUBQUERY（SELECT/WHERE之后包含了子查询）等</li>
+<li>type：表示连接类型，性能由好到差的连接类型为NULL、system、const、eq_ref、ref、range、index、all</li>
+<li>possible_keys：显示可能应用在这张表上的索引，一个或多个</li>
+<li>key：实际使用的索引，如果为NULL，则没有使用索引</li>
+<li>key_len：表示索引中使用的字节数，该值为索引字段最大可能长度，并非实际长度，在不损失精确性前提下，长度越短越好</li>
+<li>rows：MySQL认为必须要执行查询的行数，在Innodb引擎的表中，是一个预估值，并不总是准确的</li>
+<li>filtered：表示返回结果的行数占需读取行数的百分比，filtered值越大越好</li>
+</ul>
+<p>【准备工作】</p>
+<p>通过student表、course表和student_course表实现多表查询进行演示，首先需要创建并导入数据</p>
+<p>因为在本地机上建立过三表且有对应数据，因而不必复写建表及插入操作，直接复制sql语句并运行即可</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726101901077.png" alt="image-20230726101901077"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726102024236.png" alt="image-20230726102024236"></p>
+<p>为了同步老师所讲案例，对student_course表中的部分数据进行修改和增添</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `course`  (</span><br><span class="line">  `id` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `name` <span class="type">varchar</span>(<span class="number">20</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_0900_ai_ci <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`) <span class="keyword">USING</span> BTREE,</span><br><span class="line">  <span class="keyword">UNIQUE</span> INDEX `name`(`name`) <span class="keyword">USING</span> BTREE</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB AUTO_INCREMENT <span class="operator">=</span> <span class="number">4</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> <span class="operator">=</span> utf8mb4 <span class="keyword">COLLATE</span> <span class="operator">=</span> utf8mb4_0900_ai_ci ROW_FORMAT <span class="operator">=</span> <span class="keyword">Dynamic</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `course` <span class="keyword">VALUES</span> (<span class="number">4</span>, <span class="string">&#x27;Hadoop&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `course` <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">&#x27;Java&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `course` <span class="keyword">VALUES</span> (<span class="number">3</span>, <span class="string">&#x27;MySQL&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `course` <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">&#x27;PHP&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `student`  (</span><br><span class="line">  `id` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `name` <span class="type">varchar</span>(<span class="number">20</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb3 <span class="keyword">COLLATE</span> utf8mb3_general_ci <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `<span class="keyword">no</span>` <span class="type">varchar</span>(<span class="number">20</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb3 <span class="keyword">COLLATE</span> utf8mb3_general_ci <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`) <span class="keyword">USING</span> BTREE,</span><br><span class="line">  <span class="keyword">UNIQUE</span> INDEX `name`(`name`) <span class="keyword">USING</span> BTREE</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB AUTO_INCREMENT <span class="operator">=</span> <span class="number">4</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> <span class="operator">=</span> utf8mb3 <span class="keyword">COLLATE</span> <span class="operator">=</span> utf8mb3_general_ci ROW_FORMAT <span class="operator">=</span> <span class="keyword">Dynamic</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `student` <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">&#x27;黛绮丝&#x27;</span>, <span class="string">&#x27;2000100101&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `student` <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">&#x27;谢逊&#x27;</span>, <span class="string">&#x27;2000100102&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `student` <span class="keyword">VALUES</span> (<span class="number">3</span>, <span class="string">&#x27;殷天正&#x27;</span>, <span class="string">&#x27;2000100103&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `student` <span class="keyword">VALUES</span> (<span class="number">4</span>, <span class="string">&#x27;韦一笑&#x27;</span>, <span class="string">&#x27;2000100104&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `student_course`  (</span><br><span class="line">  `id` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `studentid` <span class="type">int</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `courseid` <span class="type">int</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`) <span class="keyword">USING</span> BTREE,</span><br><span class="line">  INDEX `fk_studentid`(`studentid`) <span class="keyword">USING</span> BTREE,</span><br><span class="line">  INDEX `fk_courseid`(`courseid`) <span class="keyword">USING</span> BTREE,</span><br><span class="line">  <span class="keyword">CONSTRAINT</span> `fk_courseid` <span class="keyword">FOREIGN</span> KEY (`courseid`) <span class="keyword">REFERENCES</span> `course` (`id`) <span class="keyword">ON</span> <span class="keyword">DELETE</span> RESTRICT <span class="keyword">ON</span> <span class="keyword">UPDATE</span> RESTRICT,</span><br><span class="line">  <span class="keyword">CONSTRAINT</span> `fk_studentid` <span class="keyword">FOREIGN</span> KEY (`studentid`) <span class="keyword">REFERENCES</span> `student` (`id`) <span class="keyword">ON</span> <span class="keyword">DELETE</span> RESTRICT <span class="keyword">ON</span> <span class="keyword">UPDATE</span> RESTRICT</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB AUTO_INCREMENT <span class="operator">=</span> <span class="number">5</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> <span class="operator">=</span> utf8mb4 <span class="keyword">COLLATE</span> <span class="operator">=</span> utf8mb4_0900_ai_ci ROW_FORMAT <span class="operator">=</span> <span class="keyword">Dynamic</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `student_course` <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `student_course` <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `student_course` <span class="keyword">VALUES</span> (<span class="number">3</span>, <span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `student_course` <span class="keyword">VALUES</span> (<span class="number">4</span>, <span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `student_course` <span class="keyword">VALUES</span> (<span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `student_course` <span class="keyword">VALUES</span> (<span class="number">6</span>, <span class="number">3</span>, <span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726102707749.png" alt="image-20230726102707749"></p>
+<p>【实践图】</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726104557679.png" alt="image-20230726104557679"></p>
+<p>查询选修了 MySQL 课程的学生（子查询实现）</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726105430826.png" alt="image-20230726105430826"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726105451933.png" alt="image-20230726105451933"></p>
+<p>查看不同sql语句的type</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726110917441.png" alt="image-20230726110917441"></p>
+<h2 id="六、索引使用"><a href="#六、索引使用" class="headerlink" title="六、索引使用"></a>六、索引使用</h2><h3 id="验证索引效率"><a href="#验证索引效率" class="headerlink" title="验证索引效率"></a>验证索引效率</h3><p>在未建立索引之前，执行如下SQL语句，查看SQL耗时</p>
+<p><code>SELECT * FROM tb_sku WHERE sn = &#39;100000003145001&#39;;</code></p>
+<p>针对字段创建索引</p>
+<p><code>create index ind_sku_sn on tb_sku(sn);</code></p>
+<p>然后再次执行相同sql语句，再次查看SQL耗时</p>
+<p><code>SELECT * FROM tb_sku WHERE sn = &#39;100000003145001&#39;;</code></p>
+<h3 id="索引使用规则"><a href="#索引使用规则" class="headerlink" title="索引使用规则"></a>索引使用规则</h3><h4 id="最左前缀法则"><a href="#最左前缀法则" class="headerlink" title="最左前缀法则"></a>最左前缀法则</h4><p>如果索引了多列（联合索引），要遵守最左前缀法则。最左前缀法则指的是查询从索引的最左列开始，并且不跳过索引中的列；如果跳跃某一列，<font color=#9932CD>索引将部分失效（后面的字段索引失效）</font></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726191704644.png" alt="image-20230726191704644"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726192027462.png" alt="image-20230726192027462"></p>
+<h4 id="范围查询"><a href="#范围查询" class="headerlink" title="范围查询"></a>范围查询</h4><p>联合索引中，出现范围查询(&gt;,&lt;)，<font color=#9932CD>范围查询右侧的列索引失效</font></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726192615058.png" alt="image-20230726192615058"></p>
+<h4 id="索引列运算"><a href="#索引列运算" class="headerlink" title="索引列运算"></a>索引列运算</h4><p>不要在索引列上进行运算操作，<font color=red>否则索引会失效</font></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726193321089.png" alt="image-20230726193321089"></p>
+<h4 id="字符串不加引号"><a href="#字符串不加引号" class="headerlink" title="字符串不加引号"></a>字符串不加引号</h4><p>字符串类型字段使用时，不加引号，<font color=red>索引会失效</font></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726193731218.png" alt="image-20230726193731218"></p>
+<h4 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h4><p>如果仅仅是尾部模糊匹配，索引不会失效。如果是头部模糊匹配，<font color=red>索引会失效</font></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726194131975.png" alt="image-20230726194131975"></p>
+<h4 id="or连接的条件"><a href="#or连接的条件" class="headerlink" title="or连接的条件"></a>or连接的条件</h4><p>用or分割开的条件，如果or之前的条件中的列有索引，而后面的列中没有索引，那么涉及的索引都不会被用到</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726194559617.png" alt="image-20230726194559617"></p>
+<p>由于age没有索引，所以即使id、phone有索引，索引也会失效，所以需要针对于age建立索引</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726194926417.png" alt="image-20230726194926417"></p>
+<h4 id="数据分布影响"><a href="#数据分布影响" class="headerlink" title="数据分布影响"></a>数据分布影响</h4><p>如果MySQL评估使用索引比全表更慢，则不使用索引</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726195632680.png" alt="image-20230726195632680"></p>
+<h4 id="SQL提示-覆盖索引"><a href="#SQL提示-覆盖索引" class="headerlink" title="SQL提示 + 覆盖索引"></a>SQL提示 + 覆盖索引</h4><p>SQL提示是优化数据库的一个重要手段，简单来说，就是在SQL语句中加入一些人为的提示来达到优化操作的目的</p>
+<p>use index/ignore index/force index</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726200525573.png" alt="image-20230726200525573"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726200900163.png" alt="image-20230726200900163"></p>
+<p>尽量使用覆盖索引（查询使用了索引，并且需要返回的列，在该索引中已经全部能够找到），减少select *</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726202039565.png" alt="image-20230726202039565"></p>
+<p><code>using index condition：</code> 查找使用了索引，但需要回表查询数据</p>
+<p><code>using where;using index：</code> 查找使用了索引，但需要的数据都在索引列中能找到，所以不需要回表查询</p>
+<p><strong>思考：</strong> 一张表，有四个字段(id，username，password，status)，由于数据量大，需要对以下SQL语句进行优化，如何优化才是最佳方案？</p>
+<p><code>select id,username,password from tb_user where username = &#39;itcast&#39;;</code></p>
+<p>建立username和password这两个字段的联合索引</p>
+<h4 id="前缀索引"><a href="#前缀索引" class="headerlink" title="前缀索引"></a>前缀索引</h4><p>当字段类型为字符串（varchar，text等）时，有时候需要索引很长的字符串，这会让索引变得很大，查询时，浪费大量磁盘IO，影响查询效率。此时可以知将字符串的一部分前缀，建立索引，这样可以大大节约索引空间，从而提高索引效率</p>
+<p><strong>语法：</strong> <code>create index idx_xxx on table_name(column(n));</code></p>
+<p><strong>前缀长度：</strong> 可以根据索引的选择性来决定，而选择性是指不重复的索引值（基数）和数据表的记录总数的比值，索引选择性越高则查询效率越高，唯一索引的选择性是1，这是最好的索引选择性，性能也是最好的</p>
+<p><code>select count(distinct email)/count(*) from tb_user;</code></p>
+<p> <img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726204226996.png" alt="image-20230726204226996"></p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726204619695.png" alt="image-20230726204619695"></p>
+<p>前缀索引的查询流程</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/qz_index.jpg" alt="qz_index"></p>
+<h4 id="单列索引与联合索引"><a href="#单列索引与联合索引" class="headerlink" title="单列索引与联合索引"></a>单列索引与联合索引</h4><p>单列索引：即一个索引只包含单个列</p>
+<p>联合索引：即一个索引包含了多个列</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/image-20230726210438727.png" alt="image-20230726210438727"></p>
+<p>在业务场景中，如果存在多个查询条件，考虑针对于查询字段建立索引时，建议建立联合索引，而非单列索引</p>
+<font color=#9932CD>多条件联合查询时，MySQL优化器会评估哪个字段的索引效率更高，会选择该索引完成本次查询</font>
+
+<p>联合索引情况</p>
+<p><img src="https://mk-image-article.oss-cn-hangzhou.aliyuncs.com/img/lh_index.png" alt="lh_index"></p>
+<h2 id="七、索引设计原则"><a href="#七、索引设计原则" class="headerlink" title="七、索引设计原则"></a>七、索引设计原则</h2><ol>
+<li>针对于数据量较大且查询比较频繁的表建立索引</li>
+<li>针对于常作为查询条件(where)、排序(order by)、分组(group by)操作的字段建立索引</li>
+<li>尽量选择区分度高的列作为索引，尽量建立唯一索引，区分度越高，使用索引的效率越高</li>
+<li>如果是字符串类型的字段，字段的长度较长，可以针对于字段的特点，建立前缀索引</li>
+<li>尽量使用联合索引，减少单列索引，查询时，联合索引很多时候可以覆盖索引，节省存储空间，避免回表，提高查询效率</li>
+<li>要控制索引的数量，索引并不是多多益善，索引越多，维护索引结构的代价就越大，会影响增删改的效率</li>
+<li>如果索引不能存储NULL值，请在创建表时使用NOT NULL约束它。当优化器知道每列是否包含NULL值时，它可以更好确定哪个索引可以最有效地用于查询</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">松花鼠</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/6640.html">http://example.com/posts/6640.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">松果会</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/6641.html" title="SQL优化"><img class="cover" src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SQL优化</div></div></a></div><div class="next-post pull-right"><a href="/posts/6639.html" title="Linux"><img class="cover" src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Linux</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/avatar_hexo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">松花鼠</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lion-no-back"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://leetcode.cn/u/lion-no-back" target="_blank" title=""><i class="iconfont icon-leetcode"></i></a><a class="social-icon" href="mailto:hexo226@163.com" target="_blank" title=""><i class="iconfont icon-youxiang"></i></a><a class="social-icon" href="https://zjnanqu.top/atom.xml" target="_blank" title=""><i class="iconfont icon-RSS_flat"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">善用<span>标签</span>和<span>分类</span></div></div><div class="card-widget tzy-right-widget" id="card-wechat"><div id="flip-wrapper"><div id="flip-content"><div class="face"></div><div class="back face"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%B4%A2%E5%BC%95%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">一、索引概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%B4%A2%E5%BC%95%E7%BB%93%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">二、索引结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%80%83"><span class="toc-number">2.1.</span> <span class="toc-text">思考</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%B4%A2%E5%BC%95%E5%88%86%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">三、索引分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%80%83-1"><span class="toc-number">3.1.</span> <span class="toc-text">思考</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%B4%A2%E5%BC%95%E8%AF%AD%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">四、索引语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E4%B8%8B%E5%88%97%E7%9A%84%E9%9C%80%E6%B1%82%EF%BC%8C%E5%AE%8C%E6%88%90%E7%B4%A2%E5%BC%95%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">4.1.</span> <span class="toc-text">按照下列的需求，完成索引的创建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81SQL%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-number">5.</span> <span class="toc-text">五、SQL性能分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL%E6%89%A7%E8%A1%8C%E9%A2%91%E7%8E%87"><span class="toc-number">5.1.</span> <span class="toc-text">SQL执行频率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97"><span class="toc-number">5.2.</span> <span class="toc-text">慢查询日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#profile%E8%AF%A6%E6%83%85"><span class="toc-number">5.3.</span> <span class="toc-text">profile详情</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#explain"><span class="toc-number">5.4.</span> <span class="toc-text">explain</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E7%B4%A2%E5%BC%95%E4%BD%BF%E7%94%A8"><span class="toc-number">6.</span> <span class="toc-text">六、索引使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E7%B4%A2%E5%BC%95%E6%95%88%E7%8E%87"><span class="toc-number">6.1.</span> <span class="toc-text">验证索引效率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E4%BD%BF%E7%94%A8%E8%A7%84%E5%88%99"><span class="toc-number">6.2.</span> <span class="toc-text">索引使用规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B7%A6%E5%89%8D%E7%BC%80%E6%B3%95%E5%88%99"><span class="toc-number">6.2.1.</span> <span class="toc-text">最左前缀法则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8C%83%E5%9B%B4%E6%9F%A5%E8%AF%A2"><span class="toc-number">6.2.2.</span> <span class="toc-text">范围查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E5%88%97%E8%BF%90%E7%AE%97"><span class="toc-number">6.2.3.</span> <span class="toc-text">索引列运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8D%E5%8A%A0%E5%BC%95%E5%8F%B7"><span class="toc-number">6.2.4.</span> <span class="toc-text">字符串不加引号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2"><span class="toc-number">6.2.5.</span> <span class="toc-text">模糊查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#or%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="toc-number">6.2.6.</span> <span class="toc-text">or连接的条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83%E5%BD%B1%E5%93%8D"><span class="toc-number">6.2.7.</span> <span class="toc-text">数据分布影响</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SQL%E6%8F%90%E7%A4%BA-%E8%A6%86%E7%9B%96%E7%B4%A2%E5%BC%95"><span class="toc-number">6.2.8.</span> <span class="toc-text">SQL提示 + 覆盖索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%BC%80%E7%B4%A2%E5%BC%95"><span class="toc-number">6.2.9.</span> <span class="toc-text">前缀索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E5%88%97%E7%B4%A2%E5%BC%95%E4%B8%8E%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95"><span class="toc-number">6.2.10.</span> <span class="toc-text">单列索引与联合索引</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E7%B4%A2%E5%BC%95%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-number">7.</span> <span class="toc-text">七、索引设计原则</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/6642.html" title="视图/存储过程/触发器"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="视图/存储过程/触发器"/></a><div class="content"><a class="title" href="/posts/6642.html" title="视图/存储过程/触发器">视图/存储过程/触发器</a><time datetime="2023-10-14T08:22:00.000Z" title="发表于 2023-10-14 16:22:00">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6641.html" title="SQL优化"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SQL优化"/></a><div class="content"><a class="title" href="/posts/6641.html" title="SQL优化">SQL优化</a><time datetime="2023-10-14T06:45:00.000Z" title="发表于 2023-10-14 14:45:00">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6640.html" title="索引"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="索引"/></a><div class="content"><a class="title" href="/posts/6640.html" title="索引">索引</a><time datetime="2023-10-14T03:25:00.000Z" title="发表于 2023-10-14 11:25:00">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6639.html" title="Linux"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux"/></a><div class="content"><a class="title" href="/posts/6639.html" title="Linux">Linux</a><time datetime="2023-10-13T11:23:00.000Z" title="发表于 2023-10-13 19:23:00">2023-10-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6638.html" title="MySQL进阶篇"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL进阶篇"/></a><div class="content"><a class="title" href="/posts/6638.html" title="MySQL进阶篇">MySQL进阶篇</a><time datetime="2023-10-13T11:20:00.000Z" title="发表于 2023-10-13 19:20:00">2023-10-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By 松花鼠</div><div class="footer_custom_text"><p><a target="_blank" href="https://hexo.io/zh-cn"><img src="https://img.shields.io/badge/Frame-Hexo-blue?logo=hexo" title="博客框架为Hexo_v6.3.0"></a>&nbsp;&nbsp;<a target="_blank" href="https://butterfly.js.org"><img src="https://img.shields.io/badge/Theme-Butterfly-00c4b6?logo=bitdefender" title="主题采用butterfly_v4.9.0"></a>&nbsp;&nbsp;<a target="_blank" href="https://www.dogecloud.com"><img src="https://img.shields.io/badge/CDN-%E5%A4%9A%E5%90%89%E4%BA%91-3693F3?logo=icloud" title="本站使用多吉云为静态资源提供CDN加速"></a>&nbsp;&nbsp;<a target="_blank" href="https://beian.miit.gov.cn/"><img src="https://img.shields.io/badge/%E9%84%82ICP%E5%A4%87-2023009215%E5%8F%B7-%23F22387" title="本站已在鄂备案"></a>&nbsp;&nbsp;<a target="_blank" href="https://vercel.com/dashboard "><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?logo=vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?logo=github" title="本站项目由Gtihub托管"></a>&nbsp;&nbsp;<a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%25204.0-d42328?logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script src="/js/mouse_move.js"></script><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="/js/fish.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script></div><!-- hexo injector body_end start --><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
