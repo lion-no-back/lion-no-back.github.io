@@ -1,0 +1,340 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Redis客户端 | 松果会</title><meta name="author" content="松花鼠"><meta name="copyright" content="松花鼠"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言安装完Redis目录，就可以操作Redis，实现数据的CRUD，这需要用到Redis客户端，包括：  命令行客户端 图形化桌面客户端 编程客户端  命令行客户端Redis安装完成后就自带了命令行客户端：redis-cli，使用方式如下 1redis-cli [options][commands] 其中场景的options有：  -h 127.0.0.1：指定要连接的redis节点的IP地址，默">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis客户端">
+<meta property="og:url" content="http://example.com/posts/6723.html">
+<meta property="og:site_name" content="松果会">
+<meta property="og:description" content="前言安装完Redis目录，就可以操作Redis，实现数据的CRUD，这需要用到Redis客户端，包括：  命令行客户端 图形化桌面客户端 编程客户端  命令行客户端Redis安装完成后就自带了命令行客户端：redis-cli，使用方式如下 1redis-cli [options][commands] 其中场景的options有：  -h 127.0.0.1：指定要连接的redis节点的IP地址，默">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/Redis_dev.png">
+<meta property="article:published_time" content="2023-10-14T14:30:00.000Z">
+<meta property="article:modified_time" content="2023-10-14T14:31:49.989Z">
+<meta property="article:author" content="松花鼠">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/Redis_dev.png"><link rel="shortcut icon" href="/img/hexo.ico"><link rel="canonical" href="http://example.com/posts/6723.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Redis客户端',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-14 22:31:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/404.css"><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/css/fish_transparent.css"><link rel="stylesheet" href="/css/wx_card.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/icon.css"><link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/tag_plugins.min.css" media="defer" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/carousel-touch.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="松果会" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/avatar_hexo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/"><img class="site-icon" src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/hexo_ico.png"/><span class="site-name">松果会</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-paper-plane"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Redis客户端</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-14T14:30:00.000Z" title="发表于 2023-10-14 22:30:00">2023-10-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-14T14:31:49.989Z" title="更新于 2023-10-14 22:31:49">2023-10-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Redis/">Redis</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span></div></div></div><article class="post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>安装完Redis目录，就可以操作Redis，实现数据的CRUD，这需要用到Redis客户端，包括：</p>
+<ul>
+<li>命令行客户端</li>
+<li>图形化桌面客户端</li>
+<li>编程客户端</li>
+</ul>
+<h2 id="命令行客户端"><a href="#命令行客户端" class="headerlink" title="命令行客户端"></a>命令行客户端</h2><p>Redis安装完成后就自带了命令行客户端：<code>redis-cli</code>，使用方式如下</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli [options][commands]</span><br></pre></td></tr></table></figure>
+<p>其中场景的<code>options</code>有：</p>
+<ul>
+<li><code>-h 127.0.0.1</code>：指定要连接的redis节点的IP地址，默认是127.0.0.1</li>
+<li><code>-p 6379</code>：指定要连接的redis节点的端口，默认是6379</li>
+<li><code>-a 132</code>：指定redis的访问密码</li>
+</ul>
+<p>其中的<code>commands</code>就是Redis操作命令，如：</p>
+<ul>
+<li><code>ping</code>：与redis服务端做心跳测试，服务端正常会返回<code>pong</code></li>
+<li>不指定commond时，会进入<code>redis-cli</code>的交互控制台</li>
+</ul>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231013110700950.png" alt="image-20231013110700950"></p>
+<h2 id="图形化界面客户端"><a href="#图形化界面客户端" class="headerlink" title="图形化界面客户端"></a>图形化界面客户端</h2><p>GitHub上的大神编写了Redis图形化界面客户端，地址：<a target="_blank" rel="noopener" href="https://github.com/RedisInsight/RedisDesktopManager">https://github.com/RedisInsight/RedisDesktopManager</a>，不过该仓库只提供了RedisDesktopManager的源码，并未提供Windows安装包</p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231013111544271.png" alt="image-20231013111544271"></p>
+<p>有热心市民提供了其编译后的安装包，地址：<a target="_blank" rel="noopener" href="https://github.com/lework/RedisDesktopManager-Windows/releases">https://github.com/lework/RedisDesktopManager-Windows/releases</a></p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231013111843119.png" alt="image-20231013111843119"></p>
+<p>安装后打开，其界面如图</p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231013112035206.png" alt="image-20231013112035206"></p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231013113439496.png" alt="image-20231013113439496"></p>
+<p>首先使用<code>firewall-cmd --zone=public --list-ports</code>查看开放了哪些防火墙端口，如果没有开放防火墙的6379端口就需要开放，否则监听不到</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --add-prot=6379/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p> <img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231013113802677.png" alt="image-20231013113802677"></p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231013113844783.png" alt="image-20231013113844783"></p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231013113927251.png" alt="image-20231013113927251"></p>
+<h2 id="Redis的Java客户端"><a href="#Redis的Java客户端" class="headerlink" title="Redis的Java客户端"></a>Redis的Java客户端</h2><p>在Redis官网中提供了各种语言的客户端，网址：<a target="_blank" rel="noopener" href="https://redis.io/resources/clients">https://redis.io/resources/clients</a></p>
+<p>选择Jedis作为Redis的Java客户端，开源网址：<a target="_blank" rel="noopener" href="https://github.com/redis/jedis">https://github.com/redis/jedis</a></p>
+<p>要开始使用Jedis，首先将其添加为Java项目中的依赖项</p>
+<p>1.如果使用Maven，则引入依赖如下</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--引入Jedis依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>redis.clients<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jedis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--引入单元测试依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.junit.jupiter<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit-jupiter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.8.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231013200309712.png" alt="image-20231013200309712"></p>
+<p>2.编写测试类与Redis建立连接</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Jedis jedis;</span><br><span class="line"></span><br><span class="line"><span class="meta">@BeforeEach</span> <span class="comment">//被该注解修饰的方法每次执行其他方法前自动执行</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">setUp</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">// 1. 获取连接</span></span><br><span class="line">    jedis = <span class="keyword">new</span> <span class="title class_">Jedis</span>(<span class="string">&quot;192.168.42.135&quot;</span>,<span class="number">6379</span>);</span><br><span class="line">    <span class="comment">// 2. 设置密码</span></span><br><span class="line">    jedis.auth(<span class="string">&quot;132&quot;</span>);</span><br><span class="line">    <span class="comment">// 3. 选择库（默认是下标为0的库）</span></span><br><span class="line">    jedis.select(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.测试string</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testString</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">// 插入数据，方法名称就是redis命令名称</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> jedis.set(<span class="string">&quot;url&quot;</span>, <span class="string">&quot;https://zjnanqu.top/&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;result = &quot;</span> + result);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取数据</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> jedis.get(<span class="string">&quot;url&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;url = &quot;</span> + url);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.释放资源</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AfterEach</span> <span class="comment">//被该注解修饰的方法会在每次执行其他方法后执行</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">tearDown</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">// 1.释放资源</span></span><br><span class="line">    <span class="keyword">if</span> (jedis != <span class="literal">null</span>)&#123;</span><br><span class="line">        jedis.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果报错<code>Error running &#39;JedisTest.testString&#39;: Failed to resolve org.junit.platform:junit-platform-launcher:1.8.2</code></p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/error_redis.png" alt=""></p>
+<p>加上下面这个依赖</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.junit.platform&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;junit-platform-launcher&lt;/artifactId&gt;</span><br><span class="line">    &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231013205936372.png" alt="image-20231013205936372"></p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231013210029133.png" alt="image-20231013210029133"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">testHash</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 插入hash数据</span></span><br><span class="line">    jedis.hset(<span class="string">&quot;user:1&quot;</span>, <span class="string">&quot;name&quot;</span>, <span class="string">&quot;Jack&quot;</span>);</span><br><span class="line">    jedis.hset(<span class="string">&quot;user:1&quot;</span>, <span class="string">&quot;age&quot;</span>, <span class="string">&quot;21&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取</span></span><br><span class="line">    Map&lt;String, String&gt; map = jedis.hgetAll(<span class="string">&quot;user:1&quot;</span>);</span><br><span class="line">    System.out.println(map);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231013213351530.png" alt="image-20231013213351530"></p>
+<h2 id="Jedis连接池"><a href="#Jedis连接池" class="headerlink" title="Jedis连接池"></a>Jedis连接池</h2><p>Jedis本身被设计为线程不安全的，这意味着它在多线程环境下使用时可能会出现问题，并且频繁的创建和销毁连接会有性能损耗，因此推荐使用Jedis连接池代替Jedis直连方式</p>
+<p>配置连接池</p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014172838623.png" alt="image-20231014172838623"></p>
+<p>使用连接池</p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014173131333.png" alt="image-20231014173131333"></p>
+<p><strong>Java知识点回顾：</strong> </p>
+<ol>
+<li>静态成员和静态代码块会在类加载时自动执行一次，而静态方法只有在被调用时执行，可通过类名调用；</li>
+<li>导包是为了在当前文件中引入其他类或类库的功能，而在同一包下不同类之间可以相互引用，无需使用导包语句</li>
+</ol>
+<h2 id="SpringDataRedis"><a href="#SpringDataRedis" class="headerlink" title="SpringDataRedis"></a>SpringDataRedis</h2><p>SpringData是Spring中数据操作的模块，包含了对各种数据库的集成，其中对Redis的集成模块叫做SpringDataRedis，官网：<a target="_blank" rel="noopener" href="https://spring.io/projects/spring-data-redis">https://spring.io/projects/spring-data-redis</a></p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014170517500.png" alt="image-20231014170517500"></p>
+<p>SpringDataRedis具备如下特征：</p>
+<ul>
+<li>提供了对不同Redis客户端的整合（Lettuce和Jedis）</li>
+<li>提供了RedisTemplate统一API来操作Redis</li>
+<li>支持Redis的发布订阅模型</li>
+<li>支持Redis哨兵和Redis集群</li>
+<li>支持基于Lettuce的响应式编程</li>
+<li>支持基于JDK、JSON、字符串、Spring对象的数据序列化及反序列化</li>
+<li>支持基于Redis的JDKCollection实现</li>
+</ul>
+<p>SpringDataRedis中提供了RedisTemplate工具类，其中封装了各种对Redis的操作（将不同数据类型的操作即API封装到了对应的类型中）</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>返回值类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>redisTemplate.opsForValue()</td>
+<td>ValueOperations</td>
+<td>操作String类型数据</td>
+</tr>
+<tr>
+<td>redisTemplate.opsForHash()</td>
+<td>HashOperations</td>
+<td>操作Hash类型数据</td>
+</tr>
+<tr>
+<td>redisTemplate.opsForList()</td>
+<td>ListOperations</td>
+<td>操作List类型数据</td>
+</tr>
+<tr>
+<td>redisTemplate.opsForSet()</td>
+<td>SetOperations</td>
+<td>操作Set类型数据</td>
+</tr>
+<tr>
+<td>redisTemplate.opsForZSet()</td>
+<td>ZSetOperations</td>
+<td>操作SortedSet类型数据</td>
+</tr>
+<tr>
+<td>redisTemplate</td>
+<td></td>
+<td>通用命令</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="SpringDataRedis快速入门"><a href="#SpringDataRedis快速入门" class="headerlink" title="SpringDataRedis快速入门"></a>SpringDataRedis快速入门</h2><p>SpringBoot已经提供了对SpringDataRedis的支持，使用非常简单</p>
+<p>首先新建一个SpringBoot项目</p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014194253461.png" alt="image-20231014194253461"></p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014195824530.png" alt="image-20231014195824530"></p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014203851456.png" alt="image-20231014203851456"></p>
+<ol>
+<li>引入依赖</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--连接池依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-pool2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014200306705.png" alt="image-20231014200306705"></p>
+<ol>
+<li>编写配置文件application.yaml</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">redis:</span></span><br><span class="line">    <span class="attr">host:</span> <span class="number">192.168</span><span class="number">.42</span><span class="number">.135</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">6379</span></span><br><span class="line">    <span class="attr">password:</span> <span class="number">132</span></span><br><span class="line">    <span class="attr">lettuce:</span></span><br><span class="line">      <span class="attr">pool:</span></span><br><span class="line">        <span class="attr">max-active:</span> <span class="number">8</span></span><br><span class="line">        <span class="attr">max-idle:</span> <span class="number">8</span></span><br><span class="line">        <span class="attr">min-idle:</span> <span class="number">0</span></span><br><span class="line">        <span class="attr">max-wait:</span> <span class="string">100ms</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014205106999.png" alt="image-20231014205106999"></p>
+<ol>
+<li>编写测试类执行测试方法</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.heima.redisdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.Test;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.core.RedisTemplate;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RedisDemoApplicationTests</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RedisTemplate redisTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">contextLoads</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 写入一条String数据</span></span><br><span class="line">        redisTemplate.opsForValue().set(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;虎哥&quot;</span>);</span><br><span class="line">        <span class="comment">// 获取String数据</span></span><br><span class="line">        <span class="type">Object</span> <span class="variable">name</span> <span class="operator">=</span> redisTemplate.opsForValue().get(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;name = &quot;</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014205356540.png" alt="image-20231014205356540"></p>
+<h2 id="RedisSerializer配置"><a href="#RedisSerializer配置" class="headerlink" title="RedisSerializer配置"></a>RedisSerializer配置</h2><p>RedisTemplate可以接收任意Object作为键值写入Redis，只不过写入前会把Object序列化为字节形式，默认采用的是JDK序列化，可能出现如下结果</p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014205906633.png" alt="image-20231014205906633"></p>
+<p>这样不仅可读性差且内存占用较大</p>
+<p>为了避免出现这样的问题，可以通过自定义RedisTemplate序列化方式来解决</p>
+<p>编写配置类<code>RedisConfig</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.heima.redis.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.connection.RedisConnectionFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.core.RedisTemplate;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.serializer.RedisSerializer;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RedisConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> RedisTemplate&lt;String, Object&gt; <span class="title function_">redisTemplate</span><span class="params">(RedisConnectionFactory connectionFactory)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建RedisTemplate对象</span></span><br><span class="line">        RedisTemplate&lt;String, Object&gt; template = <span class="keyword">new</span> <span class="title class_">RedisTemplate</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">// 设置连接工厂</span></span><br><span class="line">        template.setConnectionFactory(connectionFactory);</span><br><span class="line">        <span class="comment">// 创建JSON序列化工具</span></span><br><span class="line">        <span class="type">GenericJackson2JsonRedisSerializer</span> <span class="variable">jsonRedisSerializer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">GenericJackson2JsonRedisSerializer</span>();</span><br><span class="line">        <span class="comment">// 设置key的序列化</span></span><br><span class="line">        template.setKeySerializer(RedisSerializer.string());</span><br><span class="line">        template.setHashKeySerializer(RedisSerializer.string());</span><br><span class="line">        <span class="comment">// 设置value的序列化</span></span><br><span class="line">        template.setValueSerializer(jsonRedisSerializer);</span><br><span class="line">        template.setHashValueSerializer(jsonRedisSerializer);</span><br><span class="line">        <span class="comment">// 返回</span></span><br><span class="line">        <span class="keyword">return</span> template;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>引入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Jackson依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-databind<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014213940313.png" alt="image-20231014213940313"></p>
+<p>也可以存入对象，因为会把对象自动序列化为JSON字符串</p>
+<p>创建实体类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.heima.pojo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014214546040.png" alt="image-20231014214546040"></p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014214637172.png" alt="image-20231014214637172"></p>
+<p>尽管JSON的序列化方式可以满足我们的需求，但依然存在一些问题，如图</p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014215014962.png" alt="image-20231014215014962"></p>
+<p>为了在反序列化时知道对象的类型，JSON序列化器会将类的class类型写入json结果中，存入Redis，这样会带来额外的内存开销</p>
+<h2 id="StringRedisTemplate"><a href="#StringRedisTemplate" class="headerlink" title="StringRedisTemplate"></a>StringRedisTemplate</h2><p>为了节省内存空间，我们并不会使用JSON序列化器来处理value，而是统一使用String序列化器，要求只能存储String类型的key和value。当需要存储Java对象时，<u>手动完成对象的序列化和反序列化</u></p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014215640357.png" alt="image-20231014215640357"></p>
+<p>Spring默认提示了一个StringRedisTemplate类，它的key和value的序列化方式默认就是String方式。不用在自定义RedisTemplate</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.heima.redis;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.core.JsonProcessingException;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line"><span class="keyword">import</span> com.heima.pojo.User;</span><br><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.Test;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.core.StringRedisTemplate;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RedisDemoApplicationTests</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> StringRedisTemplate stringRedisTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 写入一条String数据</span></span><br><span class="line">        stringRedisTemplate.opsForValue().set(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;虎哥&quot;</span>);</span><br><span class="line">        <span class="comment">// 获取String数据</span></span><br><span class="line">        <span class="type">Object</span> <span class="variable">name</span> <span class="operator">=</span> stringRedisTemplate.opsForValue().get(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;name = &quot;</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">ObjectMapper</span> <span class="variable">mapper</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectMapper</span>();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testSaveUser</span><span class="params">()</span> <span class="keyword">throws</span> JsonProcessingException &#123;</span><br><span class="line">        <span class="comment">// 创建对象</span></span><br><span class="line">        <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">&quot;虎哥&quot;</span>, <span class="number">21</span>);</span><br><span class="line">        <span class="comment">// 手动序列化</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">json</span> <span class="operator">=</span> mapper.writeValueAsString(user);</span><br><span class="line">        <span class="comment">// 写入数据</span></span><br><span class="line">        stringRedisTemplate.opsForValue().set(<span class="string">&quot;user:200&quot;</span>, json);</span><br><span class="line">        <span class="comment">// 获取数据</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">jsonUser</span> <span class="operator">=</span> stringRedisTemplate.opsForValue().get(<span class="string">&quot;user:200&quot;</span>);</span><br><span class="line">        <span class="comment">// 手动反序列化</span></span><br><span class="line">        <span class="type">User</span> <span class="variable">user1</span> <span class="operator">=</span> mapper.readValue(jsonUser, User.class);</span><br><span class="line">        System.out.println(<span class="string">&quot;user1 = &quot;</span> + user1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014221027841.png" alt="image-20231014221027841"></p>
+<p>对Hash存储类型进行操作</p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014221655096.png" alt="image-20231014221655096"></p>
+<p><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/image-20231014221745231.png" alt="image-20231014221745231"></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>RedisTemplate有两种序列化方案，各有优缺点</p>
+<p>方案一：</p>
+<ol>
+<li>自定义RedisTemplate</li>
+<li>修改RedisTemplate序列化器为GenericJackson2JsonRedisSerializer</li>
+</ol>
+<p>方案二：</p>
+<ol>
+<li>使用StringRedisTemplate</li>
+<li>写入Redis时，手动把对象序列化为JSON</li>
+<li>读取Redis时，手动把读取到的JSON反序列化为对象</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">松花鼠</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/6723.html">http://example.com/posts/6723.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">松果会</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/Redis_dev.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/6722.html" title="Redis常见命令"><img class="cover" src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/Redis_dev.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Redis常见命令</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/avatar_hexo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">松花鼠</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lion-no-back"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://leetcode.cn/u/lion-no-back" target="_blank" title=""><i class="iconfont icon-leetcode"></i></a><a class="social-icon" href="mailto:hexo226@163.com" target="_blank" title=""><i class="iconfont icon-youxiang"></i></a><a class="social-icon" href="https://zjnanqu.top/atom.xml" target="_blank" title=""><i class="iconfont icon-RSS_flat"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">善用<span>标签</span>和<span>分类</span></div></div><div class="card-widget tzy-right-widget" id="card-wechat"><div id="flip-wrapper"><div id="flip-content"><div class="face"></div><div class="back face"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">2.</span> <span class="toc-text">命令行客户端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">3.</span> <span class="toc-text">图形化界面客户端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E7%9A%84Java%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">4.</span> <span class="toc-text">Redis的Java客户端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jedis%E8%BF%9E%E6%8E%A5%E6%B1%A0"><span class="toc-number">5.</span> <span class="toc-text">Jedis连接池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringDataRedis"><span class="toc-number">6.</span> <span class="toc-text">SpringDataRedis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringDataRedis%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="toc-number">7.</span> <span class="toc-text">SpringDataRedis快速入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RedisSerializer%E9%85%8D%E7%BD%AE"><span class="toc-number">8.</span> <span class="toc-text">RedisSerializer配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringRedisTemplate"><span class="toc-number">9.</span> <span class="toc-text">StringRedisTemplate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">10.</span> <span class="toc-text">小结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/6723.html" title="Redis客户端"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/Redis_dev.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Redis客户端"/></a><div class="content"><a class="title" href="/posts/6723.html" title="Redis客户端">Redis客户端</a><time datetime="2023-10-14T14:30:00.000Z" title="发表于 2023-10-14 22:30:00">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6722.html" title="Redis常见命令"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/Redis_dev.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Redis常见命令"/></a><div class="content"><a class="title" href="/posts/6722.html" title="Redis常见命令">Redis常见命令</a><time datetime="2023-10-14T13:28:00.000Z" title="发表于 2023-10-14 21:28:00">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6721.html" title="Redis快速入门"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/Redis_dev.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Redis快速入门"/></a><div class="content"><a class="title" href="/posts/6721.html" title="Redis快速入门">Redis快速入门</a><time datetime="2023-10-14T08:28:00.000Z" title="发表于 2023-10-14 16:28:00">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6642.html" title="视图/存储过程/触发器"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="视图/存储过程/触发器"/></a><div class="content"><a class="title" href="/posts/6642.html" title="视图/存储过程/触发器">视图/存储过程/触发器</a><time datetime="2023-10-14T08:22:00.000Z" title="发表于 2023-10-14 16:22:00">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6641.html" title="SQL优化"><img src="https://mk-gzh.oss-cn-guangzhou.aliyuncs.com/images/MySQL_Hexo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SQL优化"/></a><div class="content"><a class="title" href="/posts/6641.html" title="SQL优化">SQL优化</a><time datetime="2023-10-14T06:45:00.000Z" title="发表于 2023-10-14 14:45:00">2023-10-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By 松花鼠</div><div class="footer_custom_text"><p><a target="_blank" href="https://hexo.io/zh-cn"><img src="https://img.shields.io/badge/Frame-Hexo-blue?logo=hexo" title="博客框架为Hexo_v6.3.0"></a>&nbsp;&nbsp;<a target="_blank" href="https://butterfly.js.org"><img src="https://img.shields.io/badge/Theme-Butterfly-00c4b6?logo=bitdefender" title="主题采用butterfly_v4.9.0"></a>&nbsp;&nbsp;<a target="_blank" href="https://www.dogecloud.com"><img src="https://img.shields.io/badge/CDN-%E5%A4%9A%E5%90%89%E4%BA%91-3693F3?logo=icloud" title="本站使用多吉云为静态资源提供CDN加速"></a>&nbsp;&nbsp;<a target="_blank" href="https://beian.miit.gov.cn/"><img src="https://img.shields.io/badge/%E9%84%82ICP%E5%A4%87-2023009215%E5%8F%B7-%23F22387" title="本站已在鄂备案"></a>&nbsp;&nbsp;<a target="_blank" href="https://vercel.com/dashboard "><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?logo=vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?logo=github" title="本站项目由Gtihub托管"></a>&nbsp;&nbsp;<a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%25204.0-d42328?logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script src="/js/mouse_move.js"></script><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="/js/fish.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script></div><!-- hexo injector body_end start --><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
